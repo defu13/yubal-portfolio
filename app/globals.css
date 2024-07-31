@@ -2,32 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins-Regular", sans-serif;
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+body{
+  overflow: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+/* ::-webkit-scrollbar:hover {
+  width: 10px;
+  height: 10px;
+} */
+
+::-webkit-scrollbar-thumb {
+  background: #1178ff;
+  border-radius: 10px;
+}
+
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #2e89ff;
+} */
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background-color: antiquewhite;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+.poppins-regular {
+    font-family: "Poppins-Regular", sans-serif;
+}
+
+.poppins-medium {
+    font-family: "Poppins-Medium", sans-serif;
+}
+
+.poppins-bold {
+    font-family: "Poppins-Bold", sans-serif;
+}
+
+.nyghtserif-regular {
+    font-family: "NyghtSerif-Regular", sans-serif;
+}
+
+.nyghtserif-bold {
+    font-family: "NyghtSerif-Bold", sans-serif;
+}
+
+.nyghtserif-medium {
+    font-family: "NyghtSerif-Medium", sans-serif;
+}
+
+.jetbrainsmono-regular {
+    font-family: "JetBrainsMono-Regular", sans-serif;
+}
+
+.jetbrainsmono-bold {
+    font-family: "JetBrainsMono-Bold", sans-serif;
 }

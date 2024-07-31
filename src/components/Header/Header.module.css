@@ -1,0 +1,81 @@
+.header {
+    display: flex;
+    z-index: 1;
+    top: 0;
+    color: white;
+    padding: 35px;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 300;
+    box-sizing: border-box;
+    align-items: start;
+    background-color: #999d9e;
+}
+.header .logo {
+    display: flex;
+    cursor: pointer;
+}
+.header .logo p {
+    margin: 0px;
+    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.header .name p {
+    font-family: "JetBrainsMono-Regular";
+}
+
+.header .logo .name {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 5px;
+    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.header .logo .name p {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.header .logo .name p:nth-of-type(2) {
+    padding-left: 0.3em;
+}
+.header .logo .name p:nth-of-type(3) {
+    position: absolute;
+    left: 120px;
+    padding-left: 0.3em;
+}
+.header .logo:hover .copyright {
+    transform: rotate(360deg);
+}
+.header .logo:hover .name {
+    padding-right: 30px;
+}
+.header .logo:hover .name .codeBy {
+    transform: translateX(-100%);
+}
+.header .logo:hover .name .yubal {
+    transform: translateX(-70px);
+}
+.header .logo:hover .name .defuente {
+    transform: translateX(-70px);
+}
+
+.menu_element:hover .dot{
+    transform: scale(1);
+}
+
+.active .dot{
+    transform: scale(1);
+}
+
+.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    top: 35px;
+    left: 45%;
+    background-color: white;
+    border-radius: 50%;
+    transform: scale(0) translateX(-50%);
+    transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
