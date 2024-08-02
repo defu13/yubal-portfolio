@@ -8,12 +8,10 @@ import { useState } from "react";
 
 export default function Header() {
     const pathname = usePathname();
-    console.log(pathname);
     const navigation = [
         { name: "Home", href: "/" },
         { name: "Proyectos", href: "/proyectos" },
-        { name: "Sobre mí", href: "/sobremi" },
-        { name: "Contacto", href: "/contacto" },
+        { name: "Sobre Mí", href: "/sobremi" },
     ];
 
     const [isHovering, setIsHovering] = useState(false);
