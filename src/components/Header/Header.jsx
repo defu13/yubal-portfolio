@@ -25,9 +25,9 @@ export default function Header() {
     };
 
     return (
-        <header className={styles.header}>
+        <header className={`justify-center sm:justify-between ${styles.header}`}>
             <Magnetic>
-                <Link href="/">
+                <Link href="/" className="hidden sm:block">
                     <div className={styles.logo}>
                         <p className={styles.copyright}>©</p>
                         <div className={styles.name}>
@@ -43,7 +43,7 @@ export default function Header() {
                     <Magnetic key={index}>
                         <Link
                             href={item.href}
-                            className={`text-slate-50 jetbrainsmono-regular ${
+                            className={`text-slate-50 jetbrainsmono-regular whitespace-nowrap ${
                                 styles.menu_element
                             } ${
                                 !isHovering && pathname === item.href

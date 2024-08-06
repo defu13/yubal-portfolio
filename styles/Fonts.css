@@ -157,3 +157,18 @@
     font-family: "JetBrainsMono-Light";
     src: url(../assets/fonts/JetBrainsMono-Light.ttf);
 }
+
+@font-face {
+    font-family: "NeueMontreal-Medium";
+    src: url(../assets/fonts/NeueMontreal-Medium.otf);
+}
+
+@font-face {
+    font-family: "NeueMontreal-Regular";
+    src: url(../assets/fonts/NeueMontreal-Regular.otf);
+}
+
+@font-face {
+    font-family: "Gloock-Regular";
+    src: url(../assets/fonts/Gloock-Regular.ttf);
+}

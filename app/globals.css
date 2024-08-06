@@ -6,7 +6,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Poppins-Regular", sans-serif;
+    font-family: "NeueMontreal-Regular", sans-serif;
 }
 
 :root {
@@ -15,32 +15,46 @@
     --background-end-rgb: 255, 255, 255;
 }
 
-body{
-  overflow: overlay;
+.hero-noise {
+    z-index: -2;
+    opacity: 0.2;
+    background-image: url(../assets/images/noise_overlay.png);
+    background-position: 0 0;
+    background-size: 200px;
+    display: block;
+    position: absolute;
+    inset: 0%;
+}
+
+.hero-fade {
+    z-index: -1;
+    background-image: linear-gradient(
+        to bottom,
+        #10101000,
+        #101010 60%
+    );
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    padding-top: 48px;
+    display: flex;
+    position: absolute;
+    inset: auto 0% 0%;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-  background: transparent;
+    width: 0px;
+    height: 0px;
+    background: transparent;
 }
-
-/* ::-webkit-scrollbar:hover {
-  width: 10px;
-  height: 10px;
-} */
 
 ::-webkit-scrollbar-thumb {
-  background: #1178ff;
-  border-radius: 10px;
+    background: #1178ff;
+    border-radius: 10px;
 }
 
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #2e89ff;
-} */
-
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,14 +67,19 @@ body{
 
 body {
     color: rgb(var(--foreground-rgb));
-    background-color: #121212;
+    background-color: #101010;
 }
 
-.bg-grey-light{
+.text-shadow-glow {
+    text-shadow: 0 5px 10px rgba(0, 87, 255, 0.15),
+        0 -5px 10px rgba(255, 90, 0, 0.1), 0 -5px 25px rgba(255, 255, 255, 0.3);
+}
+
+.bg-grey-light {
     background: rgb(129, 129, 129);
 }
 
-.bg-grey-dark{
+.bg-grey-dark {
     background: rgb(35, 43, 58);
 }
 
@@ -69,7 +88,7 @@ body {
         text-wrap: balance;
     }
 }
-.poppins-light {
+/* .poppins-light {
     font-family: "Poppins-Light", sans-serif;
 }
 
@@ -99,7 +118,7 @@ body {
 
 .nyghtserif-medium {
     font-family: "NyghtSerif-Medium", sans-serif;
-}
+} */
 
 .jetbrainsmono-light {
     font-family: "JetBrainsMono-Light", sans-serif;
@@ -111,4 +130,17 @@ body {
 
 .jetbrainsmono-bold {
     font-family: "JetBrainsMono-Bold", sans-serif;
+}
+
+.neuemontreal-medium {
+    font-family: "NeueMontreal-Medium", sans-serif;
+}
+
+.neuemontreal-regular {
+    font-family: "NeueMontreal-Regular", sans-serif;
+    letter-spacing: 0.2px;
+}
+
+.gloock-regular {
+    font-family: "Gloock-Regular", sans-serif;
 }
