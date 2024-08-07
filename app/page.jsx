@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "./Home.module.css";
 import profilePic from "../assets/images/rsz_fotoperfil_nueva-edit.jpg";
-import dribbblePic from "../assets/images/dribbble.jpg";
+import dribbblePic from "../assets/images/dribbble_show.gif";
 import Magnetic from "@/src/components/Magnetic/Magnetic";
 import Floating from "@/src/components/Floating/Floating";
 import {
@@ -138,8 +138,8 @@ export default function Home() {
                     </div>
                 </div>
                 <section>
-                    <div className="flex flex-col p-5 gap-12">
-                        <div className="neuemontreal-medium text-6xl max-w-5xl text-left tracking-tight">
+                    <div className="flex flex-col p-5 gap-16 items-center">
+                        <div className="neuemontreal-medium sm:text-6xl text-4xl max-w-5xl text-left tracking-tight">
                             Una combinación de creatividad y habilidades
                             técnicas es lo necesario para conseguir
                             <span className="gloock-regular italic text-shadow-glow text-slate-300 tracking-normal">
@@ -147,7 +147,7 @@ export default function Home() {
                             </span>
                         </div>
                         <motion.div
-                            className="flex gap-8"
+                            className="flex gap-8 sm:flex-row flex-col"
                             ref={container}
                             style={{
                                 y: translateY,
@@ -194,8 +194,30 @@ export default function Home() {
                                 </motion.div>
                             </Link>
 
-                            <div></div>
+                            <div className="flex flex-col p-5 pt-0 max-w-xl gap-8">
+                                <div className="flex gap-3 items-center -mb-4">
+                                    <div className={styles.dot}></div>
+                                    <p className="neuemontreal-medium text-neutral-500">
+                                        Diseño gráfico
+                                    </p>
+                                </div>
+                                <p className="neuemontreal-regular text-lg">
+                                    Desde mi adolescencia, he encontrado una
+                                    gran pasión por el mundo del diseño gráfico.
+                                    Me encanta convertir ideas en imágenes e identidades
+                                    atractivas y únicas, logrando una armonía
+                                    visual en todo mi trabajo.
+                                    <br />
+                                    <br />
+                                    Como autodidacta, he mejorado mi estilo
+                                    único y conseguida una sólida comprensión
+                                    del diseño. Cada proyecto es una nueva
+                                    oportunidad para aprender, crecer y explorar
+                                    este apasionante mundo creativo.
+                                </p>
+                            </div>
                         </motion.div>
+                        <div className="h-[80vh]"></div>
                     </div>
                 </section>
             </main>
