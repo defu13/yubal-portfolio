@@ -2,48 +2,66 @@
 import Image from "next/image";
 import styles from "./Home.module.css";
 import profilePic from "../assets/images/rsz_fotoperfil_nueva-edit.jpg";
+import dribbblePic from "../assets/images/dribbble.jpg";
 import Magnetic from "@/src/components/Magnetic/Magnetic";
 import Floating from "@/src/components/Floating/Floating";
 import {
     faGithub,
     faLinkedin,
     faInstagram,
+    faDribbble,
 } from "@fortawesome/free-brands-svg-icons";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
+import {
+    AnimatePresence,
+    motion,
+    useScroll,
+    useTransform,
+} from "framer-motion";
+import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 export default function Home() {
-    // const container = useRef();
-    // const { scrollYProgress } = useScroll({
-    //     target: container,
-    //     offset: ["start end", "end start"],
-    // });
-    // const direction = -1;
-    // const translateX = useTransform(
-    //     scrollYProgress,
-    //     [0, 1],
-    //     [1500 * direction, -1500 * direction]
-    // );
+    const [showOverlay, setShowOverlay] = useState(false);
+    const container = useRef();
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ["start end", "end start"],
+    });
+    const direction = 1;
+    const translateY = useTransform(
+        scrollYProgress,
+        [0, 1],
+        [150 * direction, -200 * direction]
+    );
+
     const socialButtons = [
-        { name: "github", link: "https://github.com/defu13", icon: faGithub },
+        {
+            name: "github",
+            link: "https://github.com/defu13",
+            icon: faGithub,
+            color: "#2dba4e",
+        },
         {
             name: "linkedin",
             link: "https://www.linkedin.com/in/y-defuente/",
             icon: faLinkedin,
+            color: "#0e76a8",
         },
         {
             name: "instagram",
             link: "https://www.instagram.com/treze.st/",
             icon: faInstagram,
+            color: "#E1306C",
+        },
+        {
+            name: "dribbble",
+            link: "https://dribbble.com/trezestudio",
+            icon: faDribbble,
+            color: "#f4588e",
         },
     ];
-
-    const hoverColors = {
-        github: "#2dba4e",
-        linkedin: "#0e76a8",
-        instagram: "#E1306C",
-    };
 
     return (
         <>
@@ -79,19 +97,22 @@ export default function Home() {
                                     Yubal De Fuente
                                 </p>
                             </div>
-                            <h1 className="sm:text-8xl text-6xl text-shadow-glow neuemontreal-medium">
+                            <h1 className="sm:text-8xl text-6xl text-shadow-glow neuemontreal-medium tracking-tight">
                                 Diseñador y Desarrollador
                             </h1>
                             <p className="text-xl neuemontreal-regular text-neutral-500">
                                 Apasionado del diseño gráfico y la programación,
-                                y especializado en el desarrollo web con React.
+                                y especializado en el desarrollo web con{" "}
+                                <span className="text-neutral-100 neuemontreal-medium text-shadow-glow">
+                                    React.
+                                </span>
                                 {/* <br />
                                 <br />
-                                La combinación de creatividad y habilidades
+                                Una combinación de creatividad y habilidades
                                 técnicas es ideal para la creación de soluciones
                                 innovadoras. */}
                             </p>
-                            <div className="flex gap-10 justify-center sm:justify-start">
+                            <div className="flex gap-10 justify-center sm:justify-start items-center">
                                 {socialButtons.map((button) => (
                                     <Magnetic
                                         key={button.name}
@@ -100,11 +121,9 @@ export default function Home() {
                                         <a href={button.link}>
                                             <motion.div
                                                 whileHover={{
-                                                    color: hoverColors[
-                                                        button.name
-                                                    ],
+                                                    color: button.color,
                                                 }}
-                                                transition={{duration: 0.2}}
+                                                transition={{ duration: 0.2 }}
                                             >
                                                 <FontAwesomeIcon
                                                     icon={button.icon}
@@ -117,15 +136,68 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    {/* <motion.p
-                    ref={container}
-                    style={{ x: translateX, left: "0", fontSize: "10rem" }}
-                    className="neuemontreal-medium relative italic"
-                >
-                    Yubal De Fuente
-                </motion.p> */}
                 </div>
-                <div style={{ height: "100vh" }}></div>
+                <section>
+                    <div className="flex flex-col p-5 gap-12">
+                        <div className="neuemontreal-medium text-6xl max-w-5xl text-left tracking-tight">
+                            Una combinación de creatividad y habilidades
+                            técnicas es lo necesario para conseguir
+                            <span className="gloock-regular italic text-shadow-glow text-slate-300 tracking-normal">
+                                &nbsp;interfaces únicas.
+                            </span>
+                        </div>
+                        <motion.div
+                            className="flex gap-8"
+                            ref={container}
+                            style={{
+                                y: translateY,
+                            }}
+                        >
+                            <Link href="/proyectos">
+                                <motion.div
+                                    className="relative"
+                                    onHoverStart={() => setShowOverlay(true)}
+                                    onHoverEnd={() => setShowOverlay(false)}
+                                >
+                                    <AnimatePresence>
+                                        {showOverlay && (
+                                            <motion.div
+                                                className="absolute inset-0 z-10 flex justify-center items-end"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                            >
+                                                <motion.div
+                                                    className="flex z-20 gap-4 items-center text-2xl mb-14"
+                                                    initial={{ y: 20 }}
+                                                    animate={{ y: 0 }}
+                                                    exit={{ y: 20 }}
+                                                >
+                                                    <p className="neuemontreal-regular">
+                                                        Proyectos
+                                                    </p>
+                                                    <FontAwesomeIcon
+                                                        icon={faArrowTrendUp}
+                                                        width={25}
+                                                    />
+                                                </motion.div>
+                                                <div className="rounded-xl absolute inset-0 pointer-events-none w-full bg-gradient-to-t from-neutral-950 to-transparent to-90%" />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                    <Image
+                                        src={dribbblePic}
+                                        width={700}
+                                        alt="profile picture of author"
+                                        className="rounded-xl"
+                                    />
+                                </motion.div>
+                            </Link>
+
+                            <div></div>
+                        </motion.div>
+                    </div>
+                </section>
             </main>
             <div className="hero-fade"></div>
             <div className="hero-noise"></div>

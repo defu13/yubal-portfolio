@@ -8,11 +8,11 @@ export default function Magnetic({ children, animationForce }) {
     useEffect(() => {
         const xTo = gsap.quickTo(magnetic.current, "x", {
             duration: 1,
-            ease: "elastic.out(1, 0.3)",
+            ease: "elastic.out(1.1, 0.3)",
         });
         const yTo = gsap.quickTo(magnetic.current, "y", {
             duration: 1,
-            ease: "elastic.out(1, 0.3)",
+            ease: "elastic.out(1.1, 0.3)",
         });
 
         magnetic.current.addEventListener("mousemove", (e) => {
