@@ -1,19 +1,7 @@
-.header_container {
-    height: 100vh;
-}
-
 .main {
     background-image: radial-gradient(
         circle closest-corner at 50% 0,
         rgba(242, 242, 242, 0.15),
         rgba(0, 0, 0, 0)
     );
-}
-
-.dot{
-    background-color: white;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    box-shadow: 0 0 20px #fff;
 }

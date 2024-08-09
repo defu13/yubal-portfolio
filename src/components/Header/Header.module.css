@@ -10,7 +10,7 @@
     align-items: start;
     position: fixed;
     background-color: transparent;
-    background-image: linear-gradient(#0006, #0000);
+    background-image: linear-gradient(#00000080, #0000);
 }
 .header .logo {
     display: flex;

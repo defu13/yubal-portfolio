@@ -159,6 +159,11 @@
 }
 
 @font-face {
+    font-family: "NeueMontreal-Bold";
+    src: url(../assets/fonts/NeueMontreal-Bold.otf);
+}
+
+@font-face {
     font-family: "NeueMontreal-Medium";
     src: url(../assets/fonts/NeueMontreal-Medium.otf);
 }
