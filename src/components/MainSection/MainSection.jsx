@@ -56,7 +56,7 @@ function MainSection() {
                             className={`jetbrainsmono-regular gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
                         >
                             <FontAwesomeIcon icon={faEnvelope} />
-                            <span className="jetbrainsmono-regular">
+                            <span className="jetbrainsmono-regular select-none">
                                 Contáctame
                             </span>
                         </div>
