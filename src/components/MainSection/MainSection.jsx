@@ -33,87 +33,97 @@ function MainSection() {
     };
 
     return (
-        <div
-            className={`flex flex-col size-full items-center justify-center mt-10 sm:m-0 ${styles.header_container}`}
-        >
-            <div className="flex gap-10 sm:gap-16 flex-wrap justify-center p-5">
-                <div className="flex flex-col gap-8 justify-between">
-                    <Floating>
-                        <Image
-                            src={profilePic}
-                            width={250}
-                            height={250}
-                            alt="profile picture of author"
-                            className="rounded-full"
-                        />
-                    </Floating>
-                    {/* <Floating delay={0.4}> */}
-                    <div
-                        className={`text-neutral-100 justify-center items-end w-full h-12 ${styles.contact_container}`}
-                    >
-                        <Image src={linkArrowRotated} alt="link arrow" width={25} className={`absolute top-0 right-6 ${styles.arrow}`}/>
-                        <div
-                            className={`jetbrainsmono-regular gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
-                        >
-                            <FontAwesomeIcon icon={faEnvelope} />
-                            <span className="jetbrainsmono-regular select-none">
-                                Contáctame
-                            </span>
-                        </div>
-
-                        <div
-                            className={`absolute flex items-center justify-center gap-2 cursor-pointer ${styles.correo}`}
-                            onClick={handleCopyClipboard}
-                        >
-                            <span className="jetbrainsmono-regular">
-                                ydefuente@gmail.com
-                            </span>
-
-                            <FontAwesomeIcon
-                                icon={isCopied ? faCheck : faClipboard}
-                                className="cursor-pointer"
+        <header>
+            <div
+                className={`flex flex-col items-center justify-center pt-10 lg:p-0 ${styles.header_container}`}
+            >
+                <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
+                    <div className="flex flex-col gap-2 justify-between min-w-64">
+                        <Floating>
+                            <Image
+                                src={profilePic}
+                                width={250}
+                                height={250}
+                                alt="profile picture of author"
+                                className="rounded-full"
                             />
+                        </Floating>
+                        {/* <Floating delay={0.4}> */}
+                        <div
+                            className={`text-neutral-100 justify-center items-end w-full h-12 ${styles.contact_container}`}
+                        >
+                            <Image
+                                src={linkArrowRotated}
+                                alt="link arrow"
+                                width={25}
+                                className={`absolute top-0 right-10 ${styles.arrow}`}
+                            />
+                            <div
+                                className={`jetbrainsmono-regular gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
+                            >
+                                <FontAwesomeIcon icon={faEnvelope} />
+                                <span className="jetbrainsmono-regular select-none">
+                                    Contáctame
+                                </span>
+                            </div>
+
+                            <div
+                                className={`absolute flex items-center justify-center gap-2 cursor-pointer ${styles.correo}`}
+                                onClick={handleCopyClipboard}
+                            >
+                                <span className="jetbrainsmono-regular">
+                                    ydefuente@gmail.com
+                                </span>
+
+                                <FontAwesomeIcon
+                                    icon={isCopied ? faCheck : faClipboard}
+                                    className="cursor-pointer"
+                                />
+                            </div>
                         </div>
+                        {/* </Floating> */}
                     </div>
-                    {/* </Floating> */}
-                </div>
-                <div className="flex flex-col gap-8 max-w-2xl justify-between">
-                    <div className="flex gap-3 items-center -mb-4">
-                        <Dot />
-                        <p className="neuemontreal-medium text-neutral-500">
-                            Yubal De Fuente
+                    <div className="flex flex-col gap-8 max-w-2xl justify-between">
+                        <div className="flex gap-3 items-center -mb-4">
+                            <Dot />
+                            <p className="neuemontreal-medium text-neutral-500">
+                                Yubal De Fuente
+                            </p>
+                        </div>
+                        <h1 className="lg:text-8xl md:text-7xl text-6xl text-shadow-glow neuemontreal-medium tracking-tight">
+                            Diseñador y Desarrollador
+                        </h1>
+                        <p className="text-xl neuemontreal-regular text-neutral-400">
+                            Apasionado del diseño gráfico y la programación, y
+                            especializado en el desarrollo web con{" "}
+                            <HighlightText>React.</HighlightText>
                         </p>
-                    </div>
-                    <h1 className="sm:text-8xl text-6xl text-shadow-glow neuemontreal-medium tracking-tight">
-                        Diseñador y Desarrollador
-                    </h1>
-                    <p className="text-xl neuemontreal-regular text-neutral-400">
-                        Apasionado del diseño gráfico y la programación, y
-                        especializado en el desarrollo web con{" "}
-                        <HighlightText>React.</HighlightText>
-                    </p>
-                    <div className="flex gap-10 justify-center sm:justify-start items-center">
-                        {socialLinks.map((button) => (
-                            <Magnetic key={button.name} animationForce={0.4}>
-                                <a href={button.link}>
-                                    <motion.div
-                                        whileHover={{
-                                            color: button.color,
-                                        }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        <FontAwesomeIcon
-                                            icon={button.icon}
-                                            size="2x"
-                                        />
-                                    </motion.div>
-                                </a>
-                            </Magnetic>
-                        ))}
+                        <div className="flex gap-10 justify-center sm:justify-start items-center">
+                            {socialLinks.map((button) => (
+                                <Magnetic
+                                    key={button.name}
+                                    animationForce={0.4}
+                                >
+                                    <a href={button.link}>
+                                        <motion.div
+                                            whileHover={{
+                                                color: button.color,
+                                            }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <FontAwesomeIcon
+                                                icon={button.icon}
+                                                size="2x"
+                                            />
+                                        </motion.div>
+                                    </a>
+                                </Magnetic>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     );
 }
 

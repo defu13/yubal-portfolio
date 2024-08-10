@@ -1,5 +1,6 @@
 .header_container {
-    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .contact_container {
@@ -15,19 +16,24 @@
 }
 .contact_container .correo {
     position: absolute;
-    left: 250px;
+    left: 256px;
     padding-left: 0.3em;
 }
 .contact_container:hover {
     padding-right: 30px;
 }
-.contact_container:hover .contactame, .contact_container:hover .arrow {
-    transform: translateX(-250px);
+.contact_container:hover .contactame,
+.contact_container:hover .arrow {
+    transform: translateX(-256px);
 }
 
 .contact_container:hover .correo {
-    transform: translateX(-234px);
+    transform: translateX(-240px);
 }
 .contact_container .arrow {
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.contact_container .contactame{
+    margin-right: 25px;
 }

@@ -10,6 +10,7 @@ import HighlightText from "../HighlightText/HighlightText";
 import Image from "next/image";
 import { socialLinks } from "@/data/data";
 import Magnetic from "../Magnetic/Magnetic";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function HomeFirstSection() {
     const [showOverlay, setShowOverlay] = useState(false);
@@ -32,6 +33,17 @@ function HomeFirstSection() {
                         y: translateY,
                     }}
                 >
+                    <a href={socialLinks[3].link} className="flex self-end">
+                        <div className="flex gap-1 items-center text-sm xl:hidden -mb-6">
+                            <FontAwesomeIcon icon={socialLinks[3].icon}/>
+                            <p className="neuemontreal-regular mr-1">Dribbble</p>
+                            <Image
+                                src={linkArrow}
+                                width={16}
+                                alt="link arrow"
+                            />
+                        </div>
+                    </a>
                     <Magnetic animationForce={0.05}>
                         <a href={socialLinks[3].link}>
                             <motion.div
