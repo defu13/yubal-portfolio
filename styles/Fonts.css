@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "Poppins-Regular";
     src: url(../assets/fonts/Poppins-Regular.ttf);
 }
@@ -141,7 +141,7 @@
 @font-face {
     font-family: "NyghtSerif-LightItalic";
     src: url(../assets/fonts/NyghtSerif-LightItalic.otf);
-}
+} */
 
 @font-face {
     font-family: "JetBrainsMono-Regular";

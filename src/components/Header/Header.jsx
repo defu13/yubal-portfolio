@@ -9,7 +9,7 @@ import { useState } from "react";
 export default function Header() {
     const pathname = usePathname();
     const navigation = [
-        { name: "Home", href: "/" },
+        { name: "Inicio", href: "/" },
         { name: "Proyectos", href: "/proyectos" },
         { name: "Sobre Mí", href: "/sobremi" },
     ];

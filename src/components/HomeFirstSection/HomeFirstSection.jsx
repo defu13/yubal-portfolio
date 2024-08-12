@@ -1,111 +1,97 @@
 "use client";
-import { useState } from "react";
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
 import Title from "../Title/Title";
-import { AnimatePresence, motion } from "framer-motion";
-import { useScrollAnimate } from "@/src/hooks/useScrollAnimate";
-import dribbblePic from "../../../assets/images/dribbble_show.gif";
-import linkArrow from "../../../assets/images/link_arrow.svg";
-import HighlightText from "../HighlightText/HighlightText";
-import Image from "next/image";
-import { socialLinks } from "@/data/data";
-import Magnetic from "../Magnetic/Magnetic";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import { useScrollVertical } from "@/src/hooks/useScrollVertical";
+import ImageCard from "../ImageCard/ImageCard";
+import { dribbblePics } from "@/data/data";
+import styles from "./HomeFirstSection.module.css";
+import { useScrollHorizontal } from "@/src/hooks/useScrollHorizontal";
+import SkillsDescription from "../SkillsDescription/SkillsDescription";
+import {
+    faCode,
+    faWandMagicSparkles,
+    faBolt,
+} from "@fortawesome/free-solid-svg-icons";
+import DotTitle from "../DotTitle/DotTitle";
 
 function HomeFirstSection() {
-    const [showOverlay, setShowOverlay] = useState(false);
-    const { container, translateY } = useScrollAnimate();
+    const { containerY, translateY } = useScrollVertical();
+    const { containerX, translateX } = useScrollHorizontal();
 
     return (
-        <section>
-            <div className="flex flex-col p-5 gap-24 items-center">
-                <div>
-                    <Title>
-                        Una combinación de creatividad y habilidades técnicas es
-                        lo necesario para conseguir&nbsp;
-                        <HighlightTitle>interfaces únicas.</HighlightTitle>
-                    </Title>
-                </div>
+        <section className="flex flex-col items-center w-full sm:gap-10 mt-12">
+            <div className="max-w-5xl p-5">
+                <Title>
+                    Una combinación de creatividad y habilidades técnicas es lo
+                    necesario para conseguir&nbsp;
+                    <HighlightTitle>interfaces únicas.</HighlightTitle>
+                </Title>
+            </div>
+            <div className="flex flex-col gap-24 items-center w-full">
                 <motion.div
-                    className="flex gap-8 xl:flex-row flex-col"
-                    ref={container}
+                    className="flex gap-48 flex-col w-full overflow-hidden pt-16"
+                    ref={containerY}
                     style={{
                         y: translateY,
                     }}
                 >
-                    <a href={socialLinks[3].link} className="flex self-end">
-                        <div className="flex gap-1 items-center text-sm xl:hidden -mb-6">
-                            <FontAwesomeIcon icon={socialLinks[3].icon}/>
-                            <p className="neuemontreal-regular mr-1">Dribbble</p>
-                            <Image
-                                src={linkArrow}
-                                width={16}
-                                alt="link arrow"
-                            />
+                    <motion.div
+                        className={`flex gap-8 flex-shrink-0 ${styles.dribbble_container}`}
+                        ref={containerX}
+                        style={{ x: translateX }}
+                        // initial={{ x: 0 }}
+                        // animate={{ x: "-156%" }}
+                        // transition={{
+                        //     duration: 15,
+                        //     repeat: Infinity,
+                        //     ease: "linear",
+                        // }}
+                    >
+                        {dribbblePics.concat(dribbblePics).map((pic, index) => (
+                            <ImageCard pic={pic} key={index} />
+                        ))}
+                    </motion.div>
+                    <div className="flex flex-col p-5 pt-0 gap-20 self-center md:px-24">
+                        <div className="flex flex-col gap-8 self-start">
+                            <DotTitle>Habilidades</DotTitle>
+                            <Title>Puedo ayudarte con...</Title>
                         </div>
-                    </a>
-                    <Magnetic animationForce={0.05}>
-                        <a href={socialLinks[3].link}>
-                            <motion.div
-                                className="relative"
-                                onHoverStart={() => setShowOverlay(true)}
-                                onHoverEnd={() => setShowOverlay(false)}
+                        <div className="flex md:flex-row flex-col gap-20">
+                            <SkillsDescription
+                                number={"01"}
+                                title={"Desarrollo"}
+                                icon={faCode}
                             >
-                                <AnimatePresence>
-                                    {showOverlay && (
-                                        <motion.div
-                                            className="absolute inset-0 z-10 flex justify-center items-end"
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                        >
-                                            <motion.div
-                                                className="flex z-20 gap-2 items-center text-2xl mb-14 p-4 rounded-full"
-                                                initial={{ y: 20 }}
-                                                animate={{ y: 0 }}
-                                                exit={{ y: 20 }}
-                                            >
-                                                <p className="neuemontreal-regular">
-                                                    Dribbble
-                                                </p>
-                                                <Image
-                                                    src={linkArrow}
-                                                    width={25}
-                                                    alt="link arrow"
-                                                />
-                                            </motion.div>
-
-                                            <div className="rounded-xl absolute top-[1px] inset-0 pointer-events-none w-full h-full bg-gradient-to-t from-neutral-900 to-transparent to-90%" />
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                                <Image
-                                    src={dribbblePic}
-                                    width={800}
-                                    alt="dribbble proyects"
-                                    className="rounded-xl"
-                                />
-                            </motion.div>
-                        </a>
-                    </Magnetic>
-                    <div className="flex flex-col p-5 pt-0 max-w-xl gap-8">
-                        <div className="flex gap-3 items-center -mb-4">
-                            <p className="neuemontreal-medium text-xl">
-                                Diseño gráfico
-                            </p>
+                                Desde mi adolescencia, he encontrado una gran
+                                pasión por el mundo del diseño gráfico. Me
+                                encanta convertir ideas en imágenes atractivas y
+                                únicas, logrando una armonía visual en todo mi
+                                trabajo.
+                            </SkillsDescription>
+                            <SkillsDescription
+                                number={"02"}
+                                title={"Diseño"}
+                                icon={faWandMagicSparkles}
+                            >
+                                Desde mi adolescencia, he encontrado una gran
+                                pasión por el mundo del diseño gráfico. Me
+                                encanta convertir ideas en imágenes atractivas y
+                                únicas, logrando una armonía visual en todo mi
+                                trabajo.
+                            </SkillsDescription>
+                            <SkillsDescription
+                                number={"03"}
+                                title={"Paquete completo"}
+                                icon={faBolt}
+                            >
+                                Desde mi adolescencia, he encontrado una gran
+                                pasión por el mundo del diseño gráfico. Me
+                                encanta convertir ideas en imágenes atractivas y
+                                únicas, logrando una armonía visual en todo mi
+                                trabajo.
+                            </SkillsDescription>
                         </div>
-                        <p className="neuemontreal-regular text-lg text-neutral-400">
-                            Desde mi adolescencia, he encontrado una gran pasión
-                            por el mundo del diseño gráfico. Me encanta
-                            convertir ideas en imágenes atractivas y únicas,
-                            logrando una armonía visual en todo mi trabajo.
-                            <br />
-                            <br />
-                            Como autodidacta, he mejorado mi estilo y conseguida
-                            una sólida comprensión del diseño, complementando
-                            así el&nbsp;
-                            <HighlightText>desarrollo UI/UX.</HighlightText>
-                        </p>
                     </div>
                 </motion.div>
                 <div className="h-[80vh]"></div>

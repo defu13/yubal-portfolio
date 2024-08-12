@@ -7,12 +7,13 @@ import HighlightText from "../HighlightText/HighlightText";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
-import profilePic from "../../../assets/images/rsz_fotoperfil_nueva-edit.jpg";
+import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
 import { socialLinks } from "@/data/data";
 import Dot from "../Dot/Dot";
 import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import linkArrowRotated from "../../../assets/images/link_arrow_rotated.svg";
+import linkArrowRotated from "@/assets/images/link_arrow_rotated.svg";
+import DotTitle from "../DotTitle/DotTitle";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -48,7 +49,6 @@ function MainSection() {
                                 className="rounded-full"
                             />
                         </Floating>
-                        {/* <Floating delay={0.4}> */}
                         <div
                             className={`text-neutral-100 justify-center items-end w-full h-12 ${styles.contact_container}`}
                         >
@@ -81,14 +81,12 @@ function MainSection() {
                                 />
                             </div>
                         </div>
-                        {/* </Floating> */}
                     </div>
                     <div className="flex flex-col gap-8 max-w-2xl justify-between">
                         <div className="flex gap-3 items-center -mb-4">
-                            <Dot />
-                            <p className="neuemontreal-medium text-neutral-500">
-                                Yubal De Fuente
-                            </p>
+                            <DotTitle>
+                                Yubal de Fuente
+                            </DotTitle>
                         </div>
                         <h1 className="lg:text-8xl md:text-7xl text-6xl text-shadow-glow neuemontreal-medium tracking-tight">
                             Diseñador y Desarrollador
