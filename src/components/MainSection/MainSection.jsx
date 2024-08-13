@@ -4,7 +4,7 @@ import Floating from "../Floating/Floating";
 import Image from "next/image";
 import Magnetic from "../Magnetic/Magnetic";
 import HighlightText from "../HighlightText/HighlightText";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
 import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
@@ -46,7 +46,7 @@ function MainSection() {
                                 width={250}
                                 height={250}
                                 alt="profile picture of author"
-                                className="rounded-full"
+                                className="rounded-full max-[300px]:w-[90vw]"
                             />
                         </Floating>
                         <div
@@ -74,21 +74,19 @@ function MainSection() {
                                 <span className="jetbrainsmono-regular">
                                     ydefuente@gmail.com
                                 </span>
-
                                 <FontAwesomeIcon
                                     icon={isCopied ? faCheck : faClipboard}
-                                    className="cursor-pointer"
                                 />
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col gap-8 max-w-2xl justify-between">
                         <div className="flex gap-3 items-center -mb-4">
-                            <DotTitle>
-                                Yubal de Fuente
-                            </DotTitle>
+                            <DotTitle>Yubal de Fuente</DotTitle>
                         </div>
-                        <h1 className="lg:text-8xl md:text-7xl text-6xl text-shadow-glow neuemontreal-medium tracking-tight">
+                        <h1
+                            className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-shadow-glow neuemontreal-medium tracking-tight ${styles.title}`}
+                        >
                             Diseñador y Desarrollador
                         </h1>
                         <p className="text-xl neuemontreal-regular text-neutral-400">

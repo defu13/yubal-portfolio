@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function SkillsDescription({ children, number, title, icon }) {
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 flex-1">
             <p className="neuemontreal-regular text-xs text-neutral-400 hidden md:flex">
                 {number}
             </p>

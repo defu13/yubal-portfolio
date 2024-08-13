@@ -4,12 +4,26 @@ import {
     faInstagram,
     faDribbble,
 } from "@fortawesome/free-brands-svg-icons";
-import nortfam_first from "@/assets/images/nortfamdribbble-min.jpg"
-import nortfam_second from "@/assets/images/nortfam2dribbble-min.jpg"
-import nortepuro from "@/assets/images/nortepuro-min.jpg"
-import karma from "@/assets/images/karmaexhaustdribbble-min.jpg"
+import nortfam_first from "@/assets/images/nortfamdribbble-min.jpg";
+import nortfam_second from "@/assets/images/nortfam2dribbble-min.jpg";
+import nortepuro from "@/assets/images/nortepuro-min.jpg";
+import karma from "@/assets/images/karmaexhaustdribbble-min.jpg";
 import trezeStudio from "@/assets/images/trezestudio_logofolio-min.jpg";
 import trezeStudioOld from "@/assets/images/trezestudio_logo_concepts-min.jpg";
+import HighlightText from "@/src/components/HighlightText/HighlightText";
+import {
+    faCode,
+    faPenNib,
+    faWandMagicSparkles,
+} from "@fortawesome/free-solid-svg-icons";
+import photoshopIcon from "@/assets/images/icons/adobephotoshop.svg";
+import illustratorIcon from "@/assets/images/icons/adobeillustrator.svg";
+import framerIcon from "@/assets/images/icons/framer.svg";
+import nextIcon from "@/assets/images/icons/nextdotjs.svg";
+import reactIcon from "@/assets/images/icons/react.svg";
+import sassIcon from "@/assets/images/icons/sass.svg";
+import tailwindIcon from "@/assets/images/icons/tailwindcss.svg";
+import npmIcon from "@/assets/images/icons/npm.svg";
 
 export const socialLinks = [
     {
@@ -62,5 +76,63 @@ export const dribbblePics = [
     {
         link: "https://dribbble.com/shots/10852035-Nortepuro-shop-Lettering-logo",
         img: nortepuro,
-    }
+    },
+];
+
+export const skillsData = [
+    {
+        number: "01",
+        title: "Desarrollo",
+        icon: faCode,
+        description: (
+            <>
+                Me gusta crear experiencias dinámicas y funcionales. Me
+                especializo en&nbsp;
+                <HighlightText>React y Next.js</HighlightText>, tecnologías muy
+                útiles para crear aplicaciones web eficientes y modernas.
+            </>
+        ),
+        skills: [
+            { name: "React", icon: reactIcon },
+            { name: "Next.js", icon: nextIcon },
+            { name: "Npm", icon: npmIcon },
+        ],
+    },
+    {
+        number: "02",
+        title: "Diseño",
+        icon: faWandMagicSparkles,
+        description: (
+            <>
+                Con un enfoque importante en&nbsp;
+                <HighlightText>UI/UX</HighlightText>, me centro en diseñar
+                interfaces intuitivas y fluidas, que conecten de manera natural
+                con los usuarios. Consigo crear experiencias atractivas
+                utilizando animaciones y teniendo en cuenta la responsividad.
+            </>
+        ),
+        skills: [
+            { name: "Framer motion", icon: framerIcon },
+            { name: "Tailwind CSS", icon: tailwindIcon },
+            { name: "Sass", icon: sassIcon },
+        ],
+    },
+    {
+        number: "03",
+        title: "Diseño gráfico",
+        icon: faPenNib,
+        description: (
+            <>
+                Desde mi adolescencia, he encontrado una gran pasión por el
+                mundo del diseño gráfico y he aprendido a diseñar&nbsp;
+                <HighlightText>identidades de marca, logotipos</HighlightText>,
+                etc. Me encanta convertir ideas en imágenes atractivas y únicas,
+                logrando una armonía visual en todo mi trabajo.
+            </>
+        ),
+        skills: [
+            { name: "Illustrator", icon: illustratorIcon },
+            { name: "Photoshop", icon: photoshopIcon },
+        ],
+    },
 ];

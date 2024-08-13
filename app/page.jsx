@@ -1,10 +1,10 @@
 "use client";
 import styles from "./Home.module.css";
 import MainSection from "@/src/components/MainSection/MainSection";
-import HomeFirstSection from "@/src/components/HomeFirstSection/HomeFirstSection";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "@/src/components/LoadingSpinner/LoadingSpinner";
 import { AnimatePresence, motion } from "framer-motion";
+import HomeSection from "@/src/components/HomeFirstSection/HomeSection";
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
@@ -41,7 +41,7 @@ export default function Home() {
                             className={`flex flex-col items-center justify-between ${styles.main}`}
                         >
                             <MainSection />
-                            <HomeFirstSection />
+                            <HomeSection />
                         </main>
                     </motion.div>
                 )}

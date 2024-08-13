@@ -11,7 +11,7 @@ export const useScrollVertical = () => {
     const translateY = useTransform(
         scrollYProgress,
         [0, 1],
-        [150 * direction, -500 * direction]
+        [250 * direction, -300 * direction]
     );
     return {containerY, translateY};
 };

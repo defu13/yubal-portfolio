@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
+    "@nextui-org/tooltip": "^2.0.39",
     "framer-motion": "^11.3.21",
     "gsap": "^3.12.5",
     "i": "^0.3.7",

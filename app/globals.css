@@ -68,7 +68,7 @@
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
+    color: #fafafa;
     background-color: #101010;
 }
 

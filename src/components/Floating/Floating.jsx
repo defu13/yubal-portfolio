@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 export default function Floating({ delay, children, hover }) {
     return (
         <motion.div
+            className="flex items-center justify-center"
             animate={["initial"]}
             whileHover={[hover === true ? "grow" : ""]}
             variants={{
