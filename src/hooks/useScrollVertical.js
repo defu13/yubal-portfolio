@@ -13,5 +13,6 @@ export const useScrollVertical = () => {
         [0, 1],
         [250 * direction, -300 * direction]
     );
-    return {containerY, translateY};
+    const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+    return { containerY, translateY, rotate };
 };

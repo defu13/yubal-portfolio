@@ -6,7 +6,7 @@ function SkillsDescription({ children, number, title, icon }) {
             <p className="neuemontreal-regular text-xs text-neutral-400 hidden md:flex">
                 {number}
             </p>
-            <hr class="shrink-0 border-none w-full mb-4 bg-neutral-400 h-px" />
+            <hr className="shrink-0 border-none w-full mb-4 bg-neutral-400 h-px" />
             <div className="flex gap-3 items-center">
                 <p className="neuemontreal-medium text-lg lg:text-xl flex items-center gap-2">
                     <FontAwesomeIcon icon={icon} />

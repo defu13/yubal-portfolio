@@ -29,7 +29,7 @@ function Skills() {
                                     <Tooltip
                                         placement="top"
                                         content={icon.name}
-                                        className="font-bold neuemontreal-medium text-sm p-2 rounded-3xl bg-neutral-50 text-neutral-900"
+                                        className="font-bold neuemontreal-medium text-sm p-2 rounded-3xl bg-neutral-400 text-neutral-900"
                                     >
                                         <Image
                                             src={icon.icon}

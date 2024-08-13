@@ -7,7 +7,7 @@ import Skills from "../Skills/Skills";
 function HomeSection() {
     return (
         <section className="flex flex-col items-center w-full sm:gap-10 mt-12">
-            <div className="max-w-5xl p-5">
+            <div className="md:self-start md:ml-12 p-5">
                 <Title>
                     Una combinación de creatividad y habilidades técnicas es lo
                     necesario para conseguir&nbsp;

@@ -4,12 +4,11 @@ import Floating from "../Floating/Floating";
 import Image from "next/image";
 import Magnetic from "../Magnetic/Magnetic";
 import HighlightText from "../HighlightText/HighlightText";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
 import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
 import { socialLinks } from "@/data/data";
-import Dot from "../Dot/Dot";
 import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import linkArrowRotated from "@/assets/images/link_arrow_rotated.svg";
@@ -39,7 +38,12 @@ function MainSection() {
                 className={`flex flex-col items-center justify-center pt-10 lg:p-0 ${styles.header_container}`}
             >
                 <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
-                    <div className="flex flex-col gap-2 justify-between min-w-64">
+                    <motion.div
+                        className="flex flex-col gap-2 justify-between min-w-64"
+                        initial={{ opacity: 0, y: 70 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
                         <Floating>
                             <Image
                                 src={profilePic}
@@ -79,22 +83,56 @@ function MainSection() {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                     <div className="flex flex-col gap-8 max-w-2xl justify-between">
-                        <div className="flex gap-3 items-center -mb-4">
+                        <motion.div
+                            className="flex gap-3 items-center -mb-4"
+                            initial={{ opacity: 0, y: 70 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut",
+                                delay: 0.2,
+                            }}
+                        >
                             <DotTitle>Yubal de Fuente</DotTitle>
-                        </div>
-                        <h1
+                        </motion.div>
+                        <motion.h1
                             className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-shadow-glow neuemontreal-medium tracking-tight ${styles.title}`}
+                            initial={{ opacity: 0, y: 70 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut",
+                                delay: 0.3,
+                            }}
                         >
                             Diseñador y Desarrollador
-                        </h1>
-                        <p className="text-xl neuemontreal-regular text-neutral-400">
+                        </motion.h1>
+                        <motion.p
+                            className="text-xl neuemontreal-regular text-neutral-400"
+                            initial={{ opacity: 0, y: 70 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut",
+                                delay: 0.4,
+                            }}
+                        >
                             Apasionado del diseño gráfico y la programación, y
                             especializado en el desarrollo web con{" "}
                             <HighlightText>React.</HighlightText>
-                        </p>
-                        <div className="flex gap-10 justify-center sm:justify-start items-center">
+                        </motion.p>
+                        <motion.div
+                            className="flex gap-10 justify-center sm:justify-start items-center"
+                            initial={{ opacity: 0, y: 70 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut",
+                                delay: 0.5,
+                            }}
+                        >
                             {socialLinks.map((button) => (
                                 <Magnetic
                                     key={button.name}
@@ -115,7 +153,7 @@ function MainSection() {
                                     </a>
                                 </Magnetic>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
