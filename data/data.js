@@ -24,6 +24,7 @@ import reactIcon from "@/assets/images/icons/react.svg";
 import sassIcon from "@/assets/images/icons/sass.svg";
 import tailwindIcon from "@/assets/images/icons/tailwindcss.svg";
 import npmIcon from "@/assets/images/icons/npm.svg";
+import { color } from "framer-motion";
 
 export const socialLinks = [
     {
@@ -134,5 +135,38 @@ export const skillsData = [
             { name: "Illustrator", icon: illustratorIcon },
             { name: "Photoshop", icon: photoshopIcon },
         ],
+    },
+];
+
+export const projectsData = [
+    {
+        name: "Logofolio - Treze Studio",
+        description: (
+            <>
+                Remodelando la imagen de Treze Studio.
+            </>
+        ),
+        img: trezeStudio,
+        color: "#005f14",
+    },
+    {
+        name: "Logofolio - Treze Studio",
+        description: (
+            <>
+                Remodelando la imagen de Treze Studio.
+            </>
+        ),
+        img: trezeStudio,
+        color: "#035",
+    },
+    {
+        name: "Logofolio - Treze Studio",
+        description: (
+            <>
+                Remodelando la imagen de Treze Studio.
+            </>
+        ),
+        img: trezeStudio,
+        color: "#035",
     },
 ];

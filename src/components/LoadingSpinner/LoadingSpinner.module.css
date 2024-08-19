@@ -6,7 +6,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .spinner .dot {

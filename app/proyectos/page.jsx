@@ -5,6 +5,8 @@ import Title from "@/src/components/Title/Title";
 import { useLoading } from "@/src/context/LoadingContext";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import ProjectCard from "@/src/components/ProjectCard/ProjectCard";
+import { projectsData } from "@/data/data";
 
 export default function Proyectos() {
     const { setLoading } = useLoading();
@@ -13,7 +15,7 @@ export default function Proyectos() {
     }, []);
     return (
         <section>
-            <div className="flex flex-col items-center p-5">
+            <div className="flex flex-col items-center p-5 gap-24">
                 <div className="flex flex-col gap-8 mt-[20vh] md:self-start md:ml-12">
                     <motion.div
                         initial={{ opacity: 0, y: 70 }}
@@ -36,7 +38,17 @@ export default function Proyectos() {
                         </Title>
                     </motion.div>
                 </div>
-                <div className="flex h-[100vh]"></div>
+                <motion.div
+                    className="flex flex-col w-full lg:max-w-6xl gap-20"
+                    initial={{ opacity: 0, y: 70 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 70 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                    {projectsData.map((project, index) => (
+                        <ProjectCard key={index} project={project} />
+                    ))}
+                </motion.div>
             </div>
         </section>
     );

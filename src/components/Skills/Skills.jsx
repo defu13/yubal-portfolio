@@ -4,6 +4,7 @@ import SkillsDescription from "../SkillsDescription/SkillsDescription";
 import Title from "../Title/Title";
 import { skillsData } from "@/data/data";
 import Image from "next/image";
+import DotAnimation from "../DotAnimation/DotAnimation";
 
 
 function Skills() {
@@ -11,7 +12,7 @@ function Skills() {
         <div className="flex flex-col p-5 pt-0 gap-20 self-center lg:px-24">
             <div className="flex flex-col gap-8 self-start">
                 <DotTitle>Habilidades</DotTitle>
-                <Title>Puedo ayudarte con...</Title>
+                <Title>Puedo ayudarte con<DotAnimation/></Title>
             </div>
             <div className="flex md:flex-row flex-col gap-20">
                 {skillsData.map((skill, index) => (

@@ -10,12 +10,14 @@ import styles from "./MainSection.module.css";
 import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
 import { socialLinks } from "@/data/data";
 import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import linkArrowRotated from "@/assets/images/link_arrow_rotated.svg";
 import DotTitle from "../DotTitle/DotTitle";
+import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
+    const { translateY } = useScrollVertical(100, -700);
 
     useEffect(() => {
         let timer;
@@ -35,7 +37,7 @@ function MainSection() {
     return (
         <header>
             <div
-                className={`flex flex-col items-center justify-center pt-10 lg:p-0 ${styles.header_container}`}
+                className={`flex flex-col items-center justify-center pt-10 lg:p-0 relative ${styles.header_container}`}
             >
                 <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
                     <motion.div
@@ -156,6 +158,14 @@ function MainSection() {
                         </motion.div>
                     </div>
                 </div>
+                <motion.div
+                    style={{ y: translateY }}
+                    className="hidden md:flex absolute bottom-0"
+                >
+                    <Floating animationForce={1.5} speed={2}>
+                        <FontAwesomeIcon icon={faArrowDown} size="2x" />
+                    </Floating>
+                </motion.div>
             </div>
         </header>
     );
