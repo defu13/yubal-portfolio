@@ -14,6 +14,8 @@ import { faCheck, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import linkArrowRotated from "@/assets/images/link_arrow_rotated.svg";
 import DotTitle from "../DotTitle/DotTitle";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
+import AnimatedEntrance from "../AnimatedEntrance/AnimatedEntrance";
+import HighlightTitle from "../HighlightTitle/HighlightTitle";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -34,18 +36,24 @@ function MainSection() {
         setIsCopied(true);
     };
 
+    const scrollToElement = (elementId) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "nearest",
+            });
+        }
+    };
+
     return (
         <header>
             <div
                 className={`flex flex-col items-center justify-center pt-10 lg:p-0 relative ${styles.header_container}`}
             >
                 <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
-                    <motion.div
-                        className="flex flex-col gap-2 justify-between min-w-64"
-                        initial={{ opacity: 0, y: 70 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
+                    <AnimatedEntrance className="flex flex-col gap-2 justify-between min-w-64">
                         <Floating>
                             <Image
                                 src={profilePic}
@@ -85,55 +93,31 @@ function MainSection() {
                                 />
                             </div>
                         </div>
-                    </motion.div>
+                    </AnimatedEntrance>
                     <div className="flex flex-col gap-8 max-w-2xl justify-between">
-                        <motion.div
+                        <AnimatedEntrance
                             className="flex gap-3 items-center -mb-4"
-                            initial={{ opacity: 0, y: 70 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.5,
-                                ease: "easeOut",
-                                delay: 0.2,
-                            }}
+                            delay={0.2}
                         >
                             <DotTitle>Yubal de Fuente</DotTitle>
-                        </motion.div>
-                        <motion.h1
-                            className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-shadow-glow neuemontreal-medium tracking-tight ${styles.title}`}
-                            initial={{ opacity: 0, y: 70 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.5,
-                                ease: "easeOut",
-                                delay: 0.3,
-                            }}
-                        >
-                            Diseñador y Desarrollador
-                        </motion.h1>
-                        <motion.p
-                            className="text-xl neuemontreal-regular text-neutral-400"
-                            initial={{ opacity: 0, y: 70 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.5,
-                                ease: "easeOut",
-                                delay: 0.4,
-                            }}
-                        >
-                            Apasionado del diseño gráfico y la programación, y
-                            especializado en el desarrollo web con{" "}
-                            <HighlightText>React.</HighlightText>
-                        </motion.p>
-                        <motion.div
+                        </AnimatedEntrance>
+                        <AnimatedEntrance delay={0.3}>
+                            <h1
+                                className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-shadow-glow neuemontreal-medium tracking-tight ${styles.title}`}
+                            >
+                                <HighlightTitle>Diseñador</HighlightTitle>&nbsp; y Desarrollador
+                            </h1>
+                        </AnimatedEntrance>
+                        <AnimatedEntrance delay={0.4}>
+                            <p className="text-xl neuemontreal-regular text-neutral-400">
+                                Apasionado del diseño gráfico y la programación,
+                                y especializado en el desarrollo web con{" "}
+                                <HighlightText>React.</HighlightText>
+                            </p>
+                        </AnimatedEntrance>
+                        <AnimatedEntrance
                             className="flex gap-10 justify-center sm:justify-start items-center"
-                            initial={{ opacity: 0, y: 70 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.5,
-                                ease: "easeOut",
-                                delay: 0.5,
-                            }}
+                            delay={0.5}
                         >
                             {socialLinks.map((button) => (
                                 <Magnetic
@@ -155,17 +139,22 @@ function MainSection() {
                                     </a>
                                 </Magnetic>
                             ))}
-                        </motion.div>
+                        </AnimatedEntrance>
                     </div>
                 </div>
-                <motion.div
+                <AnimatedEntrance
                     style={{ y: translateY }}
                     className="hidden md:flex absolute bottom-0"
+                    delay={0.6}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                 >
                     <Floating animationForce={1.5} speed={2}>
-                        <FontAwesomeIcon icon={faArrowDown} size="2x" />
+                        <button onClick={() => scrollToElement("skills")} className="p-2 rounded-full">
+                            <FontAwesomeIcon icon={faArrowDown} size="2x" />
+                        </button>
                     </Floating>
-                </motion.div>
+                </AnimatedEntrance>
             </div>
         </header>
     );
