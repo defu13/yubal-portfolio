@@ -1,13 +1,11 @@
-"use client";
 import { projectsDetailsData } from "@/data/data";
 import AnimatedEntrance from "@/src/components/AnimatedEntrance/AnimatedEntrance";
 import BackButton from "@/src/components/BackButton/BackButton";
 import Card from "@/src/components/Card/Card";
 import DescriptionText from "@/src/components/DescriptionText/DescriptionText";
 import Title from "@/src/components/Title/Title";
-import { useLoading } from "@/src/context/LoadingContext";
 import Image from "next/image";
-import { useEffect } from "react";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
     return projectsDetailsData.map((project) => ({
@@ -21,10 +19,13 @@ function Proyecto({ params }) {
         (project) => project.id.toString() === projectId
     );
 
-    const { setLoading } = useLoading();
-    useEffect(() => {
-        setLoading(false);
-    }, []);
+    if (!project) {
+        return notFound();
+    }
+    // const { setLoading } = useLoading();
+    // useEffect(() => {
+    //     setLoading(false);
+    // }, []);
 
     return (
         <section>
