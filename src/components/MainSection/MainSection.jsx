@@ -68,7 +68,7 @@ function MainSection() {
                             className={`text-neutral-100 justify-center items-end w-full h-12 ${styles.contact_container}`}
                         >
                             <div
-                                className={`jetbrainsmono-regular gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
+                                className={`gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
                             >
                                 <FontAwesomeIcon icon={faEnvelope}/>
                                 <span className="jetbrainsmono-regular select-none">

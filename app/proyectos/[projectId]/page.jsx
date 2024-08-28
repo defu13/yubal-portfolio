@@ -47,7 +47,13 @@ function Proyecto({ params }) {
                 <div className="flex gap-8">
                     {project.images.map((image, index) => (
                         <Card key={index} className={"overflow-hidden"}>
-                            <div className="h-[200px] w-[200px]"></div>
+                            <div className="h-[200px] w-[200px]">
+                                <Image 
+                                    src={image}
+                                    alt="project image"
+                                    fill
+                                />
+                            </div>
                         </Card>
                     ))}
                 </div>

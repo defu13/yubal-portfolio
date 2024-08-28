@@ -16,12 +16,45 @@
 }
 
 .text-gradient {
-    background: -webkit-linear-gradient(#ffffff, #333);
+    color: transparent;
+    background: linear-gradient(
+        74deg,
+        #4184f1 0,
+        #9d73cd 9%,
+        #db6671 20%,
+        #db6671 24%,
+        #9a72c9 35%,
+        #4285f3 44%,
+        #9b72cb 50%,
+        #dd6672 56%,
+        #171718 75%,
+        #131314 100%
+    );
+    background-size: 400% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero-project{
+@keyframes shine {
+    0% {
+        -webkit-mask-position: 200%;
+    }
+    100% {
+        -webkit-mask-position: -100%;
+    }
+}
+.shine {
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 30%,
+        #eee 50%,
+        transparent 70%
+    );
+    -webkit-mask-size: 150% auto;
+    animation: shine 5s ease-in-out infinite;
+}
+
+.hero-project {
     z-index: -1;
     background-position: 0 0;
     display: block;
