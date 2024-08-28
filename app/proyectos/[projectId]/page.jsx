@@ -9,6 +9,12 @@ import { useLoading } from "@/src/context/LoadingContext";
 import Image from "next/image";
 import { useEffect } from "react";
 
+export async function generateStaticParams() {
+    return projectsDetailsData.map((project) => ({
+        projectId: project.id.toString(),
+    }));
+}
+
 function Proyecto({ params }) {
     const { projectId } = params;
     const project = projectsDetailsData.find(
