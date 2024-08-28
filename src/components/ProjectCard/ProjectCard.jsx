@@ -14,13 +14,13 @@ function ProjectCard({ project }) {
     return (
         <div className={styles.container}>
             <motion.div
-                className={`sm:h-[600px] h-auto sm:gap-16 gap-6 ${styles.card}`}
+                className={`sm:h-[600px] h-auto sm:gap-16 gap-10 ${styles.card}`}
                 onHoverStart={() => setIsHovering(true)}
                 onHoverEnd={() => setIsHovering(false)}
             >
                 <div className="flex justify-between">
                     <div className="z-[3] gap-1 flex flex-col">
-                        <HighlightText>
+                        <HighlightText color="#fafafa">
                             <p className="text-xl">{project.name}</p>
                         </HighlightText>
                         <p className="text-base text-neutral-400">
@@ -37,7 +37,7 @@ function ProjectCard({ project }) {
                 </div>
                 <motion.div
                     className={`sm:max-w-[90%]  ${styles.img}`}
-                    animate={{ y: isHovering ? -25 : 0 }}
+                    animate={{ y: shouldShowGradient ? -25 : 0 }}
                     transition={{ duration: 0.3 }}
                 >
                     <Image

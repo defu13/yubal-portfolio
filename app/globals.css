@@ -21,8 +21,16 @@
     -webkit-text-fill-color: transparent;
 }
 
+.hero-project{
+    z-index: -1;
+    background-position: 0 0;
+    display: block;
+    position: absolute;
+    inset: 0%;
+}
+
 .hero-noise {
-    z-index: -2;
+    z-index: -3;
     opacity: 0.2;
     background-image: url(../assets/images/noise_overlay.png);
     background-position: 0 0;
@@ -33,7 +41,7 @@
 }
 
 .hero-fade {
-    z-index: -1;
+    z-index: -2;
     background-image: linear-gradient(to bottom, #10101000, #101010 60%);
     flex-direction: column;
     align-items: center;

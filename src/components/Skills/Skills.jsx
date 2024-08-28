@@ -24,13 +24,13 @@ function Skills() {
                         >
                             {skill.description}
                         </SkillsDescription>
-                        <div className="flex gap-8">
+                        <div className="flex gap-8 flex-wrap">
                             {skill.skills.map((icon, index) => (
                                 <div key={index}>
                                     <Tooltip
                                         placement="top"
                                         content={icon.name}
-                                        className="font-bold neuemontreal-medium text-sm p-2 rounded-3xl bg-neutral-400 text-neutral-900"
+                                        className="font-bold neuemontreal-medium text-sm p-2 rounded-3xl bg-neutral-100 text-[#101010]"
                                     >
                                         <Image
                                             src={icon.icon}

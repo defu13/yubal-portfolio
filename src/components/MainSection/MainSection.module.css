@@ -31,9 +31,8 @@
     transform: translateX(-240px);
 }
 .contact_container .arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-}
-
-.contact_container .contactame {
-    margin-right: 25px;
 }

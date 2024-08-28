@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
 import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
 import { socialLinks } from "@/data/data";
-import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faClipboard, faEnvelope, faHandPointer } from "@fortawesome/free-regular-svg-icons";
 import { faCheck, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import linkArrowRotated from "@/assets/images/link_arrow_rotated.svg";
 import DotTitle from "../DotTitle/DotTitle";
@@ -20,6 +20,7 @@ import HighlightTitle from "../HighlightTitle/HighlightTitle";
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
     const { translateY } = useScrollVertical(100, -700);
+    const isMobile = window.innerWidth < 640;
 
     useEffect(() => {
         let timer;
@@ -66,16 +67,10 @@ function MainSection() {
                         <div
                             className={`text-neutral-100 justify-center items-end w-full h-12 ${styles.contact_container}`}
                         >
-                            <Image
-                                src={linkArrowRotated}
-                                alt="link arrow"
-                                width={25}
-                                className={`absolute top-0 right-10 ${styles.arrow}`}
-                            />
                             <div
                                 className={`jetbrainsmono-regular gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
                             >
-                                <FontAwesomeIcon icon={faEnvelope} />
+                                <FontAwesomeIcon icon={faEnvelope}/>
                                 <span className="jetbrainsmono-regular select-none">
                                     Contáctame
                                 </span>
@@ -105,7 +100,7 @@ function MainSection() {
                             <h1
                                 className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-shadow-glow neuemontreal-medium tracking-tight ${styles.title}`}
                             >
-                                <HighlightTitle>Diseñador</HighlightTitle>&nbsp; y Desarrollador
+                                <HighlightTitle color="#fafafa">Diseñador</HighlightTitle>&nbsp; y Desarrollador
                             </h1>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.4}>
@@ -124,12 +119,15 @@ function MainSection() {
                                     key={button.name}
                                     animationForce={0.4}
                                 >
-                                    <a href={button.link}>
+                                    <a href={button.link} target="_blank">
                                         <motion.div
                                             whileHover={{
                                                 color: button.color,
                                             }}
                                             transition={{ duration: 0.2 }}
+                                            style={{
+                                                color: isMobile ? button.color : "#fafafa",
+                                            }}
                                         >
                                             <FontAwesomeIcon
                                                 icon={button.icon}

@@ -24,7 +24,8 @@ import reactIcon from "@/assets/images/icons/react.svg";
 import sassIcon from "@/assets/images/icons/sass.svg";
 import tailwindIcon from "@/assets/images/icons/tailwindcss.svg";
 import npmIcon from "@/assets/images/icons/npm.svg";
-import { color } from "framer-motion";
+import lightroomIcon from "@/assets/images/icons/adobelightroom.svg";
+import HighlightTitle from "@/src/components/HighlightTitle/HighlightTitle";
 
 export const socialLinks = [
     {
@@ -132,41 +133,51 @@ export const skillsData = [
             </>
         ),
         skills: [
-            { name: "Illustrator", icon: illustratorIcon },
             { name: "Photoshop", icon: photoshopIcon },
+            { name: "Illustrator", icon: illustratorIcon },
+            { name: "Lightroom", icon: lightroomIcon },
         ],
     },
 ];
 
-export const projectsData = [
+export const projectsCardData = [
     {
+        id: 1,
         name: "Logofolio - Treze Studio",
-        description: (
-            <>
-                Remodelando la imagen de Treze Studio.
-            </>
-        ),
+        description: <>Remodelando la imagen de Treze Studio.</>,
         img: trezeStudio,
         color: "#005f14",
     },
     {
-        name: "Logofolio - Treze Studio",
-        description: (
+        id: 2,
+        name: "Logo - Nortepuro",
+        description: <>Creando la identidad de Norteputo Shop.</>,
+        img: nortepuro,
+        color: "#A76400",
+    },
+];
+
+export const projectsDetailsData = [
+    {
+        id: 1,
+        name: (
             <>
-                Remodelando la imagen de Treze Studio.
+                Logofolio - <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
-        img: trezeStudio,
-        color: "#035",
+        description: <>Remodelando la imagen de Treze Studio.</>,
+        images: [trezeStudio, trezeStudio, trezeStudio],
+        color: "#3dc95a80",
     },
     {
-        name: "Logofolio - Treze Studio",
-        description: (
+        id: 2,
+        name: (
             <>
-                Remodelando la imagen de Treze Studio.
+                Logo - <HighlightTitle>Nortepuro</HighlightTitle>
             </>
         ),
-        img: trezeStudio,
-        color: "#035",
+        description: <>Creando la identidad de Norteputo Shop.</>,
+        images: [nortepuro, nortepuro, nortepuro],
+        color: "#f1af4a80",
     },
 ];

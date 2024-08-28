@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DescriptionText from "../DescriptionText/DescriptionText";
 
 function SkillsDescription({ children, number, title, icon }) {
     return (
@@ -13,9 +14,9 @@ function SkillsDescription({ children, number, title, icon }) {
                     {title}
                 </p>
             </div>
-            <p className="neuemontreal-regular text-base lg:text-lg text-neutral-400">
+            <DescriptionText>
                 {children}
-            </p>
+            </DescriptionText>
         </div>
     );
 }
