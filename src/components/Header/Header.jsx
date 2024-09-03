@@ -5,14 +5,10 @@ import styles from "./Header.module.css";
 import Magnetic from "../Magnetic/Magnetic";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { navigation } from "@/data/data";
 
 export default function Header() {
     const pathname = usePathname();
-    const navigation = [
-        { name: "Inicio", href: "/" },
-        { name: "Proyectos", href: "/proyectos" },
-        { name: "Sobre Mí", href: "/sobremi" },
-    ];
 
     const [isHovering, setIsHovering] = useState(false);
 

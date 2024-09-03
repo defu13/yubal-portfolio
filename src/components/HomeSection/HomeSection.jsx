@@ -21,7 +21,6 @@ function HomeSection() {
                     <HighlightTitle>interfaces únicas.</HighlightTitle>
                 </Title>
             </motion.div>
-            <div className="h-[80vh]"></div>
         </section>
     );
 }

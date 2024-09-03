@@ -15,6 +15,8 @@ import {
     faCode,
     faPenNib,
     faWandMagicSparkles,
+    faEnvelope,
+    faPhone
 } from "@fortawesome/free-solid-svg-icons";
 import photoshopIcon from "@/assets/images/icons/adobephotoshop.svg";
 import illustratorIcon from "@/assets/images/icons/adobeillustrator.svg";
@@ -27,27 +29,33 @@ import npmIcon from "@/assets/images/icons/npm.svg";
 import lightroomIcon from "@/assets/images/icons/adobelightroom.svg";
 import HighlightTitle from "@/src/components/HighlightTitle/HighlightTitle";
 
+export const navigation = [
+    { name: "Inicio", href: "/" },
+    { name: "Proyectos", href: "/proyectos" },
+    { name: "Sobre Mí", href: "/sobremi" },
+];
+
 export const socialLinks = [
     {
-        name: "github",
+        name: "Github",
         link: "https://github.com/defu13",
         icon: faGithub,
         color: "#2dba4e",
     },
     {
-        name: "linkedin",
+        name: "Linkedin",
         link: "https://www.linkedin.com/in/y-defuente/",
         icon: faLinkedin,
         color: "#0e76a8",
     },
     {
-        name: "instagram",
+        name: "Instagram",
         link: "https://www.instagram.com/treze.st/",
         icon: faInstagram,
         color: "#EE2AB6",
     },
     {
-        name: "dribbble",
+        name: "Dribbble",
         link: "https://dribbble.com/trezestudio",
         icon: faDribbble,
         color: "#f4588e",
@@ -181,3 +189,18 @@ export const projectsDetailsData = [
         color: "#f1af4a80",
     },
 ];
+
+export const contactData = [
+    {
+        name: "Email",
+        description: "ydefuente@gmail.com",
+        link: "mailto:ydefuente@gmail.com",
+        icon: faEnvelope,
+    },
+    {
+        name: "Teléfono",
+        description: "+34 635 372 397",
+        link: "tel:+34635372397",
+        icon: (faPhone),
+    }
+]
