@@ -9,7 +9,7 @@ import { projectsData } from "@/data/data";
 import Link from "next/link";
 import AnimatedEntrance from "@/src/components/AnimatedEntrance/AnimatedEntrance";
 
-export default function myprojects() {
+export default function Myprojects() {
     const { setLoading } = useLoading();
     useEffect(() => {
         setLoading(false);
