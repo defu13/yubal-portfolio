@@ -10,20 +10,40 @@ import { motion } from "framer-motion";
 function Footer() {
     const isMobile = window.innerWidth < 640;
 
+    // Obtener la fecha actual (última actualización)
+    const lastUpdated = new Intl.DateTimeFormat("es-ES", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+    }).format(new Date());
+
     return (
-        <footer className="flex mt-32 py-24 px-8 w-full justify-center border-t-[1px] border-neutral-800 bg-neutral-950">
-            <div className="flex md:flex-row lg:max-w-6xl w-full md:gap-12 gap-24 justify-between flex-col-reverse">
-                <div className="flex flex-col justify-between gap-6 max-w-60">
-                    <Image
-                        src={logo}
-                        alt="logo"
-                        className="h-[75px] w-[75px] rounded-full md:flex hidden"
-                    />
-                    <div className="flex flex-col gap-1">
-                        <p className="text-gradient">© 2024 Yubal De Fuente.</p>
-                        <p className="text-neutral-400 text-sm">
-                            Hecho con pasión y dedicación{" <3"}
-                        </p>
+        <footer
+            className="flex mt-32 py-24 w-full justify-center border-t-[1px] border-neutral-800 bg-neutral-950 lg:px-24 px-5"
+            style={{ minHeight: isMobile ? "100vh" : "unset" }}
+        >
+            <div className="flex md:flex-row lg:max-w-7xl w-full md:gap-12 gap-24 justify-between flex-col-reverse">
+                <div className="flex flex-col justify-end gap-6">
+                    <div className="flex gap-6 max-w-72">
+                        <Image
+                            src={logo}
+                            alt="logo"
+                            width={48}
+                            className="rounded-full min-[345px]:flex hidden"
+                        />
+                        <div className="flex flex-col gap-1">
+                            <p className="text-gradient">
+                                © 2024 Yubal De Fuente.
+                            </p>
+                            <p className="text-neutral-400 text-sm">
+                                Hecho con pasión y dedicación{" <3"}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex">
+                        <p className="text-neutral-400 text-sm">Última actualización el {lastUpdated}</p>
                     </div>
                 </div>
                 <div className="flex flex-col justify-between gap-16">
@@ -49,6 +69,7 @@ function Footer() {
                             <div className="flex flex-col gap-3">
                                 <Link
                                     href={socialLinks[1].link}
+                                    target="_blank"
                                     className="text-base text-neutral-50"
                                 >
                                     <div className="flex gap-1">
@@ -68,7 +89,11 @@ function Footer() {
                         <p className="text-xs text-neutral-400">SOCIAL</p>
                         <div className="flex gap-3 min-[345px]:flex-row flex-col">
                             {socialLinks.map((item, index) => (
-                                <Link key={index} href={item.link}>
+                                <Link
+                                    key={index}
+                                    href={item.link}
+                                    target="_blank"
+                                >
                                     <motion.p
                                         style={{
                                             color: isMobile

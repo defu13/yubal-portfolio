@@ -16,38 +16,36 @@ function ProjectComponent({ project }) {
     }, []);
 
     return (
-            <div className="flex flex-col items-center p-5 gap-24">
-                <div className="flex flex-col gap-8 mt-[15vh] md:self-start md:ml-12 items-start">
-                    <AnimatedEntrance
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                    >
-                        <BackButton />
-                    </AnimatedEntrance>
-                    <AnimatedEntrance delay={0.2}>
-                        <Title>{project.name}</Title>
-                    </AnimatedEntrance>
-                    <AnimatedEntrance delay={0.4}>
-                        <DescriptionText>{project.description}</DescriptionText>
-                    </AnimatedEntrance>
-                </div>
-                <div
-                    className="hero-project"
-                    style={{
-                        backgroundImage: `radial-gradient(circle farthest-side at 50% 0, ${project.color}, #0000)`,
-                        opacity: 0.6,
-                    }}
-                ></div>
-                <div className="flex gap-8">
-                    {project.images.map((image, index) => (
-                        <Card key={index} className={"overflow-hidden"}>
-                            <div className="h-[200px] w-[200px]">
-                                <Image src={image} alt="project image" fill />
-                            </div>
-                        </Card>
-                    ))}
-                </div>
+        <div className="flex flex-col items-center lg:px-24 px-5 gap-24">
+            <div className="flex flex-col gap-8 mt-[15vh] md:self-start items-start">
+                <AnimatedEntrance
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                >
+                    <BackButton />
+                </AnimatedEntrance>
+                <AnimatedEntrance delay={0.2}>
+                    <Title>{project.name}</Title>
+                </AnimatedEntrance>
+                <AnimatedEntrance delay={0.4}>
+                    <DescriptionText>{project.description}</DescriptionText>
+                </AnimatedEntrance>
             </div>
+            <div
+                className="hero-project"
+                style={{
+                    backgroundImage: `radial-gradient(circle farthest-side at 50% 0, ${project.backgroundColor}, #0000)`,
+                    opacity: 0.6,
+                }}
+            ></div>
+            <div className="flex flex-col gap-8 w-full max-w-7xl">
+                {project.images.map((image, index) => (
+                    <Card key={index} className={"overflow-hidden h-auto"}>
+                        <Image src={image} alt="project image" />
+                    </Card>
+                ))}
+            </div>
+        </div>
     );
 }
 

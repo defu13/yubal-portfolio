@@ -7,14 +7,15 @@ import HighlightText from "../HighlightText/HighlightText";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, isBackground = false, cardClassName, isShadow = true }) {
     const [isHovering, setIsHovering] = useState(false);
     const shouldShowGradient = isHovering || window.innerWidth < 640;
+    const isMobile = window.innerWidth < 640;
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container}`} style={{boxShadow: !isShadow && "none"}}>
             <motion.div
-                className={`sm:h-[600px] h-auto sm:gap-16 gap-10 ${styles.card}`}
+                className={`sm:h-[550px] md:h-[700px] h-auto sm:gap-16 gap-10 ${cardClassName} ${styles.card}`}
                 onHoverStart={() => setIsHovering(true)}
                 onHoverEnd={() => setIsHovering(false)}
             >
@@ -29,40 +30,55 @@ function ProjectCard({ project }) {
                     </div>
                     <motion.div
                         className="z-10 sm:mr-5"
-                        animate={{ x: isHovering ? 20 : 0 }}
+                        animate={{ x: isHovering && !isMobile ? 20 : 0 }}
                         transition={{ duration: 0.3 }}
                     >
                         <FontAwesomeIcon icon={faArrowRight} size="2xl" />
                     </motion.div>
                 </div>
-                <motion.div
-                    className={`sm:max-w-[90%]  ${styles.img}`}
-                    animate={{ y: shouldShowGradient ? -25 : 0 }}
-                    transition={{ duration: 0.3 }}
-                >
+
+                {/* Imagen de normal, o de fondo */}
+                {!isBackground ? (
+                    <>
+                        <motion.div
+                            className={`sm:max-w-[90%]  relative ${styles.img}`}
+                            animate={{
+                                y: !isMobile && shouldShowGradient ? -25 : 0,
+                            }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <Image
+                                src={project.primaryImg}
+                                alt="project image"
+                                className="rounded-t-lg"
+                            />
+                        </motion.div>
+                        <AnimatePresence>
+                            {shouldShowGradient && (
+                                <>
+                                    <motion.div
+                                        className={styles.color}
+                                        initial={{
+                                            opacity: 0,
+                                            backgroundImage: `radial-gradient(circle at 50% 0, #7fcfff33, #0000 80%), radial-gradient(circle at 50% 0, ${project.cardColor}, #0000)`,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                        }}
+                                        exit={{ opacity: 0 }}
+                                    ></motion.div>
+                                </>
+                            )}
+                        </AnimatePresence>
+                    </>
+                ) : (
                     <Image
-                        src={project.img}
+                        className={`w-full bg-cover bg-center absolute top-0 left-0 ${styles.img}`}
+                        src={project.primaryImg}
                         alt="project image"
-                        className="rounded-lg"
+                        style={{filter: "brightness(0.3)"}}
                     />
-                </motion.div>
-                <AnimatePresence>
-                    {shouldShowGradient && (
-                        <>
-                            <motion.div
-                                className={styles.color}
-                                initial={{
-                                    opacity: 0,
-                                    backgroundImage: `radial-gradient(circle at 50% 0, #7fcfff33, #0000 80%), radial-gradient(circle at 50% 0, ${project.color}, #0000)`,
-                                }}
-                                animate={{
-                                    opacity: 1,
-                                }}
-                                exit={{ opacity: 0 }}
-                            ></motion.div>
-                        </>
-                    )}
-                </AnimatePresence>
+                )}
             </motion.div>
         </div>
     );

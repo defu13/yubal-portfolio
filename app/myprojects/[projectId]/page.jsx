@@ -1,15 +1,15 @@
-import { projectsDetailsData } from "@/data/data";
+import { projectsData } from "@/data/data";
 import ProjectComponent from "@/src/components/ProjectComponent/ProjectComponent";
 
 export async function generateStaticParams() {
-    return projectsDetailsData.map((project) => ({
+    return projectsData.map((project) => ({
         projectId: project.id.toString(),
     }));
 }
 
-function Proyecto({ params }) {
+function Project({ params }) {
     const { projectId } = params;
-    const project = projectsDetailsData.find(
+    const project = projectsData.find(
         (project) => project.id.toString() === projectId
     );
 
@@ -24,4 +24,4 @@ function Proyecto({ params }) {
     );
 }
 
-export default Proyecto;
+export default Project;

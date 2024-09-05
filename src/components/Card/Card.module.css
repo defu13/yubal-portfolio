@@ -7,6 +7,7 @@
     padding: 8px;
     position: relative;
     box-shadow: 0 40px 80px #00000080;
+    
 }
 
 .card {
@@ -17,6 +18,7 @@
     transition: border 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     position: relative;
+    
 }
 
 .card:hover {

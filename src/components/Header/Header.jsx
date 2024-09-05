@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import styles from "./Header.module.css";
 import Magnetic from "../Magnetic/Magnetic";
@@ -20,8 +19,29 @@ export default function Header() {
         setIsHovering(false);
     };
 
+    const backdropGradient = {
+        backdropFilter: "blur(15px)",
+        maskImage:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+    };
+
+    const backdropNoGradient = {
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid #f2f2f21a"
+    };
+
     return (
-        <header className={`justify-center sm:justify-between ${styles.header}`}>
+        <header
+            className={`justify-center sm:justify-between ${styles.header}`}
+        >
+            {/* <div
+                className="h-full w-full absolute top-0 left-0 z-[-1]"
+                style={backdropNoGradient}
+            ></div> */}
+            <div className="h-[150px] w-full absolute top-0 left-0 z-[-1]"
+            style={{backgroundImage: "linear-gradient(#00000080, #0000)"}}></div>
             <Magnetic>
                 <Link href="/" className="hidden sm:block">
                     <div className={styles.logo}>

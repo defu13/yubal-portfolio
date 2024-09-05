@@ -31,8 +31,8 @@ import HighlightTitle from "@/src/components/HighlightTitle/HighlightTitle";
 
 export const navigation = [
     { name: "Inicio", href: "/" },
-    { name: "Proyectos", href: "/proyectos" },
-    { name: "Sobre Mí", href: "/sobremi" },
+    { name: "Proyectos", href: "/myprojects" },
+    { name: "Sobre Mí", href: "/about" },
 ];
 
 export const socialLinks = [
@@ -148,45 +148,62 @@ export const skillsData = [
     },
 ];
 
-export const projectsCardData = [
+export const projectsData = [
     {
         id: 1,
         name: "Logofolio - Treze Studio",
-        description: <>Remodelando la imagen de Treze Studio.</>,
-        img: trezeStudio,
-        color: "#005f14",
-    },
-    {
-        id: 2,
-        name: "Logo - Nortepuro",
-        description: <>Creando la identidad de Norteputo Shop.</>,
-        img: nortepuro,
-        color: "#A76400",
-    },
-];
-
-export const projectsDetailsData = [
-    {
-        id: 1,
-        name: (
+        nameShow: (
             <>
                 Logofolio - <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
         description: <>Remodelando la imagen de Treze Studio.</>,
+        primaryImg: trezeStudio,
         images: [trezeStudio, trezeStudio, trezeStudio],
-        color: "#3dc95a80",
+        cardColor: "#005f14",
+        backgroundColor: "#3dc95a80",
     },
     {
         id: 2,
-        name: (
+        name: "Logo - Nortepuro",
+        nameShow: (
             <>
                 Logo - <HighlightTitle>Nortepuro</HighlightTitle>
             </>
         ),
         description: <>Creando la identidad de Norteputo Shop.</>,
+        primaryImg: nortepuro,
         images: [nortepuro, nortepuro, nortepuro],
-        color: "#f1af4a80",
+        cardColor: "#A76400",
+        backgroundColor: "#f1af4a80",
+    },
+    {
+        id: 3,
+        name: "Logo - Nortepuro",
+        nameShow: (
+            <>
+                Logo - <HighlightTitle>Nortepuro</HighlightTitle>
+            </>
+        ),
+        description: <>Creando la identidad de Norteputo Shop.</>,
+        primaryImg: nortepuro,
+        images: [nortepuro, nortepuro, nortepuro],
+        cardColor: "#A76400",
+        backgroundColor: "#f1af4a80",
+    },
+    {
+        id: 4,
+        name: "Logo - Nortepuro",
+        nameShow: (
+            <>
+                Logo - <HighlightTitle>Nortepuro</HighlightTitle>
+            </>
+        ),
+        description: <>Creando la identidad de Norteputo Shop.</>,
+        primaryImg: nortepuro,
+        images: [nortepuro, nortepuro, nortepuro],
+        cardColor: "#A76400",
+        backgroundColor: "#f1af4a80",
     },
 ];
 

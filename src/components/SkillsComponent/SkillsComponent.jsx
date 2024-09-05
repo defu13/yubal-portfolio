@@ -7,9 +7,9 @@ import Image from "next/image";
 import DotAnimation from "../DotAnimation/DotAnimation";
 
 
-function Skills() {
+function SkillsComponent() {
     return (
-        <div className="flex flex-col p-5 pt-0 gap-20 self-center lg:px-24 min-h-[100vh] justify-center" id="skills">
+        <div className="flex flex-col pt-0 gap-20 self-center min-h-[100vh] justify-center" id="skills">
             <div className="flex flex-col gap-8 self-start">
                 <DotTitle>Habilidades</DotTitle>
                 <Title>Puedo ayudarte con<DotAnimation/></Title>
@@ -49,4 +49,4 @@ function Skills() {
     );
 }
 
-export default Skills;
+export default SkillsComponent;

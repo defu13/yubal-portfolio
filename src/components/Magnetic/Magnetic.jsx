@@ -6,6 +6,12 @@ export default function Magnetic({ children, animationForce }) {
     const magnetic = useRef(null);
 
     useEffect(() => {
+        const isMobile = window.innerWidth < 640;
+
+        if (isMobile) {
+            return;
+        }
+
         const xTo = gsap.quickTo(magnetic.current, "x", {
             duration: 1,
             ease: "elastic.out(1.1, 0.3)",
