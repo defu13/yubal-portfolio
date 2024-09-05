@@ -10,24 +10,6 @@ import { motion } from "framer-motion";
 function Footer() {
     const isMobile = window.innerWidth < 640;
 
-    // Obtener la fecha actual (última actualización)
-    const commitTime = process.env.VERCEL_GIT_COMMIT_TIME;
-    let lastUpdated;
-
-    try {
-        lastUpdated = new Intl.DateTimeFormat("es-ES", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-        }).format(new Date(commitTime));
-    } catch (error) {
-        lastUpdated = "Última actualización: Desconocido";
-    }
-
-    console.log(lastUpdated);
-
     return (
         <footer
             className="flex mt-32 py-24 w-full justify-center border-t-[1px] border-neutral-800 bg-neutral-950 lg:px-24 px-5"
@@ -51,11 +33,9 @@ function Footer() {
                             </p>
                         </div>
                     </div>
-                    <div className="flex">
-                        <p className="text-neutral-400 text-sm">
-                            Última actualización el {lastUpdated}
-                        </p>
-                    </div>
+                    {/* <div className="flex">
+                        <p className="text-neutral-400 text-sm">Última actualización el {lastUpdated}</p>
+                    </div> */}
                 </div>
                 <div className="flex flex-col justify-between gap-16">
                     <div className="flex gap-16 min-[400px]:flex-row min-[400px]:gap-24 flex-col">
