@@ -11,7 +11,7 @@ function ProjectsPreviewComponent() {
     return (
         <>
             <div className="relative md:max-w-5xl h-[100vh] w-full flex flex-col">
-                {projectsData.slice(0, 3).map((project, index) => (
+                {projectsData.slice(-3).map((project, index) => (
                     <Link key={index} href={`/myprojects/${project.id}`}>
                         <div
                             className="absolute w-full"

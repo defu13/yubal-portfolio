@@ -7,7 +7,7 @@ import HighlightText from "../HighlightText/HighlightText";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function ProjectCard({ project, isBackground = false, cardClassName, isShadow = true }) {
+function ProjectCard({ project, isBackground = false, cardClassName = "sm:h-[550px] md:h-[700px] h-auto", isShadow = true }) {
     const [isHovering, setIsHovering] = useState(false);
     const shouldShowGradient = isHovering || window.innerWidth < 640;
     const isMobile = window.innerWidth < 640;
@@ -15,7 +15,7 @@ function ProjectCard({ project, isBackground = false, cardClassName, isShadow = 
     return (
         <div className={`${styles.container}`} style={{boxShadow: !isShadow && "none"}}>
             <motion.div
-                className={`sm:h-[550px] md:h-[700px] h-auto sm:gap-16 gap-10 ${cardClassName} ${styles.card}`}
+                className={`sm:gap-16 gap-10 ${cardClassName} ${styles.card}`}
                 onHoverStart={() => setIsHovering(true)}
                 onHoverEnd={() => setIsHovering(false)}
             >

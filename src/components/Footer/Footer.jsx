@@ -11,13 +11,22 @@ function Footer() {
     const isMobile = window.innerWidth < 640;
 
     // Obtener la fecha actual (última actualización)
-    const lastUpdated = new Intl.DateTimeFormat("es-ES", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-    }).format(new Date());
+    const commitTime = process.env.VERCEL_GIT_COMMIT_TIME;
+    let lastUpdated;
+
+    try {
+        lastUpdated = new Intl.DateTimeFormat("es-ES", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+        }).format(new Date(commitTime));
+    } catch (error) {
+        lastUpdated = "Última actualización: Desconocido";
+    }
+
+    console.log(lastUpdated);
 
     return (
         <footer
@@ -43,7 +52,9 @@ function Footer() {
                         </div>
                     </div>
                     <div className="flex">
-                        <p className="text-neutral-400 text-sm">Última actualización el {lastUpdated}</p>
+                        <p className="text-neutral-400 text-sm">
+                            Última actualización el {lastUpdated}
+                        </p>
                     </div>
                 </div>
                 <div className="flex flex-col justify-between gap-16">
