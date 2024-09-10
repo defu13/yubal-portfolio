@@ -1,0 +1,14 @@
+.moreProjectsButton {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    background-color: #f2f2f20d;
+    border: 1px solid #f2f2f21a;
+    transition: box-shadow 1s cubic-bezier(.23, 1, .32, 1), border .6s cubic-bezier(.165, .84, .44, 1);
+    box-shadow: 0 10px 25px #00000026;
+}
+
+.moreProjectsButton:hover {
+    background-color: #f2f2f214;
+    border-color: #f2f2f233;
+    box-shadow: 0 15px 40px #0000004d;
+}

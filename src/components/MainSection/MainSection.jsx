@@ -15,11 +15,12 @@ import DotTitle from "../DotTitle/DotTitle";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import AnimatedEntrance from "../AnimatedEntrance/AnimatedEntrance";
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
+import { useIsMobile } from "@/src/hooks/useIsMobile";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
     const { translateY } = useScrollVertical(100, -700);
-    const isMobile = window.innerWidth < 640;
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         let timer;

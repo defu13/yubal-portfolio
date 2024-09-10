@@ -4,12 +4,7 @@ import {
     faInstagram,
     faDribbble,
 } from "@fortawesome/free-brands-svg-icons";
-import nortfam_first from "@/assets/images/nortfamdribbble-min.jpg";
-import nortfam_second from "@/assets/images/nortfam2dribbble-min.jpg";
-import nortepuro from "@/assets/images/nortepuro-min.jpg";
-import karma from "@/assets/images/karmaexhaustdribbble-min.jpg";
-import trezeStudio from "@/assets/images/trezestudio_logofolio-min.jpg";
-import trezeStudioOld from "@/assets/images/trezestudio_logo_concepts-min.jpg";
+import { images } from "@/assets/assets";
 import HighlightText from "@/src/components/HighlightText/HighlightText";
 import {
     faCode,
@@ -59,33 +54,6 @@ export const socialLinks = [
         link: "https://dribbble.com/trezestudio",
         icon: faDribbble,
         color: "#f4588e",
-    },
-];
-
-export const dribbblePics = [
-    {
-        link: "https://dribbble.com/shots/24040374--Treze-Studio-Custom-types",
-        img: trezeStudio,
-    },
-    {
-        link: "https://dribbble.com/shots/23960779--Treze-Studio-logo-concepts",
-        img: trezeStudioOld,
-    },
-    {
-        link: "https://dribbble.com/shots/14168290-Karma-Exhaust-lettering-logo",
-        img: karma,
-    },
-    {
-        link: "https://dribbble.com/shots/12345662-Nortfam",
-        img: nortfam_second,
-    },
-    {
-        link: "https://dribbble.com/shots/11104700-Nortfam",
-        img: nortfam_first,
-    },
-    {
-        link: "https://dribbble.com/shots/10852035-Nortepuro-shop-Lettering-logo",
-        img: nortepuro,
     },
 ];
 
@@ -158,8 +126,12 @@ export const projectsData = [
             </>
         ),
         description: <>Remodelando la imagen de Treze Studio.</>,
-        primaryImg: trezeStudio,
-        images: [trezeStudio, trezeStudio, trezeStudio],
+        role: "Diseñador gráfico",
+        date: "Abril 2024",
+        enterprice: "Freelance",
+        liveSite: null,
+        primaryImage: images.trezeStudio,
+        images: [images.trezeStudio, images.trezeStudio, images.trezeStudio],
         cardColor: "#005f14",
         backgroundColor: "#3dc95a80",
     },
@@ -172,8 +144,12 @@ export const projectsData = [
             </>
         ),
         description: <>Creando la identidad de Norteputo Shop.</>,
-        primaryImg: nortepuro,
-        images: [nortepuro, nortepuro, nortepuro],
+        role: "Diseñador gráfico",
+        date: "Marzo 2020",
+        enterprice: "Freelance",
+        liveSite: "https://www.instagram.com/nortepuro/",
+        primaryImage: images.nortepuro,
+        images: [images.nortepuro_1, images.nortepuro_2, images.nortepuro_3],
         cardColor: "#A76400",
         backgroundColor: "#f1af4a80",
     },
@@ -186,22 +162,12 @@ export const projectsData = [
             </>
         ),
         description: <>Creando la identidad de Norteputo Shop.</>,
-        primaryImg: nortepuro,
-        images: [nortepuro, nortepuro, nortepuro],
-        cardColor: "#A76400",
-        backgroundColor: "#f1af4a80",
-    },
-    {
-        id: 4,
-        name: "Logo - Nortepuro",
-        nameShow: (
-            <>
-                Logo - <HighlightTitle>Nortepuro</HighlightTitle>
-            </>
-        ),
-        description: <>Creando la identidad de Norteputo Shop.</>,
-        primaryImg: nortepuro,
-        images: [nortepuro, nortepuro, nortepuro],
+        role: "Diseñador gráfico",
+        date: "Marzo 2020",
+        enterprice: "Freelance",
+        liveSite: null,
+        primaryImage: images.nortepuro,
+        images: [images.nortepuro_1, images.nortepuro_2, images.nortepuro_3],
         cardColor: "#A76400",
         backgroundColor: "#f1af4a80",
     },

@@ -57,9 +57,9 @@
 .hero-project {
     z-index: -1;
     background-position: 0 0;
-    display: block;
     position: absolute;
     inset: 0%;
+    height: 120vh;
 }
 
 .hero-noise {

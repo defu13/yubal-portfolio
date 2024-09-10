@@ -10,13 +10,12 @@ import DotTitle from "../DotTitle/DotTitle";
 function HomeSection() {
     const { translateY, containerY } = useScrollVertical(50, -300);
     return (
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-16" ref={containerY}>
             <section className="flex flex-col items-center w-full gap-40 lg:px-24 px-5">
                 <SkillsComponent />
                 <motion.div
                     className="md:self-start md:mt-0 mt-12"
                     style={{ y: translateY }}
-                    ref={containerY}
                 >
                     <Title>
                         Una combinación de creatividad y habilidades técnicas es

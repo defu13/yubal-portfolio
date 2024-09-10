@@ -7,7 +7,7 @@ function LoadingSpinner() {
                 <div className={styles.dot}></div>
                 <div className={styles.dot}></div>
             </div>
-            <p className="neuemontreal-regular text-sm">Un momento...</p>
+            <p className="neuemontreal-regular text-sm">Un momento ...</p>
         </div>
     );
 }

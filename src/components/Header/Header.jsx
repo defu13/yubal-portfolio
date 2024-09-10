@@ -34,16 +34,16 @@ export default function Header() {
 
     return (
         <header
-            className={`justify-center sm:justify-between ${styles.header}`}
+            className={`justify-center sm:justify-between pointer-events-none ${styles.header}`}
         >
             {/* <div
                 className="h-full w-full absolute top-0 left-0 z-[-1]"
                 style={backdropNoGradient}
             ></div> */}
-            <div className="h-[150px] w-full absolute top-0 left-0 z-[-1]"
+            <div className="h-[150px] w-full absolute top-0 left-0"
             style={{backgroundImage: "linear-gradient(#00000080, #0000)"}}></div>
             <Magnetic>
-                <Link href="/" className="hidden sm:block">
+                <Link href="/" className="hidden sm:block pointer-events-auto">
                     <div className={styles.logo}>
                         <p className={styles.copyright}>©</p>
                         <div className={styles.name}>
@@ -54,7 +54,7 @@ export default function Header() {
                     </div>
                 </Link>
             </Magnetic>
-            <div className="flex gap-10">
+            <div className="flex gap-10 pointer-events-auto">
                 {navigation.map((item, index) => (
                     <Magnetic key={index}>
                         <Link

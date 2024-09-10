@@ -6,14 +6,24 @@ import { useState } from "react";
 import HighlightText from "../HighlightText/HighlightText";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useIsMobile } from "@/src/hooks/useIsMobile";
 
-function ProjectCard({ project, isBackground = false, cardClassName = "sm:h-[550px] md:h-[700px] h-auto", isShadow = true }) {
+function ProjectCard({
+    project,
+    isBackground = false,
+    containerClassName = "",
+    cardClassName = "sm:h-[550px] md:h-[700px] h-auto",
+    isShadow = true
+}) {
     const [isHovering, setIsHovering] = useState(false);
-    const shouldShowGradient = isHovering || window.innerWidth < 640;
-    const isMobile = window.innerWidth < 640;
+    const isMobile = useIsMobile();
+    const shouldShowGradient = isHovering || isMobile;
 
     return (
-        <div className={`${styles.container}`} style={{boxShadow: !isShadow && "none"}}>
+        <div
+            className={`${styles.container} ${containerClassName}`}
+            style={{ boxShadow: !isShadow && "none"}}
+        >
             <motion.div
                 className={`sm:gap-16 gap-10 ${cardClassName} ${styles.card}`}
                 onHoverStart={() => setIsHovering(true)}
@@ -48,7 +58,7 @@ function ProjectCard({ project, isBackground = false, cardClassName = "sm:h-[550
                             transition={{ duration: 0.3 }}
                         >
                             <Image
-                                src={project.primaryImg}
+                                src={project.primaryImage}
                                 alt="project image"
                                 className="rounded-t-lg"
                             />
@@ -74,9 +84,9 @@ function ProjectCard({ project, isBackground = false, cardClassName = "sm:h-[550
                 ) : (
                     <Image
                         className={`w-full bg-cover bg-center absolute top-0 left-0 ${styles.img}`}
-                        src={project.primaryImg}
+                        src={project.primaryImage}
                         alt="project image"
-                        style={{filter: "brightness(0.3)"}}
+                        style={{ filter: "brightness(0.3)" }}
                     />
                 )}
             </motion.div>

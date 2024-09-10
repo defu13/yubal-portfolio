@@ -3,9 +3,9 @@ import { projectsData } from "@/data/data";
 import Link from "next/link";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import { motion } from "framer-motion";
-import DotTitle from "../DotTitle/DotTitle";
 import Magnetic from "../Magnetic/Magnetic";
 import styles from "./ProjectsPreviewComponent.module.css";
+import ButtonComponent from "../Button/ButtonComponent";
 
 function ProjectsPreviewComponent() {
     return (
@@ -48,11 +48,12 @@ function ProjectsPreviewComponent() {
                     </Link>
                 ))}
             </div>
-            <Magnetic>
-                <Link href="/myprojects" className="flex self-center w-[150px] -mt-[300px] z-[4]">
-                    <div className={`flex rounded-3xl p-3 w-full items-center justify-center text-shadow-glow ${styles.moreProjectsButton}`}>Más proyectos</div>
-                </Link>
-            </Magnetic>
+            <ButtonComponent
+                href="/myprojects"
+                linkClassName="flex self-center w-[150px] -mt-[300px] z-[4]"
+            >
+                Más proyectos
+            </ButtonComponent>
         </>
     );
 }
