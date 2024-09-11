@@ -15,7 +15,7 @@ function ButtonComponent({
         <Magnetic>
             <Link href={href} className={`flex ${linkClassName}`}>
                 <div
-                    className={`flex items-center justify-center text-shadow-glow ${rounded} ${padding} ${buttonClassName} ${styles.moreProjectsButton}`}
+                    className={`flex items-center justify-center text-glow ${rounded} ${padding} ${buttonClassName} ${styles.moreProjectsButton}`}
                 >
                     {children}
                 </div>

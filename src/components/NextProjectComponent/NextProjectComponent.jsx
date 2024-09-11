@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import DotTitle from "../DotTitle/DotTitle";
-import DotAnimation from "../DotAnimation/DotAnimation";
+import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,22 +11,26 @@ function NextProjectComponent({ nextProject }) {
     const [isHovering, setIsHovering] = useState(false);
     const isMobile = useIsMobile();
 
+    useEffect(() => {
+        if (isMobile) {
+            setIsHovering(true);
+        } else {
+            setIsHovering(false);
+        }
+    },[isMobile]);
+
     return (
         <>
-            <div className="flex flex-col gap-12 w-full lg:max-w-7xl self-center">
-                <DotTitle>
-                    Continua explorando
-                    <DotAnimation />
-                </DotTitle>
-                <div className="flex justify-center border-b-[1px] overflow-hidden pt-[70px]">
+            <div className="flex w-full lg:max-w-7xl self-center">
+                <div className="flex justify-center border-b-[1px] overflow-hidden pt-[70px] w-full">
                     <Link
                         href={`/myprojects/${nextProject.id}`}
-                        className="w-full max-w-[90%] flex"
+                        className="w-full sm:max-w-[85%] max-w-[95%] flex"
                     >
                         <motion.div
                             className="flex justify-center w-full cursor-pointer"
-                            onHoverStart={() => setIsHovering(true)}
-                            onHoverEnd={() => setIsHovering(false)}
+                            onHoverStart={!isMobile ? () => setIsHovering(true) : null}
+                            onHoverEnd={!isMobile ? () => setIsHovering(false) : null}
                         >
                             <motion.div
                                 className="w-full relative"
@@ -42,19 +44,22 @@ function NextProjectComponent({ nextProject }) {
                                 }}
                             >
                                 <motion.div
-                                    className="absolute left-[50%] -translate-x-1/2 translate-y-1/2 z-[2] flex justify-center items-center -mb-12 w-full"
-                                    initial={{
-                                        bottom: 0,
-                                    }}
+                                    className="absolute top-[50%] left-0 -translate-y-1/2 z-[2] flex justify-center items-center w-full"
+                                    initial={{ y: 140 }}
                                     animate={{
                                         opacity: isHovering ? 1 : 0,
-                                        bottom: isHovering ? "50%" : 0,
+                                        y: isHovering ? 0 : 140,
                                     }}
                                     transition={{
-                                        delay: 0.2,
-                                        stiffness: 100,
-                                        damping: 10,
-                                        type: "spring",
+                                        y: {
+                                            delay: 0.2,
+                                            stiffness: 100,
+                                            damping: 10,
+                                            type: "spring",
+                                        },
+                                        opacity: {
+                                            delay: 0.3,
+                                        }
                                     }}
                                 >
                                     <ButtonComponent
@@ -82,16 +87,12 @@ function NextProjectComponent({ nextProject }) {
                                         containerClassName="w-full sm:-mb-[300px] md:-mb-[450px] -mb-[175px] pointer-events-none"
                                         cardClassName="sm:h-[500px] md:h-[700px] h-[300px]"
                                         isDark={isHovering}
+                                        isShadow={isMobile ? false : true}
                                     />
                                 </motion.div>
                             </motion.div>
                         </motion.div>
                     </Link>
-                </div>
-                <div className="flex justify-center mt-12">
-                    <ButtonComponent href={"/myprojects"}>
-                        Todos los proyectos
-                    </ButtonComponent>
                 </div>
             </div>
         </>

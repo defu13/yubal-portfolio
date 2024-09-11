@@ -19,7 +19,7 @@ import { useIsMobile } from "@/src/hooks/useIsMobile";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
-    const { translateY } = useScrollVertical(100, -700);
+    const { translateY } = useScrollVertical(1, 100, -700);
     const isMobile = useIsMobile();
 
     useEffect(() => {
@@ -58,10 +58,8 @@ function MainSection() {
                         <Floating>
                             <Image
                                 src={profilePic}
-                                width={250}
-                                height={250}
                                 alt="profile picture of author"
-                                className="rounded-full max-[300px]:w-[90vw]"
+                                className="rounded-full max-[300px]:max-w-[90vw] sm:max-w-[250px] max-w-[200px]"
                             />
                         </Floating>
                         <div
@@ -98,7 +96,7 @@ function MainSection() {
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.3}>
                             <h1
-                                className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-shadow-glow neuemontreal-medium tracking-tight ${styles.title}`}
+                                className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-glow neuemontreal-medium tracking-tight ${styles.title}`}
                             >
                                 <HighlightTitle color="#fafafa">Diseñador</HighlightTitle>&nbsp; y Desarrollador
                             </h1>

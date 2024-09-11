@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-export default function Magnetic({ children, animationForce }) {
+export default function Magnetic({ children, animationForce = 0.35 }) {
     const magnetic = useRef(null);
 
     useEffect(() => {
@@ -27,13 +27,9 @@ export default function Magnetic({ children, animationForce }) {
                 magnetic.current.getBoundingClientRect();
             const x = clientX - (left + width / 2);
             const y = clientY - (top + height / 2);
-            if (animationForce) {
-                xTo(x * animationForce);
-                yTo(y * animationForce);
-            } else {
-                xTo(x * 0.35);
-                yTo(y * 0.35);
-            }
+
+            xTo(x * animationForce);
+            yTo(y * animationForce);
         });
         magnetic.current.addEventListener("mouseleave", (e) => {
             xTo(0);

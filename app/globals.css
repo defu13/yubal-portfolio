@@ -54,6 +54,15 @@
     animation: shine 5s ease-in-out infinite;
 }
 
+.box-Shadow{
+    box-shadow: 0 40px 80px #00000080;
+}
+
+.fade-gradient {
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 90%);
+}
+
 .hero-project {
     z-index: -1;
     background-position: 0 0;
@@ -113,12 +122,12 @@ body {
     background-color: #101010;
 }
 
-.text-shadow-glow {
+.text-glow {
     text-shadow: 0 5px 10px rgba(0, 87, 255, 0.15),
         0 -5px 10px rgba(255, 90, 0, 0.1), 0 -5px 25px rgba(255, 255, 255, 0.3);
 }
 
-.box-shadow-glow {
+.box-glow {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 

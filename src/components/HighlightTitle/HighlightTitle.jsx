@@ -3,7 +3,7 @@ function HighlightTitle({
     color = "#a5d5e3",
 }) {
     return (
-        <span className={`gloock-regular italic text-shadow-glow tracking-normal`}
+        <span className={`gloock-regular italic text-glow tracking-normal`}
         style={{ color: color }}
         >
             {children}

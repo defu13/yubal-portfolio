@@ -16,6 +16,10 @@ import { motion } from "framer-motion";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { projectsData } from "@/data/data";
 import NextProjectComponent from "../NextProjectComponent/NextProjectComponent";
+import ButtonComponent from "../Button/ButtonComponent";
+import DotTitle from "../DotTitle/DotTitle";
+import DotAnimation from "../DotAnimation/DotAnimation";
+import HighlightTitle from "../HighlightTitle/HighlightTitle";
 
 function ProjectComponent({ project }) {
     const { setLoading } = useLoading();
@@ -28,14 +32,28 @@ function ProjectComponent({ project }) {
     // calcula el nextProject a partir del project actual
     const nextProject = projectsData[project.id];
 
-    const { containerY, translateY, rotate } = useScrollVertical(
-        150,
-        -600,
-        -1,
-        90,
-        330,
-        false
-    );
+    const {
+        containerY,
+        translateY: firstTranslateY,
+        rotate,
+    } = useScrollVertical(1, 150, -600, -1, 90, 330, false);
+
+    const { translateY: secondTranslateY } = useScrollVertical(1, 150, -600);
+
+    const projectInfo = [
+        {
+            title: "ROL / SERVICIO",
+            value: project.role,
+        },
+        {
+            title: "FECHA",
+            value: project.date,
+        },
+        {
+            title: "EMPRESA",
+            value: project.enterprice,
+        },
+    ];
 
     useEffect(() => {
         setLoading(false);
@@ -64,78 +82,88 @@ function ProjectComponent({ project }) {
                     className="w-full lg:max-w-7xl self-center flex flex-col"
                 >
                     <div className="flex sm:flex-row flex-col mt-10 gap-12 sm:gap-8">
-                        <div className="flex flex-col gap-6 flex-1">
-                            <p className="neuemontreal-regular text-xs text-neutral-400">
-                                ROL / SERVICIO
-                            </p>
-                            <hr className="shrink-0 border-none w-full bg-neutral-400 h-px" />
-                            <p>{project.role}</p>
-                        </div>
-                        <div className="flex flex-col gap-6 flex-1">
-                            <p className="neuemontreal-regular text-xs text-neutral-400">
-                                FECHA
-                            </p>
-                            <hr className="shrink-0 border-none w-full bg-neutral-400 h-px" />
-                            <p>{project.date}</p>
-                        </div>
-                        <div className="flex flex-col gap-6 flex-1">
-                            <p className="neuemontreal-regular text-xs text-neutral-400">
-                                EMPRESA
-                            </p>
-                            <hr className="shrink-0 border-none w-full bg-neutral-400 h-px" />
-                            <p>{project.enterprice}</p>
-                        </div>
+                        {projectInfo.map((item, index) => (
+                            <div
+                                className="flex flex-col gap-6 flex-1"
+                                key={index}
+                            >
+                                <p className="neuemontreal-regular text-xs text-neutral-400">
+                                    {item.title}
+                                </p>
+                                <hr className="shrink-0 border-none w-full bg-neutral-400 h-px" />
+                                <p>{item.value}</p>
+                            </div>
+                        ))}
                     </div>
                     {project.liveSite && (
-                        <div className="flex items-end justify-end gap-12">
-                            <div className="flex gap-2 items-center">
-                                <p className="text-xs">Live Site</p>
-                                <motion.div
-                                    style={{ rotate: isMobile ? 45 : rotate }}
-                                >
-                                    <Image
-                                        src={link_arrow}
-                                        alt="link arrow"
-                                        width={30}
-                                    />
-                                </motion.div>
-                            </div>
-                            <Link
-                                href={project.liveSite}
-                                target="_blank"
-                                className="rounded-full flex z-[1] -mt-12"
-                            >
-                                <motion.div
-                                    className="p-10 rounded-full flex justify-center items-center flex-col relative"
-                                    style={{
-                                        backgroundColor: project.cardColor,
-                                        y: isMobile ? 35 : translateY,
-                                    }}
-                                >
-                                    <Globe />
+                        <AnimatedEntrance delay={0.6}>
+                            <div className="flex items-end justify-end gap-12">
+                                <div className="flex gap-2 items-center">
+                                    <p className="text-xs">Live Site</p>
                                     <motion.div
-                                        className="w-full h-full top-0 left-0 absolute rounded-full z-[-1] inset-0"
-                                        whileHover={{
-                                            backgroundColor: "#ff4444",
+                                        style={{
+                                            rotate: isMobile ? 45 : rotate,
                                         }}
-                                        transition={{
-                                            duration: 2,
-                                            ease: "easeInOut",
+                                    >
+                                        <Image
+                                            src={link_arrow}
+                                            alt="link arrow"
+                                            width={30}
+                                        />
+                                    </motion.div>
+                                </div>
+                                <Link
+                                    href={project.liveSite}
+                                    target="_blank"
+                                    className="rounded-full flex z-[1] -mt-12"
+                                >
+                                    <motion.div
+                                        className="p-10 rounded-full flex justify-center items-center flex-col relative"
+                                        style={{
+                                            backgroundColor: project.cardColor,
+                                            y: isMobile ? 35 : firstTranslateY,
                                         }}
-                                    ></motion.div>
-                                </motion.div>
-                            </Link>
-                        </div>
+                                    >
+                                        <Globe />
+                                        <motion.div
+                                            className="w-full h-full top-0 left-0 absolute rounded-full z-[-1] inset-0"
+                                            whileHover={{
+                                                backgroundColor: "#ff4444",
+                                            }}
+                                            transition={{
+                                                duration: 2,
+                                                ease: "easeInOut",
+                                            }}
+                                        ></motion.div>
+                                    </motion.div>
+                                </Link>
+                            </div>
+                        </AnimatedEntrance>
                     )}
                 </AnimatedEntrance>
             </div>
-            <AnimatedEntrance delay={0.6}>
-                <div className="max-h-[800px] w-full max-w-7xl relative">
-                    <Image
-                        src={backgroundImage}
-                        alt="background image"
-                        className="w-full max-w-7xl"
-                    />
+            <AnimatedEntrance
+                delay={project.liveSite ? 0.8 : 0.6}
+                className="w-full flex justify-center"
+            >
+                <div
+                    className="max-h-[800px] h-full w-full max-w-7xl bg-cover flex justify-center pt-16"
+                    style={{
+                        backgroundImage: !isMobile
+                            ? `url(${backgroundImage.src})`
+                            : "none",
+                    }}
+                >
+                    <motion.div
+                        className="flex w-full h-full justify-center items-center relative"
+                        style={{ y: isMobile ? 0 : secondTranslateY }}
+                    >
+                        <Image
+                            src={project.primaryImage}
+                            alt="project main image"
+                            className="sm:max-w-[70%] w-[99%] h-auto object-cover rounded-3xl mb-[2px]"
+                        />
+                    </motion.div>
                 </div>
             </AnimatedEntrance>
             <div
@@ -145,7 +173,7 @@ function ProjectComponent({ project }) {
                     opacity: 0.75,
                 }}
             ></div>
-            <div className="flex flex-col gap-28">
+            <div className="flex flex-col gap-28 sm:mt-32">
                 <div className="flex flex-col gap-8 w-full max-w-7xl">
                     {project.images.map((image, index) => (
                         <Card key={index} className={"overflow-hidden h-auto"}>
@@ -157,12 +185,24 @@ function ProjectComponent({ project }) {
                         </Card>
                     ))}
                 </div>
-                {!isLastProject && (
-                    <div className="flex flex-col gap-8 mt-12">
-                        <hr className="shrink-0 border-none w-full bg-neutral-800 h-px" />
-                        <NextProjectComponent nextProject={nextProject} />
+
+                <div className="flex flex-col gap-8 mt-12">
+                    <hr className="shrink-0 border-none w-full bg-neutral-800 h-px" />
+                    {!isLastProject && (
+                        <>
+                            <Title>
+                                Continua explorando
+                                <DotAnimation />
+                            </Title>
+                            <NextProjectComponent nextProject={nextProject} />
+                        </>
+                    )}
+                    <div className="flex justify-center mt-12">
+                        <ButtonComponent href={"/myprojects"}>
+                            Todos los proyectos
+                        </ButtonComponent>
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );
