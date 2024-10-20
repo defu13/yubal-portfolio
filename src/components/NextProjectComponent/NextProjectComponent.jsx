@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ButtonComponent from "../Button/ButtonComponent";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import Link from "next/link";

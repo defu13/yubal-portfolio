@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { projectsData } from "@/data/data";
 import NextProjectComponent from "../NextProjectComponent/NextProjectComponent";
-import ButtonComponent from "../Button/ButtonComponent";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import DotTitle from "../DotTitle/DotTitle";
 import DotAnimation from "../DotAnimation/DotAnimation";
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
