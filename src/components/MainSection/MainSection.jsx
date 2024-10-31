@@ -49,7 +49,7 @@ function MainSection() {
     };
 
     return (
-        <header>
+        <>
             <div
                 className={`flex flex-col items-center justify-center pt-10 lg:p-0 relative ${styles.header_container}`}
             >
@@ -89,7 +89,7 @@ function MainSection() {
                     </AnimatedEntrance>
                     <div className="flex flex-col gap-8 max-w-2xl justify-between">
                         <AnimatedEntrance
-                            className="flex gap-3 items-center -mb-4"
+                            className="flex gap-3 items-center"
                             delay={0.2}
                         >
                             <DotTitle>Yubal de Fuente</DotTitle>
@@ -152,7 +152,7 @@ function MainSection() {
                     </Floating>
                 </AnimatedEntrance>
             </div>
-        </header>
+        </>
     );
 }
 

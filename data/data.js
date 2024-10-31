@@ -171,7 +171,7 @@ export const projectsData = [
         cardColor: "#A76400",
         backgroundColor: "#f1af4a80",
     },
-];
+]; // TODO añadir proyectos
 
 export const contactData = [
     {

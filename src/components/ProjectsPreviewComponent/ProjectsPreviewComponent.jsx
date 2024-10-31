@@ -1,10 +1,6 @@
 import { projectsData } from "@/data/data";
 import Link from "next/link";
-import ProjectCard from "../ProjectCard/ProjectCard";
-import { motion } from "framer-motion";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import CardProjectPreviewComponent from "../CardProjectPreviewComponent/CardProjectPreviewComponent";
 
 function ProjectsPreviewComponent() {

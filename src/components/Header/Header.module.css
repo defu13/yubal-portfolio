@@ -59,11 +59,13 @@
     position: relative;
 }
 
-.menu_element:hover .dot{
+.menu_element:hover .dot,
+.menu_element:hover .dot_mobile{
     transform: scale(1);
 }
 
-.active .dot{
+.active .dot,
+.active .dot_mobile{
     transform: scale(1);
 }
 
@@ -73,6 +75,15 @@
     height: 5px;
     top: 35px;
     left: 45%;
+    background-color: white;
+    border-radius: 50%;
+    transform: scale(0) translateX(-50%);
+    transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.dot_mobile{
+    width: 10px;
+    height: 10px;
     background-color: white;
     border-radius: 50%;
     transform: scale(0) translateX(-50%);
