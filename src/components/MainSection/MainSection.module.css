@@ -36,3 +36,16 @@
     right: 0;
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
+
+/* .mask{
+    position: absolute;
+    mask-image: url("../../../assets/images/mask.svg");
+    background: transparent;
+    mask-repeat: no-repeat;
+    mask-size: 50px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

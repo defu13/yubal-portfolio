@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
 import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
+import profilePicColor from "@/assets/images/rsz_fotoperfil_nueva-edit-color.jpg";
 import { socialLinks } from "@/data/data";
 import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faCheck, faArrowDown } from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +22,21 @@ function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
     const { translateY } = useScrollVertical(1, 100, -700);
     const isMobile = useIsMobile();
+
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [isHovering, setIsHovering] = useState(false);
+
+    useEffect(() => {
+        const setFromEvent = (e) => {
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        };
+        window.addEventListener("mousemove", setFromEvent);
+        return () => {
+            window.removeEventListener("mousemove", setFromEvent);
+        };
+    }, []);
+
+    const size = isHovering ? "150" : "0";
 
     useEffect(() => {
         let timer;
@@ -47,7 +63,7 @@ function MainSection() {
             });
         }
     };
-
+    console.log(isHovering);
     return (
         <>
             <div
@@ -56,6 +72,25 @@ function MainSection() {
                 <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
                     <AnimatedEntrance className="flex flex-col gap-2 justify-between min-w-64">
                         <Floating>
+                            <motion.div
+                                className={`${styles.mask} absolute`}
+                                // animate={{
+                                //     WebkitMaskPosition: `${mousePosition.x + 280}px ${mousePosition.y}px`,
+                                //     WebkitMaskSize: `${size}px`,
+                                // }}
+                                // transition={{ease: "backOut", duration: 0.4}}
+                                initial={{opacity: 0}}
+                                whileHover={{opacity: 1}}
+                                transition={{duration: 4}}
+                            >
+                                <Image
+                                    src={profilePicColor}
+                                    alt="mask"
+                                    className="rounded-full max-[300px]:max-w-[90vw] sm:max-w-[250px] max-w-[200px]"
+                                    onMouseEnter={() => setIsHovering(true)}
+                                    onMouseLeave={() => setIsHovering(false)}
+                                />
+                            </motion.div>
                             <Image
                                 src={profilePic}
                                 alt="profile picture of author"
@@ -68,7 +103,7 @@ function MainSection() {
                             <div
                                 className={`gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
                             >
-                                <FontAwesomeIcon icon={faEnvelope}/>
+                                <FontAwesomeIcon icon={faEnvelope} />
                                 <span className="jetbrainsmono-regular select-none">
                                     Contáctame
                                 </span>
@@ -98,7 +133,10 @@ function MainSection() {
                             <h1
                                 className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-glow neuemontreal-medium tracking-tight ${styles.title}`}
                             >
-                                <HighlightTitle color="#fafafa">Diseñador</HighlightTitle>&nbsp; y Desarrollador
+                                <HighlightTitle color="#fafafa">
+                                    Diseñador
+                                </HighlightTitle>
+                                &nbsp; y Desarrollador
                             </h1>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.4}>
@@ -124,7 +162,9 @@ function MainSection() {
                                             }}
                                             transition={{ duration: 0.2 }}
                                             style={{
-                                                color: isMobile ? button.color : "#fafafa",
+                                                color: isMobile
+                                                    ? button.color
+                                                    : "#fafafa",
                                             }}
                                         >
                                             <FontAwesomeIcon
@@ -146,7 +186,10 @@ function MainSection() {
                     animate={{ opacity: 1 }}
                 >
                     <Floating animationForce={1.5} speed={2}>
-                        <button onClick={() => scrollToElement("skills")} className="p-2 rounded-full">
+                        <button
+                            onClick={() => scrollToElement("skills")}
+                            className="p-2 rounded-full"
+                        >
                             <FontAwesomeIcon icon={faArrowDown} size="2x" />
                         </button>
                     </Floating>
