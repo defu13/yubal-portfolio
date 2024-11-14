@@ -10,10 +10,10 @@ import Link from "next/link";
 import AnimatedEntrance from "@/src/components/AnimatedEntrance/AnimatedEntrance";
 
 export default function Myprojects() {
-    const { setLoading } = useLoading();
-    useEffect(() => {
-        setLoading(false);
-    }, []);
+    // const { setLoading } = useLoading();
+    // useEffect(() => {
+    //     setLoading(false);
+    // }, []);
     return (
         <section>
             <div className="flex flex-col items-center gap-24 lg:px-24 px-5">

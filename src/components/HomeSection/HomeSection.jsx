@@ -24,7 +24,7 @@ function HomeSection() {
                     </Title>
                 </motion.div>
             </section>
-            <section className="lg:px-24 px-5 flex justify-center">
+            <section className="lg:px-24 px-5 py-10 flex justify-center overflow-hidden">
                 <div className="flex flex-col gap-20 md:max-w-5xl w-full">
                     <DotTitle>Proyectos recientes</DotTitle>
                     <ProjectsPreviewComponent />

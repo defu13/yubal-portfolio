@@ -85,7 +85,7 @@ function MainSection() {
                             >
                                 <Image
                                     src={profilePicColor}
-                                    alt="mask"
+                                    alt="profile picture of author colored"
                                     className="rounded-full max-[300px]:max-w-[90vw] sm:max-w-[250px] max-w-[200px]"
                                     onMouseEnter={() => setIsHovering(true)}
                                     onMouseLeave={() => setIsHovering(false)}

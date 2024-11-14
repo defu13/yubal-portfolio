@@ -9,7 +9,7 @@ function Main({ children }) {
         <LoadingProvider>
             <Loader>
                 <Header />
-                <main>{children}</main>
+                <main className="pb-32 border-b-[1px] border-neutral-800">{children}</main>
                 <Footer />
             </Loader>
         </LoadingProvider>

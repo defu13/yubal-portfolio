@@ -14,9 +14,11 @@ function ProjectsPreviewComponent() {
                         </Link>
                         {index === 2 && (
                             <div
-                                className="hero-fade bottom-0 mb-[170px]"
+                                className="hero-fade"
                                 style={{
                                     zIndex: 3,
+                                    height: "240px",
+                                    bottom: "9rem",
                                 }}
                             ></div>
                         )}
