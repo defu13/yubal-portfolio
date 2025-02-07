@@ -4,7 +4,7 @@ import {
     faInstagram,
     faDribbble,
 } from "@fortawesome/free-brands-svg-icons";
-import { images } from "@/assets/assets";
+import { images } from "@/src/utils/images";
 import HighlightText from "@/src/components/HighlightText/HighlightText";
 import {
     faCode,
@@ -119,57 +119,57 @@ export const skillsData = [
 export const projectsData = [
     {
         id: 1,
-        name: "Logofolio - Treze Studio",
+        name: "Identidad de marca - Treze Studio",
         nameShow: (
             <>
-                Logofolio - <HighlightTitle>Treze Studio</HighlightTitle>
+                Identidad de marca - <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
-        description: <>Remodelando la imagen de Treze Studio.</>,
+        description: <>Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.</>,
         role: "Diseñador gráfico",
         date: "Abril 2024",
         enterprice: "Freelance",
-        liveSite: null,
-        primaryImage: images.trezeStudio,
-        images: [images.trezeStudio, images.trezeStudio, images.trezeStudio],
-        cardColor: "#005f14",
-        backgroundColor: "#3dc95a80",
+        liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio",
+        primaryImage: images.trezestudio.primaryImage,
+        images: images.trezestudio.restImages,
+        cardColor: "#3C3CC7",
+        backgroundColor: "#3C3CC780",
     },
     {
         id: 2,
-        name: "Logo - Nortepuro",
+        name: "Identidad de marca - Treze Studio",
         nameShow: (
             <>
-                Logo - <HighlightTitle>Nortepuro</HighlightTitle>
+                Identidad de marca - <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
-        description: <>Creando la identidad de Norteputo Shop.</>,
+        description: <>Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.</>,
         role: "Diseñador gráfico",
-        date: "Marzo 2020",
+        date: "Abril 2024",
         enterprice: "Freelance",
-        liveSite: "https://www.instagram.com/nortepuro/",
-        primaryImage: images.nortepuro,
-        images: [images.nortepuro_1, images.nortepuro_2, images.nortepuro_3],
-        cardColor: "#A76400",
-        backgroundColor: "#f1af4a80",
+        liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio",
+        primaryImage: images.trezestudio.primaryImage,
+        images: images.trezestudio.restImages,
+        cardColor: "#3C3CC7",
+        backgroundColor: "#3C3CC780",
     },
     {
         id: 3,
-        name: "Logo - Nortepuro",
+        name: "Identidad de marca - Treze Studio",
         nameShow: (
             <>
-                Logo - <HighlightTitle>Nortepuro</HighlightTitle>
+                Identidad de marca - <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
-        description: <>Creando la identidad de Norteputo Shop.</>,
+        description: <>Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.</>,
         role: "Diseñador gráfico",
-        date: "Marzo 2020",
+        date: "Abril 2024",
         enterprice: "Freelance",
-        liveSite: null,
-        primaryImage: images.nortepuro,
-        images: [images.nortepuro_1, images.nortepuro_2, images.nortepuro_3],
-        cardColor: "#A76400",
-        backgroundColor: "#f1af4a80",
+        liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio",
+        primaryImage: images.trezestudio.primaryImage,
+        images: images.trezestudio.restImages,
+        cardColor: "#3C3CC7",
+        backgroundColor: "#3C3CC780",
     },
 ]; // TODO añadir proyectos
 

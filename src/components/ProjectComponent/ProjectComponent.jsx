@@ -99,7 +99,7 @@ function ProjectComponent({ project }) {
                         <AnimatedEntrance delay={0.6}>
                             <div className="flex items-end justify-end gap-12">
                                 <div className="flex gap-2 items-center">
-                                    <p className="text-xs">Live Site</p>
+                                    <p className="text-xs">Ver más</p>
                                     <motion.div
                                         style={{
                                             rotate: isMobile ? 45 : rotate,
@@ -173,16 +173,15 @@ function ProjectComponent({ project }) {
                     opacity: 0.75,
                 }}
             ></div>
-            <div className="flex flex-col gap-28 sm:mt-32">
-                <div className="flex flex-col gap-8 w-full max-w-7xl">
+            <div className="flex flex-col gap-28 sm:mt-52">
+                <div className="flex flex-col w-full max-w-7xl">
                     {project.images.map((image, index) => (
-                        <Card key={index} className={"overflow-hidden h-auto"}>
-                            <Image
-                                src={image}
-                                alt="project image"
-                                className="w-full"
-                            />
-                        </Card>
+                        <Image
+                            key={index}
+                            src={image}
+                            alt={`Imagen del proyecto ${index + 1}`}
+                            className="w-full"
+                        />
                     ))}
                 </div>
 
