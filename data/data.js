@@ -127,7 +127,7 @@ export const projectsData = [
         ),
         description: <>Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.</>,
         role: "Diseñador gráfico",
-        date: "Abril 2024",
+        date: "Febrero 2025",
         enterprice: "Freelance",
         liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio",
         primaryImage: images.trezestudio.primaryImage,

@@ -4,8 +4,7 @@ import styles from "./ProjectCard.module.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import HighlightText from "../HighlightText/HighlightText";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MdArrowForward } from "react-icons/md";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 
 function ProjectCard({
@@ -43,7 +42,8 @@ function ProjectCard({
                         animate={{ x: isHovering && !isMobile ? 20 : 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <FontAwesomeIcon icon={faArrowRight} size="2xl" />
+                        {/* <FontAwesomeIcon icon={faArrowRight} size="2xl" /> */}
+                        <MdArrowForward size="2.5rem" />
                     </motion.div>
                 </div>
 

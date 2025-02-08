@@ -4,7 +4,7 @@ import Loader from "../Loader/Loader";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
-function Main({ children }) {
+function MainComponent({ children }) {
     return (
         <LoadingProvider>
             <Loader>
@@ -16,4 +16,4 @@ function Main({ children }) {
     );
 }
 
-export default Main;
+export default MainComponent;

@@ -30,7 +30,7 @@ function Footer() {
                             />
                             <div className="flex flex-col gap-1">
                                 <p className="text-gradient">
-                                    © 2024 Yubal De Fuente.
+                                    © 2025 Yubal De Fuente.
                                 </p>
                                 <p className="text-neutral-500 text-sm">
                                     Hecho con pasión y dedicación{" <3"}

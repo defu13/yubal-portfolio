@@ -22,7 +22,7 @@ import DotAnimation from "../DotAnimation/DotAnimation";
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
 
 function ProjectComponent({ project }) {
-    const { setLoading } = useLoading();
+    // const { setLoading } = useLoading();
     const isMobile = useIsMobile();
 
     // calcular si es el ultimo proyecto
@@ -36,9 +36,9 @@ function ProjectComponent({ project }) {
         containerY,
         translateY: firstTranslateY,
         rotate,
-    } = useScrollVertical(1, 150, -600, -1, 90, 330, false);
+    } = useScrollVertical(1, 150, -2500, -1, 90, 800, false);
 
-    const { translateY: secondTranslateY } = useScrollVertical(1, 150, -600);
+    // const { translateY: secondTranslateY } = useScrollVertical(1, 150, -600);
 
     const projectInfo = [
         {
@@ -55,9 +55,9 @@ function ProjectComponent({ project }) {
         },
     ];
 
-    useEffect(() => {
-        setLoading(false);
-    }, []);
+    // useEffect(() => {
+    //     setLoading(false);
+    // }, []);
 
     return (
         <div
@@ -147,7 +147,7 @@ function ProjectComponent({ project }) {
                 className="w-full flex justify-center"
             >
                 <div
-                    className="max-h-[800px] h-full w-full max-w-7xl bg-cover flex justify-center pt-16"
+                    className="h-full w-full max-w-7xl bg-cover flex justify-center pt-24"
                     style={{
                         backgroundImage: !isMobile
                             ? `url(${backgroundImage.src})`
@@ -156,7 +156,7 @@ function ProjectComponent({ project }) {
                 >
                     <motion.div
                         className="flex w-full h-full justify-center items-center relative"
-                        style={{ y: isMobile ? 0 : secondTranslateY }}
+                        // style={{ y: isMobile ? 0 : secondTranslateY }}
                     >
                         <Image
                             src={project.primaryImage}
@@ -173,8 +173,8 @@ function ProjectComponent({ project }) {
                     opacity: 0.75,
                 }}
             ></div>
-            <div className="flex flex-col gap-28 sm:mt-52">
-                <div className="flex flex-col w-full max-w-7xl">
+            <div className="flex flex-col gap-28 sm:mt-24">
+                <div className="flex flex-col w-[100vw] lg:w-full md:max-w-7xl">
                     {project.images.map((image, index) => (
                         <Image
                             key={index}
@@ -185,7 +185,7 @@ function ProjectComponent({ project }) {
                     ))}
                 </div>
 
-                <div className="flex flex-col gap-8 mt-12">
+                <div className="flex flex-col gap-8 mt-12 lg:mx-0 mx-5">
                     <hr className="shrink-0 border-none w-full bg-neutral-800 h-px" />
                     {!isLastProject && (
                         <>

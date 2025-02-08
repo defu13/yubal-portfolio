@@ -11,12 +11,13 @@ import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
 import profilePicColor from "@/assets/images/rsz_fotoperfil_nueva-edit-color.jpg";
 import { socialLinks } from "@/data/data";
 import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faCheck, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import DotTitle from "../DotTitle/DotTitle";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import AnimatedEntrance from "../AnimatedEntrance/AnimatedEntrance";
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
+import { MdArrowDownward } from "react-icons/md";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -63,7 +64,7 @@ function MainSection() {
             });
         }
     };
-    console.log(isHovering);
+
     return (
         <>
             <div
@@ -190,7 +191,8 @@ function MainSection() {
                             onClick={() => scrollToElement("skills")}
                             className="p-2 rounded-full"
                         >
-                            <FontAwesomeIcon icon={faArrowDown} size="2x" />
+                            {/* <FontAwesomeIcon icon={faArrowDown} size="2x" /> */}
+                            <MdArrowDownward size="3rem" />
                         </button>
                     </Floating>
                 </AnimatedEntrance>

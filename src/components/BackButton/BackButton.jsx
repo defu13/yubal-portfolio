@@ -1,6 +1,6 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { MdArrowBack } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -29,7 +29,8 @@ function BackButton() {
                     animate={{ x: isHovering ? -6 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                    <FontAwesomeIcon icon={faArrowLeft} />
+                    {/* <FontAwesomeIcon icon={faArrowLeft} /> */}
+                    <MdArrowBack size="1.4rem" />
                 </motion.div>
                 <span>Atrás</span>
             </motion.button>

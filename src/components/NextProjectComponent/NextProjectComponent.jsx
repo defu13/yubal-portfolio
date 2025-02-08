@@ -3,7 +3,8 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+// import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { MdArrowForward } from "react-icons/md";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import Link from "next/link";
 
@@ -71,7 +72,8 @@ function NextProjectComponent({ nextProject }) {
                                         rounded="rounded-full"
                                     >
                                         Siguiente proyecto
-                                        <FontAwesomeIcon icon={faArrowRight} />
+                                        {/* <FontAwesomeIcon icon={faArrowRight} /> */}
+                                        <MdArrowForward size="2.5rem" />
                                     </ButtonComponent>
                                 </motion.div>
                                 <motion.div
