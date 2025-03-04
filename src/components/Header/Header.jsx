@@ -89,7 +89,7 @@ export default function Header() {
             <Magnetic>
                 <Link href="/" className="hidden sm:block pointer-events-auto">
                     <div className={styles.logo}>
-                        <p className={styles.copyright}>©</p>
+                        <p className={`text-neutral-100 ${styles.copyright}`}>©</p>
                         <div className={styles.name}>
                             <p className={styles.codeBy}>Code by</p>
                             <p className={styles.yubal}>Yubal</p>

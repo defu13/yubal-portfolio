@@ -30,12 +30,58 @@
 .contact_container:hover .correo {
     transform: translateX(-240px);
 }
-.contact_container .arrow {
+/* .contact_container .arrow {
     position: absolute;
     top: 0;
     right: 0;
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+} */
+
+
+
+/* ANIMACION AL HACER HOVER */
+
+.arrow{
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
+
+.arrow:first-child{
+    left: -1.5rem;
+    opacity: 0;
+}
+
+.arrow:last-child{
+    opacity: 1;
+}
+
+.arrow_container:hover .arrow {
+    transform: translateX(1.5rem);
+}
+
+.arrow_container:hover .arrow:first-child {
+    opacity: 1;
+}
+
+.arrow_container:hover .arrow:last-child {
+    opacity: 0;
+}
+
+
+
+.arrow_container:hover .letter_c{
+    transform: translateY(1px) rotate(-12deg);
+}
+
+.arrow_container:hover .letter_v{
+    transform: translateY(-1px) rotate(12deg);
+}
+
+.letter_c,
+.letter_v{
+    transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
 
 /* .mask{
     position: absolute;

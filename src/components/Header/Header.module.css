@@ -55,6 +55,11 @@
     transform: translateX(-70px);
 }
 
+.copyright{
+    font-family: "__Inter_d65c78";
+    font-weight: 200;
+}
+
 .menu_element{
     position: relative;
 }
@@ -70,6 +75,7 @@
 }
 
 .dot {
+    pointer-events: none;
     position: absolute;
     width: 5px;
     height: 5px;

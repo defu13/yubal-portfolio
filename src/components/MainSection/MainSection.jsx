@@ -17,7 +17,7 @@ import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import AnimatedEntrance from "../AnimatedEntrance/AnimatedEntrance";
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
-import { MdArrowDownward } from "react-icons/md";
+import { MdArrowDownward, MdArrowForward } from "react-icons/md";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -80,9 +80,9 @@ function MainSection() {
                                 //     WebkitMaskSize: `${size}px`,
                                 // }}
                                 // transition={{ease: "backOut", duration: 0.4}}
-                                initial={{opacity: 0}}
-                                whileHover={{opacity: 1}}
-                                transition={{duration: 4}}
+                                initial={{ opacity: 0 }}
+                                whileHover={{ opacity: 1 }}
+                                transition={{ duration: 4 }}
                             >
                                 <Image
                                     src={profilePicColor}
@@ -143,13 +143,39 @@ function MainSection() {
                         <AnimatedEntrance delay={0.4}>
                             <p className="text-xl neuemontreal-regular text-neutral-400">
                                 Apasionado del diseño gráfico y la programación,
-                                y especializado en el desarrollo web con{" "}
-                                <HighlightText>React.</HighlightText>
+                                y especializado en el desarrollo web con React.
+                                {/* <HighlightText>React.</HighlightText> */}
                             </p>
+                        </AnimatedEntrance>
+                        <AnimatedEntrance delay={0.5} className="flex">
+                            <a href="/cv.pdf" className="flex" target="_blank">
+                                <HighlightText>
+                                    <div
+                                        className={`flex -mt-3 gap-2 items-center ${styles.arrow_container}`}
+                                    >
+                                        <p className="text-base neuemontreal-regular flex">
+                                            Echa un ojo a mi
+                                            &nbsp;
+                                            <div className={`${styles.letter_c}`}>C</div>
+                                            <div className={`${styles.letter_v}`}>V</div>
+                                        </p>
+                                        <div
+                                            className={`relative flex items-center justify-center w-[1.4rem] h-[1.4rem]`}
+                                        >
+                                            <div className={`${styles.arrow}`}>
+                                                <MdArrowForward size="1.4rem" />
+                                            </div>
+                                            <div className={`${styles.arrow}`}>
+                                                <MdArrowForward size="1.4rem" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </HighlightText>
+                            </a>
                         </AnimatedEntrance>
                         <AnimatedEntrance
                             className="flex gap-10 justify-center sm:justify-start items-center"
-                            delay={0.5}
+                            delay={0.6}
                         >
                             {socialLinks.map((button) => (
                                 <Magnetic
@@ -182,7 +208,7 @@ function MainSection() {
                 <AnimatedEntrance
                     style={{ y: translateY }}
                     className="hidden md:flex absolute bottom-0"
-                    delay={0.6}
+                    delay={0.7}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                 >

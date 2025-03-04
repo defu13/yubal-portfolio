@@ -3,6 +3,7 @@ import {
     faLinkedin,
     faInstagram,
     faDribbble,
+    faBehance,
 } from "@fortawesome/free-brands-svg-icons";
 import { images } from "@/src/utils/images";
 import HighlightText from "@/src/components/HighlightText/HighlightText";
@@ -49,12 +50,18 @@ export const socialLinks = [
         icon: faInstagram,
         color: "#EE2AB6",
     },
+    // {
+    //     name: "Dribbble",
+    //     link: "https://dribbble.com/trezestudio",
+    //     icon: faDribbble,
+    //     color: "#f4588e",
+    // },
     {
-        name: "Dribbble",
-        link: "https://dribbble.com/trezestudio",
-        icon: faDribbble,
-        color: "#f4588e",
-    },
+        name: "Behance",
+        link: "https://www.behance.net/trezestudio",
+        icon: faBehance,
+        color: "#0057ff",
+    }
 ];
 
 export const skillsData = [
@@ -129,7 +136,7 @@ export const projectsData = [
         role: "Diseñador gráfico",
         date: "Febrero 2025",
         enterprice: "Freelance",
-        liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio",
+        liveSite: "https://www.instagram.com/treze.st/",
         primaryImage: images.trezestudio.primaryImage,
         images: images.trezestudio.restImages,
         cardColor: "#3C3CC7",
@@ -147,7 +154,7 @@ export const projectsData = [
         role: "Diseñador gráfico",
         date: "Abril 2024",
         enterprice: "Freelance",
-        liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio",
+        liveSite: "https://www.instagram.com/treze.st/",
         primaryImage: images.trezestudio.primaryImage,
         images: images.trezestudio.restImages,
         cardColor: "#3C3CC7",
@@ -165,7 +172,8 @@ export const projectsData = [
         role: "Diseñador gráfico",
         date: "Abril 2024",
         enterprice: "Freelance",
-        liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio",
+        // liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio"
+        livesite: "https://www.instagram.com/treze.st/",
         primaryImage: images.trezestudio.primaryImage,
         images: images.trezestudio.restImages,
         cardColor: "#3C3CC7",
