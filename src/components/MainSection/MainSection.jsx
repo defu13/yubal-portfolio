@@ -68,7 +68,7 @@ function MainSection() {
     return (
         <>
             <div
-                className={`flex flex-col items-center justify-center pt-10 lg:p-0 relative ${styles.header_container}`}
+                className={`flex flex-col items-center justify-center relative ${styles.header_container}`}
             >
                 <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
                     <AnimatedEntrance className="flex flex-col gap-2 justify-between min-w-64">

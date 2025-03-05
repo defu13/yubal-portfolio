@@ -15,7 +15,7 @@ import diapositiva14 from "@/assets/images/trezestudio/diapositiva14.jpg";
 import diapositiva15 from "@/assets/images/trezestudio/diapositiva15.jpg";
 import portada from "@/assets/images/trezestudio/portada.jpg";
 
-export const images = {
+export const projectImages = {
     trezestudio: {
         primaryImage: portada,
         restImages: [

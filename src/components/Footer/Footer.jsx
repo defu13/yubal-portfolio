@@ -12,28 +12,30 @@ function Footer() {
     const isMobile = useIsMobile();
 
     return (
-        <div className="h-[100vh] relative"
-        style={{clipPath: "polygon( 0% 0, 100% 0%, 100% 100%, 0 100% )"}}
+        <div
+            className="h-[100vh] relative"
+            style={{ clipPath: "polygon( 0% 0, 100% 0%, 100% 100%, 0 100% )" }}
         >
             <footer
-                className="flex py-24 w-full justify-center bg-neutral-950 lg:px-24 px-5 h-[100vh] fixed bottom-0"
+                className="flex sm:py-24 py-20 w-full justify-center bg-neutral-950 lg:px-24 px-5 h-[100vh] fixed bottom-0"
                 // style={{ minHeight: isMobile ? "100vh" : "unset" }}
             >
-                <div className="flex md:flex-row lg:max-w-7xl w-full md:gap-12 gap-24 justify-between flex-col-reverse">
+                <div className="flex md:flex-row lg:max-w-7xl w-full justify-between flex-col-reverse">
                     <div className="flex flex-col justify-end gap-6">
                         <div className="flex gap-6 max-w-72">
                             <Image
                                 src={logo}
                                 alt="logo"
                                 width={48}
-                                className="rounded-full min-[345px]:flex hidden"
+                                className="rounded-full"
+                                style={{ display: isMobile ? "none" : "flex" }}
                             />
                             <div className="flex flex-col gap-1">
                                 <p className="text-gradient">
                                     © 2025 Yubal De Fuente.
                                 </p>
                                 <p className="text-neutral-500 text-sm">
-                                    Hecho con pasión y dedicación{" <3"}
+                                    Hecho con pasión y dedicación {"<3"}
                                 </p>
                             </div>
                         </div>
@@ -52,7 +54,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.href}
-                                            className="text-base text-neutral-50"
+                                            className="text-base text-neutral-50 hover:text-neutral-300"
                                         >
                                             {item.name}
                                         </Link>
@@ -67,9 +69,9 @@ function Footer() {
                                     <Link
                                         href={socialLinks[1].link}
                                         target="_blank"
-                                        className="text-base text-neutral-50"
+                                        className="text-base text-neutral-50 hover:text-neutral-300"
                                     >
-                                        <div className="flex gap-1">
+                                        <div className="flex gap-1 ">
                                             <p>{socialLinks[1].name}</p>
                                             <Image
                                                 src={link_arrow}
@@ -78,7 +80,11 @@ function Footer() {
                                         </div>
                                     </Link>
                                     {contactData.map((item, index) => (
-                                        <Link key={index} href={item.link}>
+                                        <Link
+                                            key={index}
+                                            href={item.link}
+                                            className="hover:text-neutral-300"
+                                        >
                                             <p>{item.description}</p>
                                         </Link>
                                     ))}

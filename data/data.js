@@ -5,14 +5,14 @@ import {
     faDribbble,
     faBehance,
 } from "@fortawesome/free-brands-svg-icons";
-import { images } from "@/src/utils/images";
+import { projectImages } from "@/src/utils/images";
 import HighlightText from "@/src/components/HighlightText/HighlightText";
 import {
     faCode,
     faPenNib,
     faWandMagicSparkles,
     faEnvelope,
-    faPhone
+    faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import photoshopIcon from "@/assets/images/icons/adobephotoshop.svg";
 import illustratorIcon from "@/assets/images/icons/adobeillustrator.svg";
@@ -24,6 +24,7 @@ import tailwindIcon from "@/assets/images/icons/tailwindcss.svg";
 import npmIcon from "@/assets/images/icons/npm.svg";
 import lightroomIcon from "@/assets/images/icons/adobelightroom.svg";
 import HighlightTitle from "@/src/components/HighlightTitle/HighlightTitle";
+import Title from "@/src/components/Title/Title";
 
 export const navigation = [
     { name: "Inicio", href: "/" },
@@ -61,7 +62,7 @@ export const socialLinks = [
         link: "https://www.behance.net/trezestudio",
         icon: faBehance,
         color: "#0057ff",
-    }
+    },
 ];
 
 export const skillsData = [
@@ -129,16 +130,22 @@ export const projectsData = [
         name: "Identidad de marca - Treze Studio",
         nameShow: (
             <>
-                Identidad de marca - <HighlightTitle>Treze Studio</HighlightTitle>
+                Identidad de marca -{" "}
+                <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
-        description: <>Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.</>,
+        description: (
+            <>
+                Creando la identidad e imagen de marca para el estudio de diseño
+                gráfico Treze Studio.
+            </>
+        ),
         role: "Diseñador gráfico",
         date: "Febrero 2025",
         enterprice: "Freelance",
         liveSite: "https://www.instagram.com/treze.st/",
-        primaryImage: images.trezestudio.primaryImage,
-        images: images.trezestudio.restImages,
+        primaryImage: projectImages.trezestudio.primaryImage,
+        images: projectImages.trezestudio.restImages,
         cardColor: "#3C3CC7",
         backgroundColor: "#3C3CC780",
     },
@@ -147,16 +154,22 @@ export const projectsData = [
         name: "Identidad de marca - Treze Studio",
         nameShow: (
             <>
-                Identidad de marca - <HighlightTitle>Treze Studio</HighlightTitle>
+                Identidad de marca -{" "}
+                <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
-        description: <>Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.</>,
+        description: (
+            <>
+                Creando la identidad e imagen de marca para el estudio de diseño
+                gráfico Treze Studio.
+            </>
+        ),
         role: "Diseñador gráfico",
         date: "Abril 2024",
         enterprice: "Freelance",
         liveSite: "https://www.instagram.com/treze.st/",
-        primaryImage: images.trezestudio.primaryImage,
-        images: images.trezestudio.restImages,
+        primaryImage: projectImages.trezestudio.primaryImage,
+        images: projectImages.trezestudio.restImages,
         cardColor: "#3C3CC7",
         backgroundColor: "#3C3CC780",
     },
@@ -165,17 +178,23 @@ export const projectsData = [
         name: "Identidad de marca - Treze Studio",
         nameShow: (
             <>
-                Identidad de marca - <HighlightTitle>Treze Studio</HighlightTitle>
+                Identidad de marca -{" "}
+                <HighlightTitle>Treze Studio</HighlightTitle>
             </>
         ),
-        description: <>Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.</>,
+        description: (
+            <>
+                Creando la identidad e imagen de marca para el estudio de diseño
+                gráfico Treze Studio.
+            </>
+        ),
         role: "Diseñador gráfico",
         date: "Abril 2024",
         enterprice: "Freelance",
         // liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio"
         livesite: "https://www.instagram.com/treze.st/",
-        primaryImage: images.trezestudio.primaryImage,
-        images: images.trezestudio.restImages,
+        primaryImage: projectImages.trezestudio.primaryImage,
+        images: projectImages.trezestudio.restImages,
         cardColor: "#3C3CC7",
         backgroundColor: "#3C3CC780",
     },
@@ -192,6 +211,62 @@ export const contactData = [
         name: "Teléfono",
         description: "+34 635 372 397",
         link: "tel:+34635372397",
-        icon: (faPhone),
-    }
-]
+        icon: faPhone,
+    },
+];
+
+export const aboutMeData = {
+    title: "Sobre Mí",
+    description: (
+        <>
+            <Title>
+                En constante evolución y&nbsp;
+                <HighlightTitle>aprendizaje.</HighlightTitle>
+            </Title>
+        </>
+    ),
+    text: [
+        {
+            text: (
+                <>
+                    <p>
+                        Desde siempre me ha apasionado el diseño gráfico y la
+                        fotografía, explorando y aprendiendo por mi cuenta.
+                    </p>
+                    <p>
+                        También me atrae el lado más técnico, como la
+                        programación enfocada en diseño e interfaces, porque me
+                        motiva convertir ideas en experiencias visuales
+                        funcionales y bien estructuradas.
+                    </p>
+                    <p>
+                        Soy una persona que cuida los detalles, siempre buscando
+                        mejorar y pulir cada proyecto.
+                    </p>
+                </>
+            ),
+        },
+        {
+            text: (
+                <>
+                    <p>
+                        La fotografía es una de mis grandes pasiones, ya que me
+                        permite contar historias a través de la luz, la
+                        composición y los detalles.
+                    </p>
+                    <p>
+                        Me encanta viajar y conocer nuevos lugares, capturando
+                        momentos y emociones que me inspiran a seguir creando,
+                        siendo la fotografía callejera una de mis
+                        especialidades.
+                    </p>
+                    <p>
+                        Esta disciplina me ha enseñado a ver el mundo de una
+                        manera diferente, y complementa perfectamente mi trabajo
+                        como diseñador gráfico.
+                    </p>
+                </>
+            ),
+        },
+    ],
+};
