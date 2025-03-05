@@ -54,6 +54,33 @@
     animation: shine 5s ease-in-out infinite;
 }
 
+.link {
+    position: relative;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    color: inherit;
+    top: -5px;
+    right: -10px;
+    height: 1rem;
+    width: 1rem;
+    background-image: url('../assets/images/link_arrow.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    filter: invert(1);
+    transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.link:hover::after {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
 .box-Shadow{
     box-shadow: 0 40px 80px #00000080;
 }

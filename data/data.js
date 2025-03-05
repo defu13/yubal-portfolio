@@ -25,6 +25,7 @@ import npmIcon from "@/assets/images/icons/npm.svg";
 import lightroomIcon from "@/assets/images/icons/adobelightroom.svg";
 import HighlightTitle from "@/src/components/HighlightTitle/HighlightTitle";
 import Title from "@/src/components/Title/Title";
+import Link from "next/link";
 
 export const navigation = [
     { name: "Inicio", href: "/" },
@@ -264,6 +265,55 @@ export const aboutMeData = {
                         Esta disciplina me ha enseñado a ver el mundo de una
                         manera diferente, y complementa perfectamente mi trabajo
                         como diseñador gráfico.
+                    </p>
+                </>
+            ),
+        },
+        {
+            text: (
+                <>
+                    <p>
+                        El diseño gráfico ha sido una pasión para mí desde
+                        siempre. Desde que descubrí el impacto visual de una
+                        identidad bien construida, me sentí atraído por el
+                        diseño de logotipos, explorando formas, tipografías y
+                        colores para transmitir mensajes de manera efectiva.
+                    </p>
+                    <p>
+                        Con el tiempo, mi interés se expandió a otros ámbitos
+                        del diseño, permitiéndome comprender su importancia en
+                        la comunicación y en la construcción de marcas. Me
+                        fascina la capacidad del diseño para dar vida a ideas,
+                        conectar con las personas y crear experiencias visuales
+                        memorables.
+                    </p>
+                    <p>
+                        Siempre estoy buscando nuevas formas de mejorar,
+                        experimentando y aprendiendo para perfeccionar cada
+                        detalle en mis proyectos.
+                    </p>
+                </>
+            ),
+        },
+        {
+            text: (
+                <>
+                    <p>
+                        Con el tiempo y la experiencia, nació{" "}
+                        <Link href={`/myprojects/1`} className="italic link">
+                            <HighlightText>
+                                &quot;<u>Treze Studio</u>&quot;
+                            </HighlightText>
+                        </Link>
+                        , mi propio proyecto de diseño gráfico. Este estudio
+                        representa mi crecimiento, mi estilo y mi manera de
+                        entender la identidad visual.
+                    </p>
+                    <p>
+                        Ha sido un motor de aprendizaje y motivación,
+                        impulsándome a seguir explorando, creando y aprendiendo
+                        con cada trabajo, convirtiéndose en una pieza clave en
+                        mi desarrollo profesional y personal.
                     </p>
                 </>
             ),

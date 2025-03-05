@@ -217,7 +217,6 @@ function MainSection() {
                             onClick={() => scrollToElement("skills")}
                             className="p-2 rounded-full"
                         >
-                            {/* <FontAwesomeIcon icon={faArrowDown} size="2x" /> */}
                             <MdArrowDownward size="3rem" />
                         </button>
                     </Floating>

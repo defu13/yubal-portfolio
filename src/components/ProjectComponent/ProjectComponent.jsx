@@ -11,7 +11,7 @@ import backgroundImage from "@/assets/images/portada_proyecto_vacio.png";
 import Globe from "../Globe/Globe";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import Link from "next/link";
-import link_arrow from "@/assets/images/link_arrow.svg";
+import link_arrow_rotated from "@/assets/images/link_arrow_rotated.svg";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { projectsData } from "@/data/data";
@@ -106,9 +106,10 @@ function ProjectComponent({ project }) {
                                         }}
                                     >
                                         <Image
-                                            src={link_arrow}
+                                            src={link_arrow_rotated}
                                             alt="link arrow"
                                             width={30}
+                                            className="transform rotate-180 invert"
                                         />
                                     </motion.div>
                                 </div>
