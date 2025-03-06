@@ -9,7 +9,7 @@ function CardProjectPreviewComponent({ index, project, withButton = true }) {
     const [isHovering, setIsHovering] = useState(false);
     return (
         <div
-            className="absolute w-full"
+            className="w-full"
             style={{
                 top: `${index * 200}px`,
                 zIndex: index + 1,

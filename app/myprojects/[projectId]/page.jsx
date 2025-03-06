@@ -1,5 +1,6 @@
 import { projectsData } from "@/data/data";
 import ProjectComponent from "@/src/components/ProjectComponent/ProjectComponent";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
     return projectsData.map((project) => ({
@@ -7,8 +8,8 @@ export async function generateStaticParams() {
     }));
 }
 
-function Project({ params }) {
-    const { projectId } = params;
+async function Project({ params }) {
+    const { projectId } = await params;
     const project = projectsData.find(
         (project) => project.id.toString() === projectId
     );

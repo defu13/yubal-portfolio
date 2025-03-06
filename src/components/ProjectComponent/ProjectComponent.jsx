@@ -64,7 +64,7 @@ function ProjectComponent({ project }) {
             className="flex flex-col items-center lg:px-24 px-5 gap-16"
             ref={containerY}
         >
-            <div className="flex w-full flex-col gap-8 mt-[15vh] self-start items-start max-h-[85vh]">
+            <div className="flex w-full flex-col gap-8 mt-[15vh] self-start items-start">
                 <AnimatedEntrance
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -148,7 +148,7 @@ function ProjectComponent({ project }) {
                 className="w-full flex justify-center"
             >
                 <div
-                    className="h-full w-full max-w-7xl bg-cover flex justify-center pt-24"
+                    className="h-full w-full max-w-7xl bg-cover flex justify-center sm:pt-24 pt-0"
                     style={{
                         backgroundImage: !isMobile
                             ? `url(${backgroundImage.src})`

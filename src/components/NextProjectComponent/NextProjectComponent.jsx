@@ -18,83 +18,82 @@ function NextProjectComponent({ nextProject }) {
         } else {
             setIsHovering(false);
         }
-    },[isMobile]);
+    }, [isMobile]);
 
     return (
         <>
             <div className="flex w-full lg:max-w-7xl self-center">
                 <div className="flex justify-center border-b-[1px] overflow-hidden pt-[70px] w-full">
-                    <Link
-                        href={`/myprojects/${nextProject.id}`}
-                        className="w-full sm:max-w-[85%] max-w-[95%] flex"
+                    <motion.div
+                        className="w-full sm:max-w-[85%] max-w-[95%] flex justify-center"
+                        onHoverStart={
+                            !isMobile ? () => setIsHovering(true) : null
+                        }
+                        onHoverEnd={
+                            !isMobile ? () => setIsHovering(false) : null
+                        }
                     >
                         <motion.div
-                            className="flex justify-center w-full cursor-pointer"
-                            onHoverStart={!isMobile ? () => setIsHovering(true) : null}
-                            onHoverEnd={!isMobile ? () => setIsHovering(false) : null}
+                            className="w-full relative"
+                            animate={{
+                                y: isHovering ? -50 : 0,
+                            }}
+                            transition={{
+                                stiffness: 100,
+                                damping: 7,
+                                type: "spring",
+                            }}
                         >
                             <motion.div
-                                className="w-full relative"
+                                className="absolute top-[50%] left-0 -translate-y-1/2 z-[2] flex justify-center items-center w-full"
+                                initial={{ y: 140 }}
                                 animate={{
-                                    y: isHovering ? -50 : 0,
+                                    opacity: isHovering ? 1 : 0,
+                                    y: isHovering ? 0 : 140,
                                 }}
                                 transition={{
-                                    stiffness: 100,
-                                    damping: 7,
-                                    type: "spring",
+                                    y: {
+                                        delay: 0.2,
+                                        stiffness: 100,
+                                        damping: 10,
+                                        type: "spring",
+                                    },
+                                    opacity: {
+                                        delay: 0.2,
+                                    },
                                 }}
                             >
-                                <motion.div
-                                    className="absolute top-[50%] left-0 -translate-y-1/2 z-[2] flex justify-center items-center w-full"
-                                    initial={{ y: 140 }}
-                                    animate={{
-                                        opacity: isHovering ? 1 : 0,
-                                        y: isHovering ? 0 : 140,
-                                    }}
-                                    transition={{
-                                        y: {
-                                            delay: 0.2,
-                                            stiffness: 100,
-                                            damping: 10,
-                                            type: "spring",
-                                        },
-                                        opacity: {
-                                            delay: 0.3,
-                                        }
-                                    }}
+                                <ButtonComponent
+                                    buttonClassName={
+                                        "md:text-2xl text-xl gap-4"
+                                    }
+                                    href={`/myprojects/${nextProject.id}`}
+                                    padding="p-5"
+                                    rounded="rounded-full"
                                 >
-                                    <ButtonComponent
-                                        buttonClassName={
-                                            "md:text-2xl text-xl gap-4"
-                                        }
-                                        href={`/myprojects/${nextProject.id}`}
-                                        padding="p-5"
-                                        rounded="rounded-full"
-                                    >
-                                        Siguiente proyecto
-                                        {/* <FontAwesomeIcon icon={faArrowRight} /> */}
-                                        <MdArrowForward size="2.5rem" />
-                                    </ButtonComponent>
-                                </motion.div>
-                                <motion.div
-                                    animate={{
-                                        filter: isHovering
-                                            ? "brightness(0.3)"
-                                            : "brightness(1)",
-                                    }}
-                                >
-                                    <ProjectCard
-                                        project={nextProject}
-                                        isBackground={true}
-                                        containerClassName="w-full sm:-mb-[300px] md:-mb-[450px] -mb-[175px] pointer-events-none"
-                                        cardClassName="sm:h-[500px] md:h-[700px] h-[300px]"
-                                        isDark={isHovering}
-                                        isShadow={isMobile ? false : true}
-                                    />
-                                </motion.div>
+                                    Siguiente proyecto
+                                    {/* <FontAwesomeIcon icon={faArrowRight} /> */}
+                                    <MdArrowForward size="2.5rem" />
+                                </ButtonComponent>
+                            </motion.div>
+                            <motion.div
+                                animate={{
+                                    filter: isHovering
+                                        ? "brightness(0.3)"
+                                        : "brightness(1)",
+                                }}
+                            >
+                                <ProjectCard
+                                    project={nextProject}
+                                    isBackground={true}
+                                    containerClassName="w-full sm:-mb-[300px] md:-mb-[450px] -mb-[175px] pointer-events-none"
+                                    cardClassName="sm:h-[500px] md:h-[700px] h-[300px]"
+                                    isDark={isHovering}
+                                    isShadow={isMobile ? false : true}
+                                />
                             </motion.div>
                         </motion.div>
-                    </Link>
+                    </motion.div>
                 </div>
             </div>
         </>

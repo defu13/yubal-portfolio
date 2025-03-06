@@ -192,8 +192,7 @@ export const projectsData = [
         role: "Diseñador gráfico",
         date: "Abril 2024",
         enterprice: "Freelance",
-        // liveSite: "https://www.behance.net/gallery/217513627/Identidad-de-marca-de-Treze-Studio"
-        livesite: "https://www.instagram.com/treze.st/",
+        liveSite: "https://www.instagram.com/treze.st/",
         primaryImage: projectImages.trezestudio.primaryImage,
         images: projectImages.trezestudio.restImages,
         cardColor: "#3C3CC7",
