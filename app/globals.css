@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "tailwindcss";
 
 * {
     box-sizing: border-box;
@@ -100,7 +101,7 @@
 
 .hero-noise {
     z-index: -3;
-    opacity: 0.2;
+    opacity: 0.3;
     background-image: url(../assets/images/noise_overlay.png);
     background-position: 0 0;
     background-size: 200px;

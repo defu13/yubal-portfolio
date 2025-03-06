@@ -48,7 +48,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.href}
-                                            className="text-base text-neutral-50 hover:text-neutral-300"
+                                            className="text-base text-neutral-50 hover:text-neutral-400"
                                         >
                                             {item.name}
                                         </Link>
@@ -63,7 +63,7 @@ function Footer() {
                                     <Link
                                         href={socialLinks[1].link}
                                         target="_blank"
-                                        className="text-base text-neutral-50 hover:text-neutral-300"
+                                        className="text-base text-neutral-50 hover:text-neutral-400"
                                     >
                                         <div className="flex gap-1 ">
                                             <p>{socialLinks[1].name}</p>
@@ -74,7 +74,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.link}
-                                            className="hover:text-neutral-300"
+                                            className="hover:text-neutral-400"
                                         >
                                             <p>{item.description}</p>
                                         </Link>
@@ -109,7 +109,9 @@ function Footer() {
                         </div>
                     </div>
                 </div>
+                <div className="hero-noise"></div>
             </footer>
+            
         </div>
     );
 }

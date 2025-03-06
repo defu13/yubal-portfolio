@@ -156,8 +156,8 @@ function MainSection() {
                                         <p className="text-base neuemontreal-regular flex">
                                             Echa un ojo a mi
                                             &nbsp;
-                                            <div className={`${styles.letter_c}`}>C</div>
-                                            <div className={`${styles.letter_v}`}>V</div>
+                                            <span className={`${styles.letter_c}`}>C</span>
+                                            <span className={`${styles.letter_v}`}>V</span>
                                         </p>
                                         <div
                                             className={`relative flex items-center justify-center w-[1.4rem] h-[1.4rem]`}

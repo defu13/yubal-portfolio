@@ -19,7 +19,7 @@ function BackButton() {
             onHoverEnd={() => setIsHovering(false)}
         >
             <motion.button
-                className="px-5 py-2 rounded-full gap-2 flex items-center text-lg"
+                className="px-5 py-2 rounded-full gap-2 flex items-center text-lg cursor-pointer"
                 animate={{
                     backgroundColor: isHovering ? "#f2f2f245" : "#f2f2f226",
                 }}
