@@ -93,12 +93,14 @@ function Footer() {
                                     >
                                         <motion.p
                                             style={{
-                                                color: isMobile
-                                                    ? item.color
-                                                    : "#fafafa",
+                                                // color: isMobile
+                                                //     ? item.color
+                                                //     : "#fafafa",
+                                                color: item.color,
                                             }}
                                             whileHover={{
-                                                color: item.color,
+                                                // color: item.color,
+                                                color: "#fafafa",
                                             }}
                                         >
                                             {item.name}

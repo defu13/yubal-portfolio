@@ -185,13 +185,15 @@ function MainSection() {
                                     <a href={button.link} target="_blank">
                                         <motion.div
                                             whileHover={{
-                                                color: button.color,
+                                                // color: button.color,
+                                                color: "#fafafa",
                                             }}
                                             transition={{ duration: 0.2 }}
                                             style={{
-                                                color: isMobile
-                                                    ? button.color
-                                                    : "#fafafa",
+                                                // color: isMobile
+                                                //     ? button.color
+                                                //     : "#fafafa",
+                                                color: button.color,
                                             }}
                                         >
                                             <FontAwesomeIcon
@@ -215,7 +217,7 @@ function MainSection() {
                     <Floating animationForce={1.5} speed={2}>
                         <button
                             onClick={() => scrollToElement("skills")}
-                            className="p-2 rounded-full"
+                            className="p-2 rounded-full cursor-pointer"
                         >
                             <MdArrowDownward size="3rem" />
                         </button>

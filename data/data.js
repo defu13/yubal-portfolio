@@ -166,7 +166,7 @@ export const projectsData = [
             </>
         ),
         role: "Diseñador gráfico",
-        date: "Abril 2024",
+        date: "Febrero 2025",
         enterprice: "Freelance",
         liveSite: "https://www.instagram.com/treze.st/",
         primaryImage: projectImages.trezestudio.primaryImage,
@@ -190,7 +190,7 @@ export const projectsData = [
             </>
         ),
         role: "Diseñador gráfico",
-        date: "Abril 2024",
+        date: "Febrero 2025",
         enterprice: "Freelance",
         liveSite: "https://www.instagram.com/treze.st/",
         primaryImage: projectImages.trezestudio.primaryImage,

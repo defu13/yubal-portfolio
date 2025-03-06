@@ -1,12 +1,9 @@
 "use client";
 import AnimatedEntrance from "@/src/components/AnimatedEntrance/AnimatedEntrance";
 import BackButton from "@/src/components/BackButton/BackButton";
-import Card from "@/src/components/Card/Card";
 import DescriptionText from "@/src/components/DescriptionText/DescriptionText";
 import Title from "@/src/components/Title/Title";
-import { useLoading } from "@/src/context/LoadingContext";
 import Image from "next/image";
-import { useEffect } from "react";
 import backgroundImage from "@/assets/images/portada_proyecto_vacio.png";
 import Globe from "../Globe/Globe";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
@@ -17,9 +14,8 @@ import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { projectsData } from "@/data/data";
 import NextProjectComponent from "../NextProjectComponent/NextProjectComponent";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
-import DotTitle from "../DotTitle/DotTitle";
 import DotAnimation from "../DotAnimation/DotAnimation";
-import HighlightTitle from "../HighlightTitle/HighlightTitle";
+import styles from "./ProjectComponent.module.css";
 
 function ProjectComponent({ project }) {
     // const { setLoading } = useLoading();
@@ -161,8 +157,8 @@ function ProjectComponent({ project }) {
                     >
                         <Image
                             src={project.primaryImage}
-                            alt="project main image"
-                            className="sm:max-w-[70%] w-[99%] h-auto object-cover rounded-3xl mb-[2px]"
+                            alt="project main image "
+                            className={`sm:max-w-[70%] w-[99%] h-auto object-cover rounded-3xl mb-[2px] ${styles.primary_image}`}
                         />
                     </motion.div>
                 </div>
