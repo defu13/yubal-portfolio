@@ -148,7 +148,7 @@ function MainSection() {
                             </p>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.5} className="flex">
-                            <a href="/cv.pdf" className="flex" target="_blank">
+                            <a href="/yubal_cv.pdf" className="flex" target="_blank">
                                 <HighlightText>
                                     <div
                                         className={`flex -mt-3 gap-2 items-center ${styles.arrow_container}`}
