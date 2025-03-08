@@ -33,7 +33,7 @@ export default function Myprojects() {
                     className="flex flex-col w-full lg:max-w-7xl gap-20"
                     delay={0.4}
                 >
-                    {projectsData.map((project, index) => (
+                    {projectsData.slice(0).reverse().map((project, index) => (
                         <Link key={index} href={`/myprojects/${project.id}`}>
                             <ProjectCard project={project} />
                         </Link>

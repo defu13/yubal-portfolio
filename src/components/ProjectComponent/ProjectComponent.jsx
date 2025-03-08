@@ -22,11 +22,10 @@ function ProjectComponent({ project }) {
     const isMobile = useIsMobile();
 
     // calcular si es el ultimo proyecto
-    const lastProject = projectsData[projectsData.length - 1];
-    const isLastProject = project.id === lastProject.id;
+    const isLastProject = project.id === 1;
 
     // calcula el nextProject a partir del project actual
-    const nextProject = projectsData[project.id];
+    const nextProject = projectsData[project.id-2];
 
     const {
         containerY,

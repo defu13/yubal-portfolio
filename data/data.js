@@ -125,49 +125,35 @@ export const skillsData = [
     },
 ];
 
+// El orden de la lista va ordenado de proyecto más antiguo a más reciente
 export const projectsData = [
     {
         id: 1,
-        name: "Identidad de marca - Treze Studio",
-        nameShow: (
-            <>
-                Identidad de marca -{" "}
-                <HighlightTitle>Treze Studio</HighlightTitle>
-            </>
-        ),
+        name: "Nortepuro - Diseño de logotipo",
         description: (
             <>
-                Creando la identidad e imagen de marca para el estudio de diseño
-                gráfico Treze Studio.
+                Logotipo personalizado para una marca de productos urbanos con
+                mucha personalidad, "Nortepuro Shop".
             </>
         ),
         role: "Diseñador gráfico",
-        date: "Febrero 2025",
-        enterprice: "Freelance",
-        liveSite: "https://www.instagram.com/treze.st/",
-        primaryImage: projectImages.trezestudio.primaryImage,
-        images: projectImages.trezestudio.restImages,
-        cardColor: "#3C3CC7",
-        backgroundColor: "#3C3CC780",
+        date: "Marzo 2020",
+        enterprice: "Independiente",
+        liveSite: "https://www.instagram.com/nortepuro/",
+        primaryImage: projectImages.nortepuro.primaryImage,
+        images: projectImages.nortepuro.restImages,
+        cardColor: "#b15a0c",
+        backgroundColor: "#8f671c80",
     },
     {
         id: 2,
-        name: "Identidad de marca - Treze Studio",
-        nameShow: (
-            <>
-                Identidad de marca -{" "}
-                <HighlightTitle>Treze Studio</HighlightTitle>
-            </>
-        ),
-        description: (
-            <>
-                Creando la identidad e imagen de marca para el estudio de diseño
-                gráfico Treze Studio.
-            </>
-        ),
+        name: "Treze Studio - Identidad de marca",
+        description:
+            "Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.",
+
         role: "Diseñador gráfico",
         date: "Febrero 2025",
-        enterprice: "Freelance",
+        enterprice: "Independiente",
         liveSite: "https://www.instagram.com/treze.st/",
         primaryImage: projectImages.trezestudio.primaryImage,
         images: projectImages.trezestudio.restImages,
@@ -176,22 +162,13 @@ export const projectsData = [
     },
     {
         id: 3,
-        name: "Identidad de marca - Treze Studio",
-        nameShow: (
-            <>
-                Identidad de marca -{" "}
-                <HighlightTitle>Treze Studio</HighlightTitle>
-            </>
-        ),
-        description: (
-            <>
-                Creando la identidad e imagen de marca para el estudio de diseño
-                gráfico Treze Studio.
-            </>
-        ),
+        name: "Treze Studio - Identidad de marca",
+        description:
+            "Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.",
+
         role: "Diseñador gráfico",
         date: "Febrero 2025",
-        enterprice: "Freelance",
+        enterprice: "Independiente",
         liveSite: "https://www.instagram.com/treze.st/",
         primaryImage: projectImages.trezestudio.primaryImage,
         images: projectImages.trezestudio.restImages,

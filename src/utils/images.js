@@ -14,6 +14,11 @@ import diapositiva13 from "@/assets/images/trezestudio/diapositiva13.jpg";
 import diapositiva14 from "@/assets/images/trezestudio/diapositiva14.jpg";
 import diapositiva15 from "@/assets/images/trezestudio/diapositiva15.jpg";
 import portada from "@/assets/images/trezestudio/portada.jpg";
+import nortepuro1 from "@/assets/images/nortepuro/nortepuro1.jpg";
+import nortepuro2 from "@/assets/images/nortepuro/nortepuro2.jpg";
+import nortepuro3 from "@/assets/images/nortepuro/nortepuro3.jpg";
+import nortepuro4 from "@/assets/images/nortepuro/nortepuro4.jpg";
+import nortepuro5 from "@/assets/images/nortepuro/nortepuro5.jpg";
 
 export const projectImages = {
     trezestudio: {
@@ -36,4 +41,13 @@ export const projectImages = {
             diapositiva15,
         ],
     },
+    nortepuro: {
+        primaryImage: nortepuro1,
+        restImages: [
+            nortepuro2,
+            nortepuro3,
+            nortepuro4,
+            nortepuro5,
+        ],
+    }
 };
