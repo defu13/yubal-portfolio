@@ -31,7 +31,7 @@ function ProjectComponent({ project }) {
         containerY,
         translateY: firstTranslateY,
         rotate,
-    } = useScrollVertical(1, 150, -2500, -1, 90, 800, false);
+    } = useScrollVertical(1, 150, -1300, -1, 90, 600, false);
 
     // const { translateY: secondTranslateY } = useScrollVertical(1, 150, -600);
 

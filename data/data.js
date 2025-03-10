@@ -130,12 +130,9 @@ export const projectsData = [
     {
         id: 1,
         name: "Nortepuro - Diseño de logotipo",
-        description: (
-            <>
-                Logotipo personalizado para una marca de productos urbanos con
-                mucha personalidad, "Nortepuro Shop".
-            </>
-        ),
+        description:
+            "Logotipo personalizado para una marca de productos urbanos con mucha personalidad, Nortepuro Shop.",
+
         role: "Diseñador gráfico",
         date: "Marzo 2020",
         enterprice: "Independiente",
@@ -162,18 +159,18 @@ export const projectsData = [
     },
     {
         id: 3,
-        name: "Treze Studio - Identidad de marca",
+        name: "Lowdest - Diseño de logotipos",
         description:
-            "Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.",
+            "Diseño de varios conceptos tipográficos para el club automovilístico, Lowdest Culture.",
 
         role: "Diseñador gráfico",
-        date: "Febrero 2025",
+        date: "Marzo 2025",
         enterprice: "Independiente",
-        liveSite: "https://www.instagram.com/treze.st/",
-        primaryImage: projectImages.trezestudio.primaryImage,
-        images: projectImages.trezestudio.restImages,
-        cardColor: "#3C3CC7",
-        backgroundColor: "#3C3CC780",
+        liveSite: "https://www.instagram.com/lowdest.tm/",
+        primaryImage: projectImages.lowdest.primaryImage,
+        images: projectImages.lowdest.restImages,
+        cardColor: "#1e3e89",
+        backgroundColor: "#2f62c380",
     },
 ]; // TODO añadir proyectos
 
@@ -276,7 +273,7 @@ export const aboutMeData = {
                 <>
                     <p>
                         Con el tiempo y la experiencia, nació{" "}
-                        <Link href={`/myprojects/1`} className="italic link">
+                        <Link href={`/myprojects/2`} className="italic link">
                             <HighlightText>
                                 &quot;<u>Treze Studio</u>&quot;
                             </HighlightText>

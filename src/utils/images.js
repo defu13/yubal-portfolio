@@ -19,6 +19,11 @@ import nortepuro2 from "@/assets/images/nortepuro/nortepuro2.jpg";
 import nortepuro3 from "@/assets/images/nortepuro/nortepuro3.jpg";
 import nortepuro4 from "@/assets/images/nortepuro/nortepuro4.jpg";
 import nortepuro5 from "@/assets/images/nortepuro/nortepuro5.jpg";
+import lowdest1 from "@/assets/images/lowdest/lowdest1.jpg";
+import lowdest2 from "@/assets/images/lowdest/lowdest2.jpg";
+import lowdest3 from "@/assets/images/lowdest/lowdest3.jpg";
+import lowdest4 from "@/assets/images/lowdest/lowdest4.jpg";
+
 
 export const projectImages = {
     trezestudio: {
@@ -48,6 +53,14 @@ export const projectImages = {
             nortepuro3,
             nortepuro4,
             nortepuro5,
+        ],
+    },
+    lowdest: {
+        primaryImage: lowdest1,
+        restImages: [
+            lowdest2,
+            lowdest3,
+            lowdest4,
         ],
     }
 };
