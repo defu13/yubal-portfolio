@@ -48,7 +48,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.href}
-                                            className="text-base text-neutral-50 hover:text-neutral-400"
+                                            className="text-base text-neutral-50 hover:text-neutral-300"
                                         >
                                             {item.name}
                                         </Link>
@@ -63,7 +63,7 @@ function Footer() {
                                     <Link
                                         href={socialLinks[1].link}
                                         target="_blank"
-                                        className="text-base text-neutral-50 hover:text-neutral-400"
+                                        className="text-base text-neutral-50 hover:text-neutral-300"
                                     >
                                         <div className="flex gap-1 ">
                                             <p>{socialLinks[1].name}</p>
@@ -74,7 +74,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.link}
-                                            className="hover:text-neutral-400"
+                                            className="hover:text-neutral-300"
                                         >
                                             <p>{item.description}</p>
                                         </Link>
@@ -92,6 +92,7 @@ function Footer() {
                                         target="_blank"
                                     >
                                         <motion.p
+                                            className="shine-hover"
                                             style={{
                                                 // color: isMobile
                                                 //     ? item.color
@@ -111,9 +112,8 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="hero-noise"></div>
+                {/* <div className="hero-noise"></div> */}
             </footer>
-            
         </div>
     );
 }

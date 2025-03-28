@@ -128,7 +128,7 @@ function MainSection() {
                             className="flex gap-3 items-center"
                             delay={0.2}
                         >
-                            <DotTitle>Yubal de Fuente</DotTitle>
+                            <DotTitle>Yubal De Fuente</DotTitle>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.3}>
                             <h1
@@ -141,7 +141,7 @@ function MainSection() {
                             </h1>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.4}>
-                            <p className="text-xl neuemontreal-regular text-neutral-400">
+                            <p className="text-lg neuemontreal-regular text-neutral-400">
                                 Apasionado del diseño gráfico y la programación,
                                 y especializado en el desarrollo web con React.
                                 {/* <HighlightText>React.</HighlightText> */}
@@ -199,6 +199,7 @@ function MainSection() {
                                             <FontAwesomeIcon
                                                 icon={button.icon}
                                                 size="2x"
+                                                className="shine-hover"
                                             />
                                         </motion.div>
                                     </a>

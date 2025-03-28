@@ -1,13 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import "tailwindcss";
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "NeueMontreal-Regular", sans-serif;
+@layer base {
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: "NeueMontreal-Regular", sans-serif;
+    }
 }
 
 :root {
@@ -69,7 +68,7 @@
     right: -10px;
     height: 1rem;
     width: 1rem;
-    background-image: url('../assets/images/link_arrow.svg');
+    background-image: url("../assets/images/link_arrow.svg");
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
@@ -82,13 +81,32 @@
     transform: translateY(-10px);
 }
 
-.box-Shadow{
+.box-Shadow {
     box-shadow: 0 40px 80px #00000080;
 }
 
+.shine-hover {
+    -webkit-filter: drop-shadow(0px 0px 8px #ffffff00);
+    filter: drop-shadow(0px 0px 8px #ffffff00);
+    transition: filter 0.2s ease-in-out;
+}
+
+.shine-hover:hover {
+    -webkit-filter: drop-shadow(0px 0px 8px #ffffff42);
+    filter: drop-shadow(0px 0px 8px #ffffff42);
+}
+
 .fade-gradient {
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 90%);
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 20%,
+        rgba(0, 0, 0, 0) 90%
+    );
 }
 
 .hero-project {
