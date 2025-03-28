@@ -18,6 +18,7 @@ import AnimatedEntrance from "../AnimatedEntrance/AnimatedEntrance";
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MdArrowDownward, MdArrowForward } from "react-icons/md";
+import Tooltip from "../Tooltip/Tooltip";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -148,16 +149,27 @@ function MainSection() {
                             </p>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.5} className="flex">
-                            <a href="/yubal_cv.pdf" className="flex" target="_blank">
-                                <HighlightText>
+                            <a
+                                href="/yubal_cv.pdf"
+                                className="flex"
+                                target="_blank"
+                            >
+                                <HighlightText glow={false} shineHover={true}>
                                     <div
                                         className={`flex -mt-3 gap-2 items-center ${styles.arrow_container}`}
                                     >
                                         <p className="text-base neuemontreal-regular flex">
-                                            Echa un ojo a mi
-                                            &nbsp;
-                                            <span className={`${styles.letter_c}`}>C</span>
-                                            <span className={`${styles.letter_v}`}>V</span>
+                                            Echa un ojo a mi &nbsp;
+                                            <span
+                                                className={`${styles.letter_c}`}
+                                            >
+                                                C
+                                            </span>
+                                            <span
+                                                className={`${styles.letter_v}`}
+                                            >
+                                                V
+                                            </span>
                                         </p>
                                         <div
                                             className={`relative flex items-center justify-center w-[1.4rem] h-[1.4rem]`}
@@ -177,31 +189,37 @@ function MainSection() {
                             className="flex gap-10 justify-center sm:justify-start items-center"
                             delay={0.6}
                         >
-                            {socialLinks.map((button) => (
-                                <Magnetic
-                                    key={button.name}
-                                    animationForce={0.4}
-                                >
-                                    <a href={button.link} target="_blank">
-                                        <motion.div
-                                            whileHover={{
-                                                // color: button.color,
-                                                color: "#fafafa",
-                                            }}
-                                            transition={{ duration: 0.2 }}
-                                            style={{
-                                                // color: isMobile
-                                                //     ? button.color
-                                                //     : "#fafafa",
-                                                color: button.color,
-                                            }}
+                            {socialLinks.map((button, index) => (
+                                <Magnetic animationForce={0.4} key={index}>
+                                    <a
+                                        href={button.link}
+                                        target="_blank"
+                                    >
+                                        <Tooltip
+                                            showArrow={true}
+                                            placement="top"
+                                            content={button.name}
                                         >
-                                            <FontAwesomeIcon
-                                                icon={button.icon}
-                                                size="2x"
-                                                className="shine-hover"
-                                            />
-                                        </motion.div>
+                                            <motion.div
+                                                whileHover={{
+                                                    // color: button.color,
+                                                    color: "#fafafa",
+                                                }}
+                                                transition={{ duration: 0.2 }}
+                                                style={{
+                                                    // color: isMobile
+                                                    //     ? button.color
+                                                    //     : "#fafafa",
+                                                    color: button.color,
+                                                }}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={button.icon}
+                                                    size="2x"
+                                                    className="shine-hover"
+                                                />
+                                            </motion.div>
+                                        </Tooltip>
                                     </a>
                                 </Magnetic>
                             ))}

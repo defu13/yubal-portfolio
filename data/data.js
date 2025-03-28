@@ -81,8 +81,8 @@ export const skillsData = [
         ),
         skills: [
             { name: "React", icon: reactIcon },
-            { name: "Next.js", icon: nextIcon },
-            { name: "Npm", icon: npmIcon },
+            { name: "Next.JS", icon: nextIcon },
+            { name: "NPM", icon: npmIcon },
         ],
     },
     {
@@ -99,9 +99,9 @@ export const skillsData = [
             </>
         ),
         skills: [
-            { name: "Framer motion", icon: framerIcon },
+            { name: "Framer Motion", icon: framerIcon },
             { name: "Tailwind CSS", icon: tailwindIcon },
-            { name: "Sass", icon: sassIcon },
+            { name: "SASS", icon: sassIcon },
         ],
     },
     {
@@ -118,9 +118,9 @@ export const skillsData = [
             </>
         ),
         skills: [
-            { name: "Photoshop", icon: photoshopIcon },
-            { name: "Illustrator", icon: illustratorIcon },
-            { name: "Lightroom", icon: lightroomIcon },
+            { name: "Adobe Photoshop", icon: photoshopIcon },
+            { name: "Adobe Illustrator", icon: illustratorIcon },
+            { name: "Adobe Lightroom", icon: lightroomIcon },
         ],
     },
 ];
@@ -274,9 +274,9 @@ export const aboutMeData = {
                     <p>
                         Con el tiempo y la experiencia, nació{" "}
                         <Link href={`/myprojects/2`} className="italic link">
-                            <HighlightText>
+                            <span className="text-neutral-50 shine-hover">
                                 &quot;<u>Treze Studio</u>&quot;
-                            </HighlightText>
+                            </span>
                         </Link>
                         , mi propio proyecto de diseño gráfico. Este estudio
                         representa mi crecimiento, mi estilo y mi manera de
