@@ -30,7 +30,7 @@ function ProjectCard({
             >
                 <div className="flex justify-between">
                     <div className="z-[3] gap-1 flex flex-col">
-                        <HighlightText color="#fafafa">
+                        <HighlightText color="#f5f5f5">
                             <p className="text-xl">{project.name}</p>
                         </HighlightText>
                         <p className="text-base text-neutral-400">
@@ -43,7 +43,7 @@ function ProjectCard({
                         transition={{ duration: 0.3 }}
                     >
                         {/* <FontAwesomeIcon icon={faArrowRight} size="2xl" /> */}
-                        <MdArrowForward size="2.5rem" />
+                        <MdArrowForward size="2.5rem" className="text-neutral-100" />
                     </motion.div>
                 </div>
 

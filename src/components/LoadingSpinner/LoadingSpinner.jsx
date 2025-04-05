@@ -1,3 +1,4 @@
+import DotAnimation from "../DotAnimation/DotAnimation";
 import styles from "./LoadingSpinner.module.css";
 function LoadingSpinner() {
     return (
@@ -7,7 +8,7 @@ function LoadingSpinner() {
                 <div className={styles.dot}></div>
                 <div className={styles.dot}></div>
             </div>
-            <p className="neuemontreal-regular text-sm">Un momento ...</p>
+            <p className="neuemontreal-regular text-sm">Un momento<DotAnimation/></p>
         </div>
     );
 }

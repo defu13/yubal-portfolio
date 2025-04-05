@@ -19,11 +19,13 @@ import HighlightTitle from "../HighlightTitle/HighlightTitle";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MdArrowDownward, MdArrowForward } from "react-icons/md";
 import Tooltip from "../Tooltip/Tooltip";
+import { useTheme } from "@/src/context/ThemeContext";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
     const { translateY } = useScrollVertical(1, 100, -700);
     const isMobile = useIsMobile();
+    const { theme } = useTheme();
 
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
@@ -83,7 +85,7 @@ function MainSection() {
                                 // transition={{ease: "backOut", duration: 0.4}}
                                 initial={{ opacity: 0 }}
                                 whileHover={{ opacity: 1 }}
-                                transition={{ duration: 4 }}
+                                transition={{ duration: 7 }}
                             >
                                 <Image
                                     src={profilePicColor}
@@ -100,7 +102,7 @@ function MainSection() {
                             />
                         </Floating>
                         <div
-                            className={`text-neutral-100 justify-center items-end w-full h-12 ${styles.contact_container}`}
+                            className={`dark:text-neutral-100 text-[#101010] justify-center items-end w-full h-12 ${styles.contact_container}`}
                         >
                             <div
                                 className={`gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
@@ -133,16 +135,16 @@ function MainSection() {
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.3}>
                             <h1
-                                className={`lg:text-8xl md:text-7xl sm:text-6xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-glow neuemontreal-medium tracking-tight ${styles.title}`}
+                                className={`lg:text-8xl md:text-7xl sm:text-5xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-glow neuemontreal-medium tracking-tight ${styles.title}`}
                             >
-                                <HighlightTitle color="#fafafa">
-                                    Diseñador
+                                <HighlightTitle glow={false} monocrome={true}>
+                                    Diseñador &nbsp;
                                 </HighlightTitle>
-                                &nbsp; y Desarrollador
+                                y Desarrollador
                             </h1>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.4}>
-                            <p className="text-lg neuemontreal-regular text-neutral-400">
+                            <p className="text-lg neuemontreal-regular dark:text-neutral-400 text-neutral-500">
                                 Apasionado del diseño gráfico y la programación,
                                 y especializado en el desarrollo web con React.
                                 {/* <HighlightText>React.</HighlightText> */}
@@ -191,10 +193,7 @@ function MainSection() {
                         >
                             {socialLinks.map((button, index) => (
                                 <Magnetic animationForce={0.4} key={index}>
-                                    <a
-                                        href={button.link}
-                                        target="_blank"
-                                    >
+                                    <a href={button.link} target="_blank">
                                         <Tooltip
                                             showArrow={true}
                                             placement="top"
@@ -202,14 +201,13 @@ function MainSection() {
                                         >
                                             <motion.div
                                                 whileHover={{
-                                                    // color: button.color,
-                                                    color: "#fafafa",
+                                                    color:
+                                                        theme === "dark"
+                                                            ? "#f5f5f5"
+                                                            : "#232323",
                                                 }}
                                                 transition={{ duration: 0.2 }}
                                                 style={{
-                                                    // color: isMobile
-                                                    //     ? button.color
-                                                    //     : "#fafafa",
                                                     color: button.color,
                                                 }}
                                             >

@@ -28,9 +28,11 @@ function HomeSection() {
                     </Title>
                 </motion.div>
             </section>
-            <section className="lg:px-24 px-5 py-10 flex justify-center overflow-hidden">
-                <div className="flex flex-col gap-20 md:max-w-5xl w-full">
-                    <DotTitle>Proyectos recientes</DotTitle>
+            <section className="py-10 flex justify-center overflow-hidden">
+                <div className="flex flex-col gap-10 w-full items-center">
+                    <div className="md:max-w-5xl w-full flex justify-center xl:px-0 px-5">
+                        <DotTitle className={`w-full`}>Proyectos recientes</DotTitle>
+                    </div>
                     <ProjectsPreviewComponent />
                 </div>
             </section>

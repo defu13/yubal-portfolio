@@ -1,10 +1,13 @@
 function HighlightTitle({
     children,
-    color = "#a5d5e3",
+    className,
+    glow = true,
+    monocrome = false,
 }) {
+    const color = monocrome ? "" : "dark:text-[#7dc7db] text-[#2b535e]";
     return (
-        <span className={`gloock-regular italic text-glow tracking-normal`}
-        style={{ color: color }}
+        <span className={`${color} gloock-regular italic tracking-normal ${glow ? "text-glow": ""} ${className}`}
+            
         >
             {children}
         </span>

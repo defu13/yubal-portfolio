@@ -16,16 +16,19 @@ import NextProjectComponent from "../NextProjectComponent/NextProjectComponent";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import DotAnimation from "../DotAnimation/DotAnimation";
 import styles from "./ProjectComponent.module.css";
+import { useTheme } from "@/src/context/ThemeContext";
 
 function ProjectComponent({ project }) {
     // const { setLoading } = useLoading();
     const isMobile = useIsMobile();
 
+    const { theme } = useTheme();
+
     // calcular si es el ultimo proyecto
     const isLastProject = project.id === 1;
 
     // calcula el nextProject a partir del project actual
-    const nextProject = projectsData[project.id-2];
+    const nextProject = projectsData[project.id - 2];
 
     const {
         containerY,
@@ -82,11 +85,11 @@ function ProjectComponent({ project }) {
                                 className="flex flex-col gap-6 flex-1"
                                 key={index}
                             >
-                                <p className="neuemontreal-regular text-xs text-neutral-400">
+                                <p className="neuemontreal-regular text-xs dark:text-neutral-500 text-neutral-600">
                                     {item.title}
                                 </p>
-                                <hr className="shrink-0 border-none w-full bg-neutral-400 h-px" />
-                                <p>{item.value}</p>
+                                <hr className="shrink-0 border-none w-full bg-neutral-600 h-px" />
+                                <p className="dark:neuemontreal-regular neuemontreal-medium">{item.value}</p>
                             </div>
                         ))}
                     </div>
@@ -104,7 +107,7 @@ function ProjectComponent({ project }) {
                                             src={link_arrow_rotated}
                                             alt="link arrow"
                                             width={30}
-                                            className="transform rotate-180 invert"
+                                            className="transform rotate-180 dark:invert invert-[15%]"
                                         />
                                     </motion.div>
                                 </div>
@@ -163,14 +166,13 @@ function ProjectComponent({ project }) {
                 </div>
             </AnimatedEntrance>
             <div
-                className="hero-project"
+                className="hero-project dark:opacity-75 opacity-100"
                 style={{
                     backgroundImage: `radial-gradient(circle farthest-side at 50% 0, ${project.backgroundColor}, #0000)`,
-                    opacity: 0.75,
                 }}
             ></div>
             <div className="flex flex-col gap-28 sm:mt-24">
-                <div className="flex flex-col w-[100vw] lg:w-full md:max-w-7xl">
+                <div className="flex flex-col w-[100vw] lg:w-full md:max-w-7xl box-shadow-card">
                     {project.images.map((image, index) => (
                         <Image
                             key={index}
@@ -182,7 +184,7 @@ function ProjectComponent({ project }) {
                 </div>
 
                 <div className="flex flex-col gap-8 mt-12 lg:mx-0 mx-5">
-                    <hr className="shrink-0 border-none w-full bg-neutral-800 h-px" />
+                    <hr className="shrink-0 border-none w-full bg-neutral-600 h-px" />
                     {!isLastProject && (
                         <>
                             <Title>
@@ -193,7 +195,10 @@ function ProjectComponent({ project }) {
                         </>
                     )}
                     <div className="flex justify-center mt-12">
-                        <ButtonComponent href={"/myprojects"}>
+                        <ButtonComponent
+                            href={"/myprojects"}
+                            buttonClassName={"custom-button-moredark"}
+                        >
                             Todos los proyectos
                         </ButtonComponent>
                     </div>

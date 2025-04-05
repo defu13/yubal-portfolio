@@ -12,9 +12,13 @@
 .spinner .dot {
     width: 8px;
     height: 8px;
-    background-color: #ffffff;
+    background-color: var(--dark-color);
     border-radius: 50%;
     animation: bounce 0.6s infinite alternate;
+}
+
+:global(.dark) .spinner .dot {
+    background-color: var(--light-color);
 }
 
 .spinner .dot:nth-child(1) {

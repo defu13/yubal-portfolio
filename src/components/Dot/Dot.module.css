@@ -1,7 +1,12 @@
 .dot{
-    background-color: white;
+    /* background-color: var(--dark-color); */
     border-radius: 50%;
     width: 10px;
     height: 10px;
-    box-shadow: 0 0 20px #fff;
+    /* box-shadow: 0 0 20px var(--dark-color); */
 }
+/* 
+.dark .dot{
+    background-color: var(--light-color);
+    box-shadow: 0 0 20px var(--light-color);
+} */

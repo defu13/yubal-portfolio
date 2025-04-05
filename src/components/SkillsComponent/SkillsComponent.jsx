@@ -46,7 +46,7 @@ function SkillsComponent() {
                                             src={icon.icon}
                                             width={40}
                                             alt="skill icon"
-                                            className="invert"
+                                            className="icon-custom"
                                         />
                                     </Tooltip>
                                 </div>

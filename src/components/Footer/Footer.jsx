@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MdArrowOutward } from "react-icons/md";
 import LogoIcon from "../LogoIcon/LogoIcon";
+import { useTheme } from "@/src/context/ThemeContext";
 
 function Footer() {
     const isMobile = useIsMobile();
+    const { theme } = useTheme();
 
     return (
         <div
@@ -16,7 +18,7 @@ function Footer() {
             style={{ clipPath: "polygon( 0% 0, 100% 0%, 100% 100%, 0 100% )" }}
         >
             <footer
-                className="flex sm:py-24 py-20 w-full justify-center bg-neutral-950 lg:px-24 px-5 h-[100vh] fixed bottom-0"
+                className="flex sm:py-24 py-20 w-full justify-center dark:bg-neutral-950 bg-neutral-900 lg:px-24 px-5 h-[100vh] fixed bottom-0"
                 // style={{ minHeight: isMobile ? "100vh" : "unset" }}
             >
                 <div className="flex md:flex-row lg:max-w-7xl w-full justify-between flex-col-reverse">
@@ -48,7 +50,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.href}
-                                            className="text-base text-neutral-50 hover:text-neutral-300"
+                                            className="text-base text-neutral-100 hover:text-neutral-300"
                                         >
                                             {item.name}
                                         </Link>
@@ -63,7 +65,7 @@ function Footer() {
                                     <Link
                                         href={socialLinks[1].link}
                                         target="_blank"
-                                        className="text-base text-neutral-50 hover:text-neutral-300"
+                                        className="text-base text-neutral-100 hover:text-neutral-300"
                                     >
                                         <div className="flex gap-1 ">
                                             <p>{socialLinks[1].name}</p>
@@ -74,7 +76,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.link}
-                                            className="hover:text-neutral-300"
+                                            className="text-neutral-100 hover:text-neutral-300"
                                         >
                                             <p>{item.description}</p>
                                         </Link>
@@ -84,7 +86,7 @@ function Footer() {
                         </div>
                         <div className="flex flex-col gap-6">
                             <p className="text-xs text-neutral-500">SOCIAL</p>
-                            <div className="flex gap-3 min-[345px]:flex-row flex-col">
+                            <div className="dark flex gap-3 min-[345px]:flex-row flex-col">
                                 {socialLinks.map((item, index) => (
                                     <Link
                                         key={index}
@@ -94,14 +96,10 @@ function Footer() {
                                         <motion.p
                                             className="shine-hover"
                                             style={{
-                                                // color: isMobile
-                                                //     ? item.color
-                                                //     : "#fafafa",
                                                 color: item.color,
                                             }}
                                             whileHover={{
-                                                // color: item.color,
-                                                color: "#fafafa",
+                                                color: "#f5f5f5",
                                             }}
                                         >
                                             {item.name}
@@ -112,7 +110,6 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                {/* <div className="hero-noise"></div> */}
             </footer>
         </div>
     );

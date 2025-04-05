@@ -63,7 +63,7 @@ function CardProjectPreviewComponent({ index, project, withButton = true }) {
                 <ProjectCard
                     project={project}
                     isBackground={true}
-                    isShadow={false}
+                    
                     cardClassName={"sm:max-h-[400px] h-[300px]"}
                 />
             </motion.div>

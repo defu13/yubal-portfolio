@@ -39,12 +39,12 @@ export default function About() {
                                 />
                             </Card>
                         </div>
-                        <div className="flex-1 text-neutral-400 gap-5 text-base flex flex-col">
+                        <div className="flex-1 dark:text-neutral-400 text-neutral-600 gap-5 text-base flex flex-col">
                             {aboutMeData.text[0].text}
                         </div>
                     </div>
                     <div className="flex gap-12 flex-col-reverse min-[550px]:flex-row">
-                        <div className="flex-1 text-neutral-400 gap-5 text-base flex flex-col">
+                        <div className="flex-1 dark:text-neutral-400 text-neutral-600 gap-5 text-base flex flex-col">
                             {aboutMeData.text[1].text}
                         </div>
                         <div className="flex-1">
@@ -67,12 +67,12 @@ export default function About() {
                                 />
                             </Card>
                         </div>
-                        <div className="flex-1 text-neutral-400 gap-5 text-base flex flex-col">
+                        <div className="flex-1 dark:text-neutral-400 text-neutral-600 gap-5 text-base flex flex-col">
                             {aboutMeData.text[2].text}
                         </div>
                     </div>
                     <div className="flex gap-12 flex-col-reverse min-[550px]:flex-row">
-                        <div className="flex-1 text-neutral-400 gap-5 text-base flex flex-col">
+                        <div className="flex-1 dark:text-neutral-400 text-neutral-600 gap-5 text-base flex flex-col">
                             {aboutMeData.text[3].text}
                         </div>
                         <div className="flex-1">

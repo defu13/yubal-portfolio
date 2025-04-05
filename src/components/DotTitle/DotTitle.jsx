@@ -1,8 +1,8 @@
 import Dot from "../Dot/Dot";
 
-function DotTitle({ children }) {
+function DotTitle({ children, className }) {
     return (
-        <div className="flex gap-3 items-center">
+        <div className={`flex gap-3 items-center ${className}`}>
             <Dot />
             <p className="neuemontreal-medium text-neutral-500">
                 {children}

@@ -23,7 +23,7 @@ function NextProjectComponent({ nextProject }) {
     return (
         <>
             <div className="flex w-full lg:max-w-7xl self-center">
-                <div className="flex justify-center border-b-[1px] overflow-hidden pt-[70px] w-full">
+                <div className="flex justify-center border-b-[1px] border-neutral-600 overflow-hidden pt-[100px] w-full">
                     <motion.div
                         className="w-full sm:max-w-[85%] max-w-[95%] flex justify-center"
                         onHoverStart={
@@ -45,7 +45,7 @@ function NextProjectComponent({ nextProject }) {
                             }}
                         >
                             <motion.div
-                                className="absolute top-[50%] left-0 -translate-y-1/2 z-[2] flex justify-center items-center w-full"
+                                className="dark absolute top-[50%] left-0 -translate-y-1/2 z-[2] flex justify-center items-center w-full"
                                 initial={{ y: 140 }}
                                 animate={{
                                     opacity: isHovering ? 1 : 0,

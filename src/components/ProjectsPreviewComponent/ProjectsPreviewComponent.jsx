@@ -5,8 +5,8 @@ import CardProjectPreviewComponent from "../CardProjectPreviewComponent/CardProj
 
 function ProjectsPreviewComponent() {
     return (
-        <div className="relative flex flex-col items-center w-full h-[730px] overflow-hidden pt-12">
-            <div className="md:max-w-5xl w-full flex flex-col">
+        <div className="relative flex flex-col items-center w-full overflow-hidden pt-24">
+            <div className="md:max-w-5xl w-full flex flex-col xl:px-0 px-5">
                 {projectsData.slice(-3).map((project, index) => (
                     <Link
                         key={index}
@@ -34,7 +34,8 @@ function ProjectsPreviewComponent() {
             ></div>
             <ButtonComponent
                 href="/myprojects"
-                linkClassName="flex z-[4] absolute bottom-12"
+                linkClassName="flex z-[4] absolute bottom-16"
+                buttonClassName={"custom-button-moredark"}
             >
                 Más proyectos
             </ButtonComponent>

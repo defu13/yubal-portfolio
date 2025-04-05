@@ -273,11 +273,11 @@ export const aboutMeData = {
                 <>
                     <p>
                         Con el tiempo y la experiencia, nació{" "}
-                        <Link href={`/myprojects/2`} className="italic link">
-                            <span className="text-neutral-50 shine-hover">
+                        <a href="https://www.instagram.com/treze.st/" className="italic link" target="_blank">
+                            <span className="dark:text-neutral-100 text-neutral-800 dark:font-normal font-bold shine-hover">
                                 &quot;<u>Treze Studio</u>&quot;
                             </span>
-                        </Link>
+                        </a>
                         , mi propio proyecto de diseño gráfico. Este estudio
                         representa mi crecimiento, mi estilo y mi manera de
                         entender la identidad visual.

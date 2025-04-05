@@ -1,17 +1,22 @@
 "use client";
-import { LoadingProvider } from "@/src/context/LoadingContext";
 import Loader from "../Loader/Loader";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import { ThemeProvider } from "@/src/context/ThemeContext";
+import { LoadingProvider } from "@/src/context/LoadingContext";
 
 function MainComponent({ children }) {
     return (
         <LoadingProvider>
-            <Loader>
-                <Header />
-                <main className="pb-32 border-b-[1px] border-neutral-800">{children}</main>
-                <Footer />
-            </Loader>
+            <ThemeProvider>
+                <Loader>
+                    <Header />
+                    <main className="pb-32 border-b-[1px] dark:border-neutral-800 border-neutral-500">
+                        {children}
+                    </main>
+                    <Footer />
+                </Loader>
+            </ThemeProvider>
         </LoadingProvider>
     );
 }
