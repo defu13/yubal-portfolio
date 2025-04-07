@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
         <html lang="es" suppressHydrationWarning>
             <head>
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
+                <meta name="google-site-verification" content="2OdRUjKrJdbqd57HKMBZiXvXk1lV1TtFIZQCz64Wd5w" />
             </head>
             <body className={`dark:text-neutral-100 dark:bg-[#101010] bg-[#dddddd] text-[#232323]`}>
                 <MainComponent>{children}</MainComponent>
