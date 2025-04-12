@@ -1,9 +1,13 @@
+"use client";
 import { projectsData } from "@/data/data";
 import Link from "next/link";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import CardProjectPreviewComponent from "../CardProjectPreviewComponent/CardProjectPreviewComponent";
+import { useTheme } from "@/src/context/ThemeContext";
 
 function ProjectsPreviewComponent() {
+    const { theme } = useTheme();
+
     return (
         <div className="relative flex flex-col items-center w-full overflow-hidden pt-24">
             <div className="md:max-w-5xl w-full flex flex-col xl:px-0 px-5">
@@ -35,7 +39,9 @@ function ProjectsPreviewComponent() {
             <ButtonComponent
                 href="/myprojects"
                 linkClassName="flex z-[4] absolute bottom-16"
-                buttonClassName={"custom-button-moredark"}
+                buttonClassName={`${
+                    theme !== "dark" ? "custom-button-moredark" : ""
+                }`}
             >
                 Más proyectos
             </ButtonComponent>

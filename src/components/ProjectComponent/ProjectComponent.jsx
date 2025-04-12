@@ -89,7 +89,9 @@ function ProjectComponent({ project }) {
                                     {item.title}
                                 </p>
                                 <hr className="shrink-0 border-none w-full bg-neutral-600 h-px" />
-                                <p className="dark:neuemontreal-regular neuemontreal-medium">{item.value}</p>
+                                <p className="dark:neuemontreal-regular neuemontreal-medium">
+                                    {item.value}
+                                </p>
                             </div>
                         ))}
                     </div>
@@ -197,7 +199,9 @@ function ProjectComponent({ project }) {
                     <div className="flex justify-center mt-12">
                         <ButtonComponent
                             href={"/myprojects"}
-                            buttonClassName={"custom-button-moredark"}
+                            buttonClassName={`${
+                                theme !== "dark" ? "custom-button-moredark" : ""
+                            }`}
                         >
                             Todos los proyectos
                         </ButtonComponent>

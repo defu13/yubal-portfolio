@@ -130,6 +130,7 @@ export const projectsData = [
     {
         id: 1,
         name: "Nortepuro - Diseño de logotipo",
+        publicName: "nortepuro",
         description:
             "Logotipo personalizado para una marca de productos urbanos con mucha personalidad, Nortepuro Shop.",
 
@@ -145,6 +146,7 @@ export const projectsData = [
     {
         id: 2,
         name: "Treze Studio - Identidad de marca",
+        publicName: "trezestudio",
         description:
             "Creando la identidad e imagen de marca para el estudio de diseño gráfico Treze Studio.",
 
@@ -160,6 +162,7 @@ export const projectsData = [
     {
         id: 3,
         name: "Lowdest - Diseño de logotipos",
+        publicName: "lowdest",
         description:
             "Diseño de varios conceptos tipográficos para el club automovilístico, Lowdest Culture.",
 

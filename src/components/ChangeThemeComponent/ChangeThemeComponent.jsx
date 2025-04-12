@@ -10,7 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import { useTheme } from "@/src/context/ThemeContext";
 
 function ChangeThemeComponent({ size = 1 }) {
-    const {theme, setTheme} = useTheme(); // Importa el contexto del tema
+    const {setTheme} = useTheme(); // Importa el contexto del tema
     const [activeTheme, setActiveTheme] = useState(() => {
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {
@@ -91,8 +91,10 @@ function ChangeThemeComponent({ size = 1 }) {
 
     const dropdownRef = useRef(null);
 
-    // Cierra el dropdown al hacer clic fuera
     useEffect(() => {
+        setTheme(activeTheme);
+
+        // Cierra el dropdown al hacer clic fuera
         const handleClickOutside = (event) => {
             if (
                 dropdownRef.current &&
