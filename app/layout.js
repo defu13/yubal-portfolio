@@ -29,7 +29,7 @@ export const metadata = {
     ],
     author: "Yubal De Fuente",
     openGraph: {
-        siteName: "Yubal De Fuente",
+        siteName: "Yubal De Fuente - Portfolio",
         images: [
             {
                 url: `${process.env.NEXT_PUBLIC_BASE_URL}/author.jpg`,

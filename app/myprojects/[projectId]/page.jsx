@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 
 // Generar metadatos dinámicos
 export async function generateMetadata({ params }) {
-    const { projectId } = params;
+    const { projectId } = await params;
     const project = projectsData.find(
         (project) => project.id.toString() === projectId
     );

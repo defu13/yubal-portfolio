@@ -125,15 +125,27 @@
     box-shadow: 0 15px 40px #0000004d;
 }
 
-.custom-button-moredark{
+/* .custom-button-moredark{
     background-color: #1b1b1b70;
     border: 1px solid #f2f2f28a;
+} */
+
+.custom-button-moredark{
+    background-color: #acacac70;
+    border: 1px solid #7c7c7c8a;
+    color: #232323;
     /* box-shadow: 0 15px 25px #0000004d; */
 }
 
-.custom-button-moredark:hover {
+/* .custom-button-moredark:hover {
     border-color: #f2f2f2b6;
     background-color: #1b1b1b4f;
+} */
+
+.custom-button-moredark:hover {
+    background-color: #000000bd;
+    border-color: #dbdbdb8a;
+    color: #f5f5f5;
 }
 
 .dark .shine-hover {

@@ -83,29 +83,22 @@ export default function Header() {
         <header
             className={`justify-between items-center pointer-events-none ${styles.header}`}
         >
-            <div
-                className={`${styles.header_background}`}
-            ></div>
+            <div className={`${styles.header_background}`}></div>
             <div className="flex flex-row gap-8 items-center z-10">
                 {!isMobile && <ChangeThemeComponent />}
                 {/* <Magnetic> */}
-                    <Link
-                        href="/"
-                        className="hidden sm:block pointer-events-auto"
+                <Link href="/" className="hidden sm:block pointer-events-auto">
+                    <div
+                        className={`${styles.logo} justify-center items-center custom-button px-2 pt-[3px] pb-[3px] rounded-xl pointer-events-auto cursor-pointer shine-hover flex`}
                     >
-                        <div className={`${styles.logo} justify-center items-center custom-button px-2 pt-[3px] pb-[3px] rounded-xl pointer-events-auto cursor-pointer shine-hover flex`}>
-                            <p
-                                className={`${styles.copyright}`}
-                            >
-                                ©
-                            </p>
-                            <div className={styles.name}>
-                                <p className={styles.codeBy}>Code by</p>
-                                <p className={styles.yubal}>Yubal</p>
-                                <p className={styles.defuente}>De Fuente</p>
-                            </div>
+                        <p className={`${styles.copyright}`}>©</p>
+                        <div className={styles.name}>
+                            <p className={styles.codeBy}>Code by</p>
+                            <p className={styles.yubal}>Yubal</p>
+                            <p className={styles.defuente}>De Fuente</p>
                         </div>
-                    </Link>
+                    </div>
+                </Link>
                 {/* </Magnetic> */}
             </div>
             {isMobile ? (
@@ -168,7 +161,7 @@ export default function Header() {
                                     className="pointer-events-auto"
                                     variants={menuItemVariants}
                                 >
-                                    <ChangeThemeComponent size={1.35}/>
+                                    <ChangeThemeComponent size={1.35} />
                                 </motion.div>
                             </AnimatePresence>
                             <div className="text-neutral-100 pointer-events-auto">
@@ -183,25 +176,35 @@ export default function Header() {
                     </motion.nav>
                 </>
             ) : (
-                <nav className="flex gap-10 pointer-events-auto">
+                <nav className="flex pointer-events-auto">
                     {navigation.map((item, index) => (
-                        <Magnetic key={index}>
-                            <Link
-                                href={item.href}
-                                className={`text-neutral-100 jetbrainsmono-regular whitespace-nowrap ${
-                                    styles.menu_element
-                                } ${
-                                    !isHovering && pathname === item.href
-                                        ? styles.active
-                                        : ""
-                                }`}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                {item.name}
-                                <div className={styles.dot}></div>
-                            </Link>
-                        </Magnetic>
+                        // <Magnetic key={index}>
+                        <Link
+                            key={index}
+                            href={item.href}
+                            className={`jetbrainsmono-regular whitespace-nowrap custom-button px-3 py-[3px] shine-hover ${
+                                styles.menu_element
+                            } ${
+                                !isHovering && pathname === item.href
+                                    ? styles.active
+                                    : ""
+                            } ${index === 0 ? "rounded-l-xl" : ""} ${
+                                index === navigation.length - 1
+                                    ? "rounded-r-xl"
+                                    : ""
+                            }`}
+                            style={
+                                index === 0 || index === 1
+                                    ? { borderRight: "0" }
+                                    : {}
+                            }
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            {item.name}
+                            <div className={styles.dot}></div>
+                        </Link>
+                        // </Magnetic>
                     ))}
                 </nav>
             )}
