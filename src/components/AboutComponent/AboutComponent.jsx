@@ -4,10 +4,12 @@ import Card from "@/src/components/Card/Card";
 import DotTitle from "@/src/components/DotTitle/DotTitle";
 import { aboutMeData } from "@/data/data";
 import Image from "next/image";
-import photo1 from "@/assets/images/photo1.jpg";
+// import photo1 from "@/assets/images/photo1.jpg";
+import photo1 from "@/public/author.jpg";
 import photo2 from "@/assets/images/photo2.jpg";
 import photo3 from "@/assets/images/photo3.jpg";
 import photo4 from "@/assets/images/photo4.jpg";
+import styles from "./AboutComponent.module.css";
 
 function AboutComponent() {
     return (
@@ -48,11 +50,18 @@ function AboutComponent() {
                         </div>
                         <div className="flex-1">
                             <Card clickable={false}>
-                                <Image
-                                    src={photo2}
-                                    alt="project image"
-                                    className="rounded-2xl"
-                                />
+                                {/* <div
+                                    className={`${styles.pictureContainer}`}
+                                    style={{
+                                        "--bg-image": `url(${photo2.src})`,
+                                    }}
+                                > */}
+                                    <Image
+                                        src={photo2}
+                                        alt="project image"
+                                        className={`rounded-2xl`}
+                                    />
+                                {/* </div> */}
                             </Card>
                         </div>
                     </div>

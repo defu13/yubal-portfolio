@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 // import { faArrowRight } from "@fortawesome/free-solid-svg-icons";

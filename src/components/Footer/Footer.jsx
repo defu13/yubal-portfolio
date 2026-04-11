@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { navigation, socialLinks, contactData } from "@/data/data";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MdArrowOutward } from "react-icons/md";
 import LogoIcon from "../LogoIcon/LogoIcon";

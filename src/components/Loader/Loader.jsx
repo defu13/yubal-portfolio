@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useEffect } from "react";
 import { useLoading } from "@/src/context/LoadingContext";

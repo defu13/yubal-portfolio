@@ -4,7 +4,7 @@ import Floating from "../Floating/Floating";
 import Image from "next/image";
 import Magnetic from "../Magnetic/Magnetic";
 import HighlightText from "../HighlightText/HighlightText";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
 import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
@@ -74,15 +74,14 @@ function MainSection() {
                 className={`flex flex-col items-center justify-center relative ${styles.header_container}`}
             >
                 <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
-                    <AnimatedEntrance className="flex flex-col gap-2 justify-between min-w-64">
+
+                    
+                    {/* Elemento con mi foto */}
+
+                    {/* <AnimatedEntrance className="flex flex-col gap-2 justify-between min-w-64">
                         <Floating>
                             <motion.div
                                 className={`${styles.mask} absolute`}
-                                // animate={{
-                                //     WebkitMaskPosition: `${mousePosition.x + 280}px ${mousePosition.y}px`,
-                                //     WebkitMaskSize: `${size}px`,
-                                // }}
-                                // transition={{ease: "backOut", duration: 0.4}}
                                 initial={{ opacity: 0 }}
                                 whileHover={{ opacity: 1 }}
                                 transition={{ duration: 7 }}
@@ -125,7 +124,7 @@ function MainSection() {
                                 />
                             </div>
                         </div>
-                    </AnimatedEntrance>
+                    </AnimatedEntrance> */}
                     <div className="flex flex-col gap-8 max-w-2xl justify-between">
                         <AnimatedEntrance
                             className="flex gap-3 items-center"
@@ -225,8 +224,8 @@ function MainSection() {
                     </div>
                 </div>
                 <AnimatedEntrance
-                    style={{ y: translateY }}
-                    className="hidden md:flex absolute bottom-0"
+                    style={{ y: isMobile ? 0 : translateY }}
+                    className="hidden md:flex"
                     delay={0.7}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styles from "./DotAnimation.module.css";
 
 // Configuración de la animación para los puntos suspensivos

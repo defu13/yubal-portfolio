@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./ProjectCard.module.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import HighlightText from "../HighlightText/HighlightText";
 import { MdArrowForward } from "react-icons/md";

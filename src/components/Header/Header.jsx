@@ -5,10 +5,11 @@ import Magnetic from "../Magnetic/Magnetic";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navigation } from "@/data/data";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { Squash as Hamburger } from "hamburger-react";
 import ChangeThemeComponent from "../ChangeThemeComponent/ChangeThemeComponent";
+import { socialLinks } from "@/data/data";
 
 export default function Header() {
     const pathname = usePathname();
@@ -154,6 +155,9 @@ export default function Header() {
                                     </Link>
                                 </motion.li>
                             ))}
+                            <motion.li variants={menuItemVariants}>
+                                <hr className="shrink-0 border-none w-full mt-8 bg-neutral-600 h-px" />
+                            </motion.li>
                         </motion.ul>
                         <div className="flex justify-between items-center p-5">
                             <AnimatePresence>
@@ -178,7 +182,6 @@ export default function Header() {
             ) : (
                 <nav className="flex pointer-events-auto">
                     {navigation.map((item, index) => (
-                        // <Magnetic key={index}>
                         <Link
                             key={index}
                             href={item.href}
@@ -204,8 +207,14 @@ export default function Header() {
                             {item.name}
                             <div className={styles.dot}></div>
                         </Link>
-                        // </Magnetic>
                     ))}
+                    <Link
+                        href={socialLinks[1].link}
+                        target="_blank"
+                        className="ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link self-center"
+                    >
+                        {socialLinks[1].name}
+                    </Link>
                 </nav>
             )}
         </header>

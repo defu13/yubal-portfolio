@@ -2,7 +2,6 @@ import {
     faGithub,
     faLinkedin,
     faInstagram,
-    faDribbble,
     faBehance,
 } from "@fortawesome/free-brands-svg-icons";
 import { projectImages } from "@/src/utils/images";
@@ -25,7 +24,6 @@ import npmIcon from "@/assets/images/icons/npm.svg";
 import lightroomIcon from "@/assets/images/icons/adobelightroom.svg";
 import HighlightTitle from "@/src/components/HighlightTitle/HighlightTitle";
 import Title from "@/src/components/Title/Title";
-import Link from "next/link";
 
 export const navigation = [
     { name: "Inicio", href: "/" },

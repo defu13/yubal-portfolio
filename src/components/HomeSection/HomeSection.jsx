@@ -2,7 +2,7 @@
 import HighlightTitle from "../HighlightTitle/HighlightTitle";
 import Title from "../Title/Title";
 import SkillsComponent from "../SkillsComponent/SkillsComponent";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import ProjectsPreviewComponent from "../ProjectsPreviewComponent/ProjectsPreviewComponent";
 import DotTitle from "../DotTitle/DotTitle";

@@ -9,7 +9,7 @@ import Globe from "../Globe/Globe";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import Link from "next/link";
 import link_arrow_rotated from "@/assets/images/link_arrow_rotated.svg";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { projectsData } from "@/data/data";
 import NextProjectComponent from "../NextProjectComponent/NextProjectComponent";

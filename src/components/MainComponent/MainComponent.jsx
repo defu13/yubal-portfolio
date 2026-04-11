@@ -11,7 +11,7 @@ function MainComponent({ children }) {
             <ThemeProvider>
                 <Loader>
                     <Header />
-                    <main className="pb-32 border-b-[1px] dark:border-neutral-800 border-neutral-500">
+                    <main className="pb-32 border-b-2 dark:border-neutral-800 border-neutral-500">
                         {children}
                     </main>
                     <Footer />

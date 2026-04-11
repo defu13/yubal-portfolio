@@ -1,6 +1,5 @@
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { useIsMobile } from "./useIsMobile";
 
 export const useScrollVertical = (
     scrollDirection = 1,
@@ -11,24 +10,25 @@ export const useScrollVertical = (
     endRotate = 360,
     useOffset = true
 ) => {
-    const {isMobile} = useIsMobile();
-    const containerY = useRef();
-    const { scrollYProgress } = useScroll({
-        target: containerY,
-        offset: useOffset ? ["start end", "end start"] : undefined,
-    });
+    const containerY = useRef(null);
+
+    // const { scrollYProgress } = useScroll({
+    //     target: containerY,
+    //     offset: useOffset ? ["start end", "end start"] : undefined,
+    // });
+    const {scrollYProgress} = useScroll();
+
     const translateY = useTransform(
         scrollYProgress,
         [0, 1],
         [initScroll * scrollDirection, endScroll * scrollDirection]
     );
+
     const rotate = useTransform(
         scrollYProgress,
         [0, 1],
         [initRotate, endRotate * rotateDirection]
     );
-    if (isMobile) {
-        return { containerY, translateY: 0, rotate: 0 };
-    }
+
     return { containerY, translateY, rotate };
 };

@@ -1,12 +1,12 @@
 import React, { use, useEffect, useRef, useState } from "react";
-import { delay, motion } from "framer-motion";
+import { delay, motion } from "motion/react";
 import {
     MdBrightnessHigh,
     MdDarkMode,
     MdDevices,
     MdKeyboardArrowDown,
 } from "react-icons/md";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { useTheme } from "@/src/context/ThemeContext";
 
 function ChangeThemeComponent({ size = 1 }) {

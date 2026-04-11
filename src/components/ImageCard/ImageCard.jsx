@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import linkArrow from "@/assets/images/link_arrow.svg";
 import { useState } from "react";
