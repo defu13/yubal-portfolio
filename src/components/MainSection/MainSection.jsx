@@ -1,17 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Floating from "../Floating/Floating";
-import Image from "next/image";
 import Magnetic from "../Magnetic/Magnetic";
 import HighlightText from "../HighlightText/HighlightText";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
-import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
-import profilePicColor from "@/assets/images/rsz_fotoperfil_nueva-edit-color.jpg";
 import { socialLinks } from "@/data/data";
-import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import DotTitle from "../DotTitle/DotTitle";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import AnimatedEntrance from "../AnimatedEntrance/AnimatedEntrance";
@@ -20,6 +15,15 @@ import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MdArrowDownward, MdArrowForward } from "react-icons/md";
 import Tooltip from "../Tooltip/Tooltip";
 import { useTheme } from "@/src/context/ThemeContext";
+import AsciiScene from "../AsciiScene/AsciiScene";
+
+// imports de componente de mi foto
+
+// import Image from "next/image";
+// import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
+// import profilePicColor from "@/assets/images/rsz_fotoperfil_nueva-edit-color.jpg";
+// import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
+// import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -52,10 +56,12 @@ function MainSection() {
         return () => clearTimeout(timer);
     }, [isCopied]);
 
-    const handleCopyClipboard = () => {
-        navigator.clipboard.writeText("ydefuente@gmail.com");
-        setIsCopied(true);
-    };
+    // Función para copiar al portapapeles
+
+    // const handleCopyClipboard = () => {
+    //     navigator.clipboard.writeText("ydefuente@gmail.com");
+    //     setIsCopied(true);
+    // };
 
     const scrollToElement = (elementId) => {
         const element = document.getElementById(elementId);
@@ -70,12 +76,22 @@ function MainSection() {
 
     return (
         <>
+            <motion.div
+                className="w-full h-full absolute z-[-2]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                    duration: 0.75,
+                    ease: "easeOut",
+                    delay: 1,
+                }}
+            >
+                <AsciiScene className="" enableZoom={false} />
+            </motion.div>
             <div
                 className={`flex flex-col items-center justify-center relative ${styles.header_container}`}
             >
                 <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
-
-                    
                     {/* Elemento con mi foto */}
 
                     {/* <AnimatedEntrance className="flex flex-col gap-2 justify-between min-w-64">
@@ -125,6 +141,9 @@ function MainSection() {
                             </div>
                         </div>
                     </AnimatedEntrance> */}
+
+                    {/* Elemento de animacion ascii */}
+
                     <div className="flex flex-col gap-8 max-w-2xl justify-between">
                         <AnimatedEntrance
                             className="flex gap-3 items-center"
@@ -134,7 +153,7 @@ function MainSection() {
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.3}>
                             <h1
-                                className={`lg:text-8xl md:text-7xl sm:text-5xl text-[3rem] max-[310px]:text-[2.5rem] leading-none text-glow neuemontreal-medium tracking-tight ${styles.title}`}
+                                className={`lg:text-8xl md:text-7xl sm:text-5xl text-[3rem] max-[310px]:text-[2.5rem] leading-[0.9] text-glow neuemontreal-medium tracking-tight ${styles.title}`}
                             >
                                 <HighlightTitle glow={false} monocrome={true}>
                                     Diseñador &nbsp;
@@ -143,7 +162,7 @@ function MainSection() {
                             </h1>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.4}>
-                            <p className="text-lg neuemontreal-regular dark:text-neutral-400 text-neutral-500">
+                            <p className="text-lg neuemontreal-regular dark:text-neutral-400 text-neutral-600">
                                 Apasionado del diseño gráfico y la programación,
                                 y especializado en el desarrollo web con React.
                                 {/* <HighlightText>React.</HighlightText> */}

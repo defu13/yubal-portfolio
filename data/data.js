@@ -13,17 +13,20 @@ import {
     faEnvelope,
     faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import photoshopIcon from "@/assets/images/icons/adobephotoshop.svg";
-import illustratorIcon from "@/assets/images/icons/adobeillustrator.svg";
+
+import photoshopIcon from "@/assets/images/icons/photoshop.svg";
+import illustratorIcon from "@/assets/images/icons/illustrator.svg";
 import framerIcon from "@/assets/images/icons/framer.svg";
-import nextIcon from "@/assets/images/icons/nextdotjs.svg";
+import nextIcon from "@/assets/images/icons/nextjs.svg";
 import reactIcon from "@/assets/images/icons/react.svg";
 import sassIcon from "@/assets/images/icons/sass.svg";
 import tailwindIcon from "@/assets/images/icons/tailwindcss.svg";
 import npmIcon from "@/assets/images/icons/npm.svg";
-import lightroomIcon from "@/assets/images/icons/adobelightroom.svg";
+import lightroomIcon from "@/assets/images/icons/lightroom.svg";
+
 import HighlightTitle from "@/src/components/HighlightTitle/HighlightTitle";
 import Title from "@/src/components/Title/Title";
+import { color } from "motion";
 
 export const navigation = [
     { name: "Inicio", href: "/" },
@@ -50,12 +53,6 @@ export const socialLinks = [
         icon: faInstagram,
         color: "#EE2AB6",
     },
-    // {
-    //     name: "Dribbble",
-    //     link: "https://dribbble.com/trezestudio",
-    //     icon: faDribbble,
-    //     color: "#f4588e",
-    // },
     {
         name: "Behance",
         link: "https://www.behance.net/trezestudio",
@@ -78,9 +75,9 @@ export const skillsData = [
             </>
         ),
         skills: [
-            { name: "React", icon: reactIcon },
-            { name: "Next.JS", icon: nextIcon },
-            { name: "NPM", icon: npmIcon },
+            { name: "React", icon: reactIcon, color: "#0b4353" },
+            { name: "Next.JS", icon: nextIcon, color: "#000000" },
+            { name: "NPM", icon: npmIcon, color: "#cb3433" },
         ],
     },
     {
@@ -97,9 +94,9 @@ export const skillsData = [
             </>
         ),
         skills: [
-            { name: "Framer Motion", icon: framerIcon },
-            { name: "Tailwind CSS", icon: tailwindIcon },
-            { name: "SASS", icon: sassIcon },
+            { name: "Framer Motion", icon: framerIcon, color: "#000000" },
+            { name: "Tailwind CSS", icon: tailwindIcon, color: "#1c5575" },
+            { name: "SASS", icon: sassIcon, color: "#8d2056" },
         ],
     },
     {
@@ -116,9 +113,9 @@ export const skillsData = [
             </>
         ),
         skills: [
-            { name: "Adobe Photoshop", icon: photoshopIcon },
-            { name: "Adobe Illustrator", icon: illustratorIcon },
-            { name: "Adobe Lightroom", icon: lightroomIcon },
+            { name: "Adobe Photoshop", icon: photoshopIcon, color: "#0f5589" },
+            { name: "Adobe Illustrator", icon: illustratorIcon, color: "#FF9A00" },
+            { name: "Adobe Lightroom", icon: lightroomIcon, color: "#36aaff" },
         ],
     },
 ];

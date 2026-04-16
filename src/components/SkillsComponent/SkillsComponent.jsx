@@ -6,6 +6,7 @@ import Image from "next/image";
 import DotAnimation from "../DotAnimation/DotAnimation";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import Tooltip from "../Tooltip/Tooltip";
+import Card from "../Card/Card";
 
 function SkillsComponent() {
     const isMobile = useIsMobile();
@@ -34,21 +35,22 @@ function SkillsComponent() {
                         >
                             {skill.description}
                         </SkillsDescription>
-                        <div className="flex gap-8 flex-wrap">
+                        <div className="flex gap-3 flex-wrap">
                             {skill.skills.map((icon, index) => (
                                 <div key={index}>
-                                    <Tooltip
-                                        showArrow={true}
-                                        placement="top"
-                                        content={icon.name}
+                                    <div className="py-1.5 px-2 gap-1 rounded-full flex items-center justify-center"
+                                    style={{
+                                        backgroundColor: icon.color,
+                                    }}
                                     >
                                         <Image
                                             src={icon.icon}
-                                            width={40}
+                                            width={25}
                                             alt="skill icon"
-                                            className="icon-custom"
+                                            className="max-h-4"
                                         />
-                                    </Tooltip>
+                                        <span className="text-sm text-neutral-100">{icon.name}</span>
+                                    </div>
                                 </div>
                             ))}
                         </div>

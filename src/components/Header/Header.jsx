@@ -211,7 +211,7 @@ export default function Header() {
                     <Link
                         href={socialLinks[1].link}
                         target="_blank"
-                        className="ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link self-center"
+                        className="ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link self-center text-neutral-100"
                     >
                         {socialLinks[1].name}
                     </Link>
