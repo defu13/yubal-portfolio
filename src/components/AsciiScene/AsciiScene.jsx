@@ -208,7 +208,7 @@ export default function AsciiScene({ className, enableZoom = true }) {
     const [isHovered, setIsHovered] = useState(false);
     const [mousePos] = useState(() => new Vector2(0, 0));
     const [resolution] = useState(() => new Vector2(1920, 1080));
-    const {theme} = useTheme();
+    const { theme } = useTheme();
     const tintColorValue = theme === "dark" ? "#917AFF" : "#251445";
 
     useEffect(() => {
@@ -217,7 +217,12 @@ export default function AsciiScene({ className, enableZoom = true }) {
 
         const updateResolution = () => {
             const rect = container.getBoundingClientRect();
-            resolution.set(rect.width || 1920, rect.height || 1080);
+            const dpr = window.devicePixelRatio || 1;
+
+            resolution.set(
+                (rect.width || 1920) * dpr,
+                (rect.height || 1080) * dpr,
+            );
         };
 
         const handleMouseMove = (e) => {

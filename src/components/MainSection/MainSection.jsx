@@ -87,7 +87,7 @@ function MainSection() {
                     delay: 1,
                 }}
             >
-                <AsciiScene className="" enableZoom={false} />
+                <AsciiScene enableZoom={false} />
             </motion.div>
             <div
                 className={`flex flex-col items-center justify-center relative ${styles.header_container}`}
