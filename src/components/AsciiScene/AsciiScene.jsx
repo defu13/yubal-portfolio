@@ -149,6 +149,8 @@ function SceneWithDelayedComposer({
     const { gl } = useThree();
     const [composerReady, setComposerReady] = useState(false);
     const frameCount = useRef(0);
+    const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
+    const adjustedCellSize = Math.max(7, 9 * dpr);
 
     useFrame(() => {
         frameCount.current++;
@@ -184,7 +186,7 @@ function SceneWithDelayedComposer({
                 <EffectComposer>
                     <AsciiEffect
                         style="standard"
-                        cellSize={9}
+                        cellSize={adjustedCellSize}
                         invert={true}
                         color={true}
                         characterSet="terminal"
