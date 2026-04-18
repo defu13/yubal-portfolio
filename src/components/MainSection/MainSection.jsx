@@ -16,6 +16,7 @@ import { MdArrowDownward, MdArrowForward } from "react-icons/md";
 import Tooltip from "../Tooltip/Tooltip";
 import { useTheme } from "@/src/context/ThemeContext";
 import AsciiScene from "../AsciiScene/AsciiScene";
+import AsciiFlashGroup from "../AsciiFlashGroup/AsciiFlashGroup";
 
 // imports de componente de mi foto
 
@@ -77,7 +78,7 @@ function MainSection() {
     return (
         <>
             <motion.div
-                className="w-full h-full absolute z-[-2]"
+                className="w-full h-full absolute z-[-2] overflow-hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
@@ -150,6 +151,9 @@ function MainSection() {
                             delay={0.2}
                         >
                             <DotTitle>Yubal De Fuente</DotTitle>
+                            <AsciiFlashGroup
+                                color={theme === "dark" ? "#FFFFFF" : "#000000"}
+                            />
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.3}>
                             <h1

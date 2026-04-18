@@ -7,6 +7,7 @@ import DotAnimation from "../DotAnimation/DotAnimation";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import Tooltip from "../Tooltip/Tooltip";
 import Card from "../Card/Card";
+import AsciiFlashGroup from "../AsciiFlashGroup/AsciiFlashGroup";
 
 function SkillsComponent() {
     const isMobile = useIsMobile();
@@ -15,11 +16,13 @@ function SkillsComponent() {
 
     return (
         <div
-            className="flex flex-col pt-0 gap-20 self-center min-h-[100vh] justify-center"
+            className="flex flex-col pt-0 gap-20 self-center min-h-screen justify-center"
             id="skills"
         >
             <div className="flex flex-col gap-8 self-start">
-                <DotTitle>Habilidades</DotTitle>
+                <div className="flex w-full items-center">
+                    <DotTitle>Habilidades</DotTitle>
+                </div>
                 <Title>
                     Puedo ayudarte con
                     <DotAnimation />
@@ -37,20 +40,22 @@ function SkillsComponent() {
                         </SkillsDescription>
                         <div className="flex gap-3 flex-wrap">
                             {skill.skills.map((icon, index) => (
-                                <div key={index}>
-                                    <div className="py-1.5 px-2 gap-1 rounded-full flex items-center justify-center"
+                                <div
+                                    key={index}
+                                    className="py-1.5 px-2 gap-1 rounded-full flex items-center justify-center border border-[#f2f2f233]"
                                     style={{
                                         backgroundColor: icon.color,
                                     }}
-                                    >
-                                        <Image
-                                            src={icon.icon}
-                                            width={25}
-                                            alt="skill icon"
-                                            className="max-h-4"
-                                        />
-                                        <span className="text-sm text-neutral-100">{icon.name}</span>
-                                    </div>
+                                >
+                                    <Image
+                                        src={icon.icon}
+                                        width={25}
+                                        alt="skill icon"
+                                        className="max-h-4"
+                                    />
+                                    <span className="text-sm text-neutral-100">
+                                        {icon.name}
+                                    </span>
                                 </div>
                             ))}
                         </div>

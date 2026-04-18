@@ -1,4 +1,4 @@
-:global(.dark) .main {
+.main {
     background-image: radial-gradient(
         circle closest-corner at 50% 0,
         /* rgba(242, 242, 242, 0.15), */
@@ -7,10 +7,10 @@
     );
 }
 
-.main {
+/* .main {
     background-image: radial-gradient(
         circle closest-corner at 50% 0,
         rgba(242, 242, 242, 0.87),
         rgba(255, 255, 255, 0)
     );
-}
+} */

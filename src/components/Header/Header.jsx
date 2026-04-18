@@ -120,7 +120,7 @@ export default function Header() {
                         />
                         <motion.ul
                             variants={variants}
-                            className="absolute grid w-full px-6 py-28 max-h-screen overflow-y-auto"
+                            className="absolute grid w-full px-6 py-28 max-h-screen overflow-y-auto bottom-0"
                         >
                             {navigation.map((item, index) => (
                                 <motion.li
@@ -156,7 +156,16 @@ export default function Header() {
                                 </motion.li>
                             ))}
                             <motion.li variants={menuItemVariants}>
-                                <hr className="shrink-0 border-none w-full mt-8 bg-neutral-600 h-px" />
+                                <hr className="mt-8 shrink-0 border-none w-full bg-neutral-600 h-px" />
+                            </motion.li>
+                            <motion.li variants={menuItemVariants}>
+                                <Link
+                                    href={socialLinks[1].link}
+                                    target="_blank"
+                                    className="flex ml-9 jetbrainsmono-regular whitespace-nowrap shine-hover text-neutral-100 text-3xl py-6"
+                                >
+                                    {socialLinks[1].name}
+                                </Link>
                             </motion.li>
                         </motion.ul>
                         <div className="flex justify-between items-center p-5">
@@ -211,7 +220,7 @@ export default function Header() {
                     <Link
                         href={socialLinks[1].link}
                         target="_blank"
-                        className="ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link self-center text-neutral-100"
+                        className="max-md:hidden ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link self-center text-neutral-100"
                     >
                         {socialLinks[1].name}
                     </Link>

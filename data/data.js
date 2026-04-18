@@ -115,7 +115,7 @@ export const skillsData = [
         skills: [
             { name: "Adobe Photoshop", icon: photoshopIcon, color: "#0f5589" },
             { name: "Adobe Illustrator", icon: illustratorIcon, color: "#FF9A00" },
-            { name: "Adobe Lightroom", icon: lightroomIcon, color: "#36aaff" },
+            { name: "Adobe Lightroom", icon: lightroomIcon, color: "#3081bb" },
         ],
     },
 ];

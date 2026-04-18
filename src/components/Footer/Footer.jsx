@@ -14,7 +14,7 @@ function Footer() {
 
     return (
         <div
-            className="h-[100vh] relative"
+            className="h-screen relative"
             style={{ clipPath: "polygon( 0% 0, 100% 0%, 100% 100%, 0 100% )" }}
         >
             <footer
