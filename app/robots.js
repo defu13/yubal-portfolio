@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 export default function robots() {
     return {
         rules: {
@@ -8,4 +10,3 @@ export default function robots() {
         sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`,
     };
 }
-
