@@ -217,13 +217,15 @@ export default function Header() {
                             <div className={styles.dot}></div>
                         </Link>
                     ))}
-                    <Link
-                        href={socialLinks[1].link}
-                        target="_blank"
-                        className="max-md:hidden ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link self-center text-neutral-100"
-                    >
-                        {socialLinks[1].name}
-                    </Link>
+                    <div className="dark self-center">
+                        <Link
+                            href={socialLinks[1].link}
+                            target="_blank"
+                            className="max-md:hidden ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link text-neutral-100"
+                        >
+                            {socialLinks[1].name}
+                        </Link>
+                    </div>
                 </nav>
             )}
         </header>

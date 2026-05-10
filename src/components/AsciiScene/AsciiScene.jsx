@@ -169,7 +169,7 @@ function SceneWithDelayedComposer({
     return (
         <>
             {/* <color attach="background" args={["#000000"]} /> */}
-            <Environment preset="studio" background={false} />
+            <Environment files={"/hdr/studio.hdr"} background={false} />
             <ambientLight intensity={0.08} />
             <directionalLight position={[2, 3.5, 6]} intensity={6} />
             <directionalLight position={[-2, 1.5, 4]} intensity={0.35} />
