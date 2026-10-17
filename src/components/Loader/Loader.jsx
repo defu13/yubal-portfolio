@@ -1,23 +1,25 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import { useEffect } from "react";
-import { useLoading } from "@/src/context/LoadingContext";
 
 function Loader({ children }) {
-    const { loading, setLoading } = useLoading();
+    const [showSpinner, setShowSpinner] = useState(true);
+
     useEffect(() => {
-        setLoading(false);
+        const timer = setTimeout(() => setShowSpinner(false), 1250);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
         <>
+            {children}
             <AnimatePresence>
-                {loading && (
+                {showSpinner && (
                     <motion.div
                         key="loader"
+                        className="fixed inset-0 z-100 flex items-center justify-center dark:bg-[#101010] bg-[#dddddd]"
                         initial={{ opacity: 1 }}
-                        animate={{ opacity: 0 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
                     >
@@ -25,22 +27,6 @@ function Loader({ children }) {
                     </motion.div>
                 )}
             </AnimatePresence>
-
-            <AnimatePresence>
-                {!loading && (
-                    <motion.div
-                        key="content"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        {children}
-                    </motion.div>
-                )}
-            </AnimatePresence>
-            <div className="hero-fade"></div>
-            <div className="hero-noise"></div>
         </>
     );
 }

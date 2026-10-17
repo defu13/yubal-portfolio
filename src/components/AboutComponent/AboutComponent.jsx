@@ -4,12 +4,10 @@ import Card from "@/src/components/Card/Card";
 import DotTitle from "@/src/components/DotTitle/DotTitle";
 import { aboutMeData } from "@/data/data";
 import Image from "next/image";
-// import photo1 from "@/assets/images/photo1.jpg";
 import photo1 from "@/public/author.jpg";
 import photo2 from "@/assets/images/photo2.jpg";
 import photo3 from "@/assets/images/photo3.jpg";
 import photo4 from "@/assets/images/photo4.jpg";
-import styles from "./AboutComponent.module.css";
 
 function AboutComponent() {
     return (

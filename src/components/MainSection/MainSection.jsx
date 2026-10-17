@@ -7,24 +7,17 @@ import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./MainSection.module.css";
 import { socialLinks } from "@/data/data";
-import DotTitle from "../DotTitle/DotTitle";
 import { useScrollVertical } from "@/src/hooks/useScrollVertical";
 import AnimatedEntrance from "../AnimatedEntrance/AnimatedEntrance";
-import HighlightTitle from "../HighlightTitle/HighlightTitle";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MdArrowDownward, MdArrowForward } from "react-icons/md";
 import Tooltip from "../Tooltip/Tooltip";
 import { useTheme } from "@/src/context/ThemeContext";
-import AsciiScene from "../AsciiScene/AsciiScene";
 import AsciiFlashGroup from "../AsciiFlashGroup/AsciiFlashGroup";
-
-// imports de componente de mi foto
-
-// import Image from "next/image";
-// import profilePic from "@/assets/images/rsz_fotoperfil_nueva-edit.jpg";
-// import profilePicColor from "@/assets/images/rsz_fotoperfil_nueva-edit-color.jpg";
-// import { faClipboard, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-// import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import ColorBends from "../ui/ColorBends";
+import Noise from "../ui/Noise";
+import ContactTicket from "../ContactTicket/ContactTicket";
+import { AsthreeRender } from "@defu13/asthree-react";
 
 function MainSection() {
     const [isCopied, setIsCopied] = useState(false);
@@ -77,98 +70,41 @@ function MainSection() {
 
     return (
         <>
-            <motion.div
-                className="w-full h-full absolute z-[-2] overflow-hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                    duration: 0.75,
-                    ease: "easeOut",
-                    delay: 1,
-                }}
-            >
-                <AsciiScene enableZoom={false} />
-            </motion.div>
             <div
-                className={`flex flex-col items-center justify-center relative ${styles.header_container}`}
+                className={`flex flex-col items-center justify-center relative z-5 ${styles.header_container}`}
             >
-                <div className="flex sm:flex-nowrap flex-wrap gap-6 md:gap-10 justify-center p-5">
-                    {/* Elemento con mi foto */}
-
-                    {/* <AnimatedEntrance className="flex flex-col gap-2 justify-between min-w-64">
-                        <Floating>
-                            <motion.div
-                                className={`${styles.mask} absolute`}
-                                initial={{ opacity: 0 }}
-                                whileHover={{ opacity: 1 }}
-                                transition={{ duration: 7 }}
-                            >
-                                <Image
-                                    src={profilePicColor}
-                                    alt="profile picture of author colored"
-                                    className="rounded-full max-[300px]:max-w-[90vw] sm:max-w-[250px] max-w-[200px]"
-                                    onMouseEnter={() => setIsHovering(true)}
-                                    onMouseLeave={() => setIsHovering(false)}
-                                />
-                            </motion.div>
-                            <Image
-                                src={profilePic}
-                                alt="profile picture of author"
-                                className="rounded-full max-[300px]:max-w-[90vw] sm:max-w-[250px] max-w-[200px]"
-                            />
-                        </Floating>
-                        <div
-                            className={`dark:text-neutral-100 text-[#101010] justify-center items-end w-full h-12 ${styles.contact_container}`}
-                        >
-                            <div
-                                className={`gap-2 cursor-pointer absolute flex items-center justify-center ${styles.contactame}`}
-                            >
-                                <FontAwesomeIcon icon={faEnvelope} />
-                                <span className="jetbrainsmono-regular select-none">
-                                    Contáctame
-                                </span>
-                            </div>
-
-                            <div
-                                className={`absolute flex items-center justify-center gap-2 cursor-pointer ${styles.correo}`}
-                                onClick={handleCopyClipboard}
-                            >
-                                <span className="jetbrainsmono-regular">
-                                    ydefuente@gmail.com
-                                </span>
-                                <FontAwesomeIcon
-                                    icon={isCopied ? faCheck : faClipboard}
-                                />
-                            </div>
-                        </div>
-                    </AnimatedEntrance> */}
-
+                <div className="flex flex-col xl:flex-row gap-16 md:gap-10 justify-center p-5 items-center">
                     {/* Elemento de animacion ascii */}
 
-                    <div className="flex flex-col gap-8 max-w-2xl justify-between">
+                    <div className="flex flex-col gap-4 max-w-2xl justify-between flex-1 min-w-0 xl:min-w-xl">
                         <AnimatedEntrance
-                            className="flex gap-3 items-center"
+                            className="flex gap-3 items-center -mb-4"
                             delay={0.2}
                         >
-                            <DotTitle>Yubal De Fuente</DotTitle>
+                            <p className="neuemontreal-medium dark:text-neutral-400 text-neutral-600 text-sm">
+                                Diseñador UI & UX / Desarrollador Front-End
+                            </p>
                             <AsciiFlashGroup
                                 color={theme === "dark" ? "#FFFFFF" : "#000000"}
                             />
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.3}>
                             <h1
-                                className={`lg:text-8xl md:text-7xl sm:text-5xl text-[3rem] max-[310px]:text-[2.5rem] leading-[0.9] text-glow neuemontreal-medium tracking-tight ${styles.title}`}
+                                className={`whitespace-nowrap uppercase lg:text-8xl md:text-7xl sm:text-5xl text-[3rem] max-[310px]:text-[2.5rem] leading-[0.9] neuemontreal-medium tracking-tight ${styles.title}`}
                             >
-                                <HighlightTitle glow={false} monocrome={true}>
+                                {/* <HighlightTitle glow={false} monocrome={true}>
                                     Diseñador &nbsp;
-                                </HighlightTitle>
-                                y Desarrollador
+                                </HighlightTitle> */}
+                                Yubal
+                                <br />
+                                De Fuente
                             </h1>
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.4}>
-                            <p className="text-lg neuemontreal-regular dark:text-neutral-400 text-neutral-600">
+                            <p className="text-md neuemontreal-regular dark:text-neutral-400 text-neutral-600">
                                 Apasionado del diseño gráfico y la programación,
-                                y especializado en el desarrollo web con React.
+                                y especializado en el desarrollo front-end con
+                                React.
                                 {/* <HighlightText>React.</HighlightText> */}
                             </p>
                         </AnimatedEntrance>
@@ -210,7 +146,7 @@ function MainSection() {
                             </a>
                         </AnimatedEntrance>
                         <AnimatedEntrance
-                            className="flex gap-10 justify-center sm:justify-start items-center"
+                            className="flex md:gap-10 gap-4 justify-start items-center"
                             delay={0.6}
                         >
                             {socialLinks.map((button, index) => (
@@ -245,10 +181,13 @@ function MainSection() {
                             ))}
                         </AnimatedEntrance>
                     </div>
+                    <div className="flex justify-center items-center flex-1 min-w-0 w-[80%] xl:min-w-xl">
+                        <ContactTicket />
+                    </div>
                 </div>
                 <AnimatedEntrance
                     style={{ y: isMobile ? 0 : translateY }}
-                    className="hidden md:flex"
+                    className="hidden xl:flex"
                     delay={0.7}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -263,6 +202,60 @@ function MainSection() {
                     </Floating>
                 </AnimatedEntrance>
             </div>
+
+            {/* Separator */}
+            <div
+                className="w-full h-px"
+                style={{
+                    background:
+                        "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, .08) 30%, rgba(255, 255, 255, .08) 70%, transparent 100%)",
+                }}
+            />
+
+            {/* Fondo */}
+
+            {/* <motion.div
+                className="w-full h-full absolute z-[-2] overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                    duration: 0.75,
+                    ease: "easeOut",
+                    delay: 1,
+                }}
+            >
+                <AsthreeRender
+                    model="/models/user-model.glb"
+                    hdr="/hdr/studio.hdr"
+                    enableOrbit={false}
+                    enableZoom={false}
+                    settings={{
+                        model: {
+                            scale: 3,
+                            position: { x: 0, y: -3, z: 0 },
+                            rotation: { x: 0, y: 0, z: 0 },
+                            tilt: { forward: 0, left: 0 },
+                            autoRotate: true,
+                            autoRotateSpeed: 0.15,
+                        },
+                    }}
+                />
+            </motion.div> */}
+
+            <Noise opacity={0.15} />
+            <div className="absolute w-full h-full -z-10 opacity-50">
+                <ColorBends
+                    colors={["#6B51F0"]}
+                    bandWidth={1.8}
+                    frequency={0.9}
+                    parallax={0.5}
+                    noise={0}
+                    rotation={60}
+                    scale={1.4}
+                    speed={0.1}
+                />
+            </div>
+            <div className="hero-fade" />
         </>
     );
 }

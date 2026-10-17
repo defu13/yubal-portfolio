@@ -4,7 +4,7 @@ function DotTitle({ children, className }) {
     return (
         <div className={`flex gap-3 items-center ${className}`}>
             <Dot />
-            <p className="neuemontreal-medium dark:text-neutral-500 text-neutral-600">
+            <p className="jetbrainsmono-regular uppercase tracking-[0.3em] opacity-60 text-xs">
                 {children}
             </p>
         </div>

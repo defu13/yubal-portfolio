@@ -29,6 +29,11 @@ import Title from "@/src/components/Title/Title";
 import { color } from "motion";
 
 export const navigation = [
+    { name: "Proyectos", href: "/myprojects" },
+    { name: "Sobre Mí", href: "/about" },
+];
+
+export const mobileNavigation = [
     { name: "Inicio", href: "/" },
     { name: "Proyectos", href: "/myprojects" },
     { name: "Sobre Mí", href: "/about" },

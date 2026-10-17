@@ -1,15 +1,16 @@
 "use client";
 import Link from "next/link";
 import styles from "./Header.module.css";
-import Magnetic from "../Magnetic/Magnetic";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navigation } from "@/data/data";
+import { navigation, mobileNavigation } from "@/data/data";
 import { AnimatePresence, motion } from "motion/react";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { Squash as Hamburger } from "hamburger-react";
 import ChangeThemeComponent from "../ChangeThemeComponent/ChangeThemeComponent";
 import { socialLinks } from "@/data/data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 export default function Header() {
     const pathname = usePathname();
@@ -82,15 +83,14 @@ export default function Header() {
 
     return (
         <header
-            className={`justify-between items-center pointer-events-none ${styles.header}`}
+            className={`justify-between items-center pointer-events-none text-sm ${styles.header}`}
         >
             <div className={`${styles.header_background}`}></div>
-            <div className="flex flex-row gap-8 items-center z-10">
+            <div className="flex flex-row gap-4 items-center z-10">
                 {!isMobile && <ChangeThemeComponent />}
-                {/* <Magnetic> */}
                 <Link href="/" className="hidden sm:block pointer-events-auto">
                     <div
-                        className={`${styles.logo} justify-center items-center custom-button px-2 pt-[3px] pb-[3px] rounded-xl pointer-events-auto cursor-pointer shine-hover flex`}
+                        className={`${styles.logo} justify-center items-center custom-button px-2 pt-[3px] pb-[3px] rounded-lg pointer-events-auto cursor-pointer shine-hover flex`}
                     >
                         <p className={`${styles.copyright}`}>©</p>
                         <div className={styles.name}>
@@ -100,7 +100,6 @@ export default function Header() {
                         </div>
                     </div>
                 </Link>
-                {/* </Magnetic> */}
             </div>
             {isMobile ? (
                 <>
@@ -122,7 +121,7 @@ export default function Header() {
                             variants={variants}
                             className="absolute grid w-full px-6 py-28 max-h-screen overflow-y-auto bottom-0"
                         >
-                            {navigation.map((item, index) => (
+                            {mobileNavigation.map((item, index) => (
                                 <motion.li
                                     key={index}
                                     variants={menuItemVariants}
@@ -189,42 +188,47 @@ export default function Header() {
                     </motion.nav>
                 </>
             ) : (
-                <nav className="flex pointer-events-auto">
-                    {navigation.map((item, index) => (
-                        <Link
-                            key={index}
-                            href={item.href}
-                            className={`jetbrainsmono-regular whitespace-nowrap custom-button px-3 py-[3px] shine-hover ${
-                                styles.menu_element
-                            } ${
-                                !isHovering && pathname === item.href
-                                    ? styles.active
-                                    : ""
-                            } ${index === 0 ? "rounded-l-xl" : ""} ${
-                                index === navigation.length - 1
-                                    ? "rounded-r-xl"
-                                    : ""
-                            }`}
-                            style={
-                                index === 0 || index === 1
-                                    ? { borderRight: "0" }
-                                    : {}
-                            }
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            {item.name}
-                            <div className={styles.dot}></div>
-                        </Link>
-                    ))}
-                    <div className="dark self-center">
-                        <Link
+                <nav className="flex pointer-events-auto gap-4">
+                    <div className="flex">
+                        {navigation.map((item, index) => (
+                            <Link
+                                key={index}
+                                href={item.href}
+                                className={`jetbrainsmono-regular whitespace-nowrap custom-button px-3 py-[3px] shine-hover ${
+                                    styles.menu_element
+                                } ${
+                                    !isHovering && pathname === item.href
+                                        ? styles.active
+                                        : ""
+                                } ${index === 0 ? "rounded-l-lg" : ""} ${
+                                    index === navigation.length - 1
+                                        ? "rounded-r-lg"
+                                        : ""
+                                }`}
+                                style={
+                                    index !== navigation.length - 1
+                                        ? { borderRight: "0" }
+                                        : {}
+                                }
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                {item.name}
+                                <div className={styles.dot}></div>
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="self-center">
+                        <a
                             href={socialLinks[1].link}
                             target="_blank"
-                            className="max-md:hidden ml-8 jetbrainsmono-regular whitespace-nowrap shine-hover rounded-xl link text-neutral-100"
+                            className="max-md:hidden text-neutral-100 p-1.5 shine-hover custom-button rounded-lg flex items-center justify-center"
                         >
-                            {socialLinks[1].name}
-                        </Link>
+                            {/* {socialLinks[1].name} */}
+                            <FontAwesomeIcon
+                                icon={faLinkedinIn}
+                            />
+                        </a>
                     </div>
                 </nav>
             )}

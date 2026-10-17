@@ -8,6 +8,7 @@ import ProjectsPreviewComponent from "../ProjectsPreviewComponent/ProjectsPrevie
 import DotTitle from "../DotTitle/DotTitle";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import AsciiFlashGroup from "../AsciiFlashGroup/AsciiFlashGroup";
+import LatestProjects from "../LatestProjects/LatestProjects";
 
 function HomeSection() {
     const { isMobile } = useIsMobile();
@@ -16,6 +17,9 @@ function HomeSection() {
 
     return (
         <div className="flex flex-col gap-16" ref={containerY}>
+            <section className="lg:px-24 px-5 w-full">
+                <LatestProjects />
+            </section>
             <section className="flex flex-col items-center w-full gap-40 lg:px-24 px-5">
                 <SkillsComponent />
                 <motion.div
@@ -29,14 +33,14 @@ function HomeSection() {
                     </Title>
                 </motion.div>
             </section>
-            <section className="py-10 flex justify-center overflow-hidden">
+            {/* <section className="py-10 flex justify-center overflow-hidden">
                 <div className="flex flex-col gap-10 w-full items-center">
                     <div className="md:max-w-5xl w-full flex xl:px-0 px-5">
                         <DotTitle>Proyectos recientes</DotTitle>
                     </div>
                     <ProjectsPreviewComponent />
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 }

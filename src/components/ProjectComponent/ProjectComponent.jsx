@@ -19,7 +19,6 @@ import styles from "./ProjectComponent.module.css";
 import { useTheme } from "@/src/context/ThemeContext";
 
 function ProjectComponent({ project }) {
-    // const { setLoading } = useLoading();
     const isMobile = useIsMobile();
 
     const { theme } = useTheme();

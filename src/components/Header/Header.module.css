@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    z-index: 10;
+    z-index: 20;
     top: 0;
     padding: 35px;
     width: 100%;
@@ -64,10 +64,10 @@
     transform: translateX(-100%);
 }
 .header .logo:hover .name .yubal {
-    transform: translateX(-70px);
+    transform: translateX(-62px);
 }
 .header .logo:hover .name .defuente {
-    transform: translateX(-70px);
+    transform: translateX(-74px);
 }
 
 /* .copyright{

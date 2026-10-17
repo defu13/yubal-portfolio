@@ -1,154 +1,83 @@
-import React, { use, useEffect, useRef, useState } from "react";
-import { delay, motion } from "motion/react";
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
     MdBrightnessHigh,
     MdDarkMode,
     MdDevices,
     MdKeyboardArrowDown,
 } from "react-icons/md";
-import { AnimatePresence } from "motion/react";
 import { useTheme } from "@/src/context/ThemeContext";
+import { useIsMobile } from "@/src/hooks/useIsMobile";
+
+const THEMES = [
+    { id: "dark", icon: <MdDarkMode />, label: "Oscuro" },
+    { id: "light", icon: <MdBrightnessHigh />, label: "Claro" },
+    { id: "system", icon: <MdDevices />, label: "Sistema" },
+];
+
+const dropDownVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: -5 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: { type: "spring", stiffness: 400, mass: 0.3, damping: 9 },
+    },
+    exit: {
+        opacity: 0,
+        scale: 0.95,
+        y: -5,
+        transition: { duration: 0.1, ease: "easeInOut" },
+    },
+};
 
 function ChangeThemeComponent({ size = 1 }) {
-    const {setTheme} = useTheme(); // Importa el contexto del tema
-    const [activeTheme, setActiveTheme] = useState(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            return savedTheme;
-        } else {
-            // localStorage.setItem("theme", "system"); // Establece el tema por defecto en "sistema"
-            // const prefersDarkScheme = window.matchMedia(
-            //     "(prefers-color-scheme: dark)"
-            // ).matches;
-            // return prefersDarkScheme ? "system" : "dark";
-            localStorage.setItem("theme", "dark"); // Establece el tema por defecto en "oscuro"
-            return "dark";
-        }
-    });
+    const { theme: resolvedTheme, preference, setTheme } = useTheme();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const themes = [
-        { id: "dark", icon: <MdDarkMode />, label: "Oscuro" },
-        { id: "light", icon: <MdBrightnessHigh />, label: "Claro" },
-        { id: "system", icon: <MdDevices />, label: "Sistema" },
-    ];
-
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const handleThemeChange = (themeId) => {
-        setActiveTheme(themeId);
-        localStorage.setItem("theme", themeId); // Guarda el tema en el localStorage
-        const theme =
-        themeId === "system"
-            ? window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light"
-            : themeId;
-        setTheme(theme); // Actualiza el contexto del tema
-        setIsDropdownOpen(false);
-    };
-
-    const activeThemeIcon =
-        activeTheme === "system" ? (
-            window.matchMedia("(prefers-color-scheme: dark)").matches ? (
-                <MdDarkMode /> // Icono del tema oscuro si el sistema está en modo oscuro
-            ) : (
-                <MdBrightnessHigh />
-            ) // Icono del tema claro si el sistema está en modo claro
-        ) : (
-            themes.find((theme) => theme.id === activeTheme)?.icon
-        );
-
-    const dropDownVariants = {
-        hidden: {
-            opacity: 0,
-            scale: 0.95,
-            y: -5,
-        },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            transition: {
-                type: "spring",
-                stiffness: 400,
-                mass: 0.3,
-                damping: 9,
-            },
-        },
-        exit: {
-            opacity: 0,
-            scale: 0.95,
-            y: -5,
-            transition: {
-                duration: 0.1,
-                ease: "easeInOut",
-            },
-        },
-    };
-
+    const [hoveredTheme, setHoveredTheme] = useState(null);
+    const isMobile = useIsMobile();
     const dropdownRef = useRef(null);
 
+    // Cerrar el dropdown al hacer clic fuera
     useEffect(() => {
-        setTheme(activeTheme);
-
-        // Cierra el dropdown al hacer clic fuera
         const handleClickOutside = (event) => {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target)
-            ) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsDropdownOpen(false);
             }
         };
-
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const [isHoveringThemeButton, setIsHoveringThemeButton] = useState(false);
+    const handleThemeChange = (themeId) => {
+        setTheme(themeId);
+        setIsDropdownOpen(false);
+    };
 
-    useEffect(() => {
-        if (activeTheme === "dark") {
-            document.querySelector("html").classList.add("dark");
-        } else if (activeTheme === "light") {
-            document.querySelector("html").classList.remove("dark");
-        } else if (activeTheme === "system") {
-            const prefersDarkScheme = window.matchMedia(
-                "(prefers-color-scheme: dark)"
-            ).matches;
-            if (prefersDarkScheme) {
-                document.querySelector("html").classList.add("dark");
-            } else {
-                document.querySelector("html").classList.remove("dark");
-            }
-        }
-    }, [activeTheme]);
+    const activeIcon =
+        preference === "system"
+            ? resolvedTheme === "dark"
+                ? <MdDarkMode />
+                : <MdBrightnessHigh />
+            : THEMES.find((t) => t.id === preference)?.icon;
 
     return (
         <div className="relative" ref={dropdownRef}>
             <button
-                className="flex justify-center items-center p-1.5 rounded-xl pointer-events-auto cursor-pointer shine-hover text-neutral-100 custom-button"
-                style={{ fontSize: `${18 * size}px` }}
-                onClick={toggleDropdown}
+                className="flex justify-center items-center p-1.5 rounded-lg pointer-events-auto cursor-pointer shine-hover text-neutral-100 custom-button"
+                style={{ fontSize: `${isMobile ? 22 : 14 * size}px` }}
+                onClick={() => setIsDropdownOpen((open) => !open)}
             >
-                {activeThemeIcon}
+                {activeIcon}
                 <motion.div
                     animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                    transition={{
-                        duration: 0.7,
-                        bounce: 0.5,
-                        type: "spring",
-                        ease: "easeInOut",
-                    }}
+                    transition={{ duration: 0.7, bounce: 0.5, type: "spring" }}
                 >
                     <MdKeyboardArrowDown />
                 </motion.div>
             </button>
+
             <AnimatePresence>
                 {isDropdownOpen && (
                     <motion.div
@@ -158,28 +87,20 @@ function ChangeThemeComponent({ size = 1 }) {
                         exit="exit"
                         variants={dropDownVariants}
                     >
-                        {themes.map((theme, index) => (
+                        {THEMES.map((theme, index) => (
                             <motion.button
                                 key={theme.id}
                                 className={`p-1.5 pointer-events-auto custom-button text-glow cursor-pointer flex items-center gap-2 ${
                                     index === 0 ? "rounded-t-xl" : ""
-                                } ${
-                                    index === themes.length - 1
-                                        ? "rounded-b-xl"
-                                        : ""
-                                }`}
+                                } ${index === THEMES.length - 1 ? "rounded-b-xl" : ""}`}
                                 style={
-                                    index === 0 || index === 1
+                                    index !== THEMES.length - 1
                                         ? { borderBottom: "0" }
                                         : {}
                                 }
                                 onClick={() => handleThemeChange(theme.id)}
-                                onMouseEnter={() =>
-                                    setIsHoveringThemeButton(theme.id)
-                                }
-                                onMouseLeave={() =>
-                                    setIsHoveringThemeButton(null)
-                                }
+                                onMouseEnter={() => setHoveredTheme(theme.id)}
+                                onMouseLeave={() => setHoveredTheme(null)}
                             >
                                 <span
                                     className="flex gap-1.5 items-center justify-center text-neutral-100"
@@ -187,19 +108,15 @@ function ChangeThemeComponent({ size = 1 }) {
                                 >
                                     <motion.div
                                         animate={
-                                            isHoveringThemeButton === theme.id
-                                                ? {
-                                                      rotate: [0, -10, 10, 0],
-                                                  }
+                                            hoveredTheme === theme.id
+                                                ? { rotate: [0, -10, 10, 0] }
                                                 : { rotate: 0 }
                                         }
                                         transition={{ duration: 0.3 }}
                                     >
                                         {theme.icon}
                                     </motion.div>
-                                    <span
-                                        style={{ fontSize: `${14 * size}px` }}
-                                    >
+                                    <span style={{ fontSize: `${14 * size}px` }}>
                                         {theme.label}
                                     </span>
                                 </span>

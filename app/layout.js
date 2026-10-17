@@ -3,6 +3,7 @@ import "./globals.css";
 import "../styles/Fonts.css";
 import MainComponent from "@/src/components/MainComponent/MainComponent";
 import { Analytics } from "@vercel/analytics/react";
+import ThemeScript from "@/src/components/ThemeScript/ThemeScript";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,9 @@ export const metadata = {
         "Yubal De Fuente",
         "Yubal",
         "portfolio",
+        "portafolio",
+        "porfolio",
+        "desarrollador front-end",
         "desarrollador",
         "diseñador",
         "frontend",
@@ -42,29 +46,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-    const setInitialTheme = `
-        (function() {
-            const savedTheme = localStorage.getItem("theme");
-            const html = document.documentElement;
-            if (savedTheme === "dark") {
-                html.classList.add("dark");
-            } else if (savedTheme === "light") {
-                html.classList.remove("dark");
-            } else {
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                if (prefersDark) {
-                    html.classList.add("dark");
-                } else {
-                    html.classList.remove("dark");
-                }
-            }
-        })();
-    `;
 
     return (
-        <html lang="es" suppressHydrationWarning>
+        <html className="dark" lang="es" suppressHydrationWarning>
             <head>
-                <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <meta
                     name="google-site-verification"
                     content="2OdRUjKrJdbqd57HKMBZiXvXk1lV1TtFIZQCz64Wd5w"
@@ -73,6 +58,7 @@ export default function RootLayout({ children }) {
             <body
                 className={`dark:text-neutral-100 dark:bg-[#101010] bg-[#dddddd] text-[#232323]`}
             >
+                <ThemeScript />
                 <MainComponent>{children}</MainComponent>
                 <Analytics />
             </body>
