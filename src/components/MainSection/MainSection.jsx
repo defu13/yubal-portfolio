@@ -182,7 +182,9 @@ function MainSection() {
                         </AnimatedEntrance>
                     </div>
                     <div className="flex justify-center items-center flex-1 min-w-0 w-[80%] xl:min-w-xl">
-                        <ContactTicket />
+                        <AnimatedEntrance className="w-full h-full">
+                            <ContactTicket />
+                        </AnimatedEntrance>
                     </div>
                 </div>
                 <AnimatedEntrance

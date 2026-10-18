@@ -93,11 +93,11 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
             card.dataset.notch = vertical ? "x" : "y";
             card.style.setProperty(
                 "--notch-x",
-                `${card.clientLeft + sep.offsetLeft + sep.offsetWidth / 2}px`
+                `${card.clientLeft + sep.offsetLeft + sep.offsetWidth / 2}px`,
             );
             card.style.setProperty(
                 "--notch-y",
-                `${card.clientTop + sep.offsetTop + sep.offsetHeight / 2}px`
+                `${card.clientTop + sep.offsetTop + sep.offsetHeight / 2}px`,
             );
         };
 
@@ -124,7 +124,7 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
 
             <article
                 ref={cardRef}
-                className={`ticket-card relative h-full rounded-3xl border bg-neutral-200 dark:bg-neutral-900 ${
+                className={`ticket-card relative h-full rounded-2xl border bg-neutral-200 dark:bg-neutral-900 ${
                     featured
                         ? "grid grid-cols-1 md:grid-cols-[1.2fr_auto_1fr]"
                         : "flex flex-col"
@@ -136,20 +136,22 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
             >
                 {/* Imagen principal */}
                 <div className="p-3">
-                    <TiltImage
-                        src={primaryImage}
-                        alt={name}
-                        sizes={
-                            featured
-                                ? "(min-width: 768px) 55vw, 100vw"
-                                : "(min-width: 768px) 45vw, 100vw"
-                        }
-                        className={
-                            featured
-                                ? "aspect-[4/3] md:aspect-auto md:h-full md:min-h-[380px]"
-                                : "aspect-[16/10]"
-                        }
-                    />
+                    <Link href={`/myprojects/${id}`}>
+                        <TiltImage
+                            src={primaryImage}
+                            alt={name}
+                            sizes={
+                                featured
+                                    ? "(min-width: 768px) 55vw, 100vw"
+                                    : "(min-width: 768px) 45vw, 100vw"
+                            }
+                            className={
+                                featured
+                                    ? "aspect-[4/3] md:aspect-auto md:h-full md:min-h-[380px]"
+                                    : "aspect-[16/10]"
+                            }
+                        />
+                    </Link>
                 </div>
 
                 {/* Línea del troquel (las muescas las hace la máscara) */}
@@ -184,13 +186,17 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
                         <div>
                             <h3
                                 className={`font-bold leading-tight ${
-                                    featured ? "text-3xl md:text-4xl" : "text-2xl"
+                                    featured
+                                        ? "text-3xl md:text-4xl"
+                                        : "text-2xl"
                                 }`}
                             >
                                 {title}
                             </h3>
                             {subtitle && (
-                                <p className="mt-1 text-sm opacity-70">{subtitle}</p>
+                                <p className="mt-1 text-sm opacity-70">
+                                    {subtitle}
+                                </p>
                             )}
                         </div>
 
@@ -205,11 +211,11 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
 
                     <div className="flex flex-wrap items-center gap-3">
                         <Link
-                            href={`/myprojects/${publicName}`}
-                            className="shine-hover inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-white transition-transform hover:-translate-y-0.5"
-                            style={{ backgroundColor: cardColor }}
+                            href={`/myprojects/${id}`}
+                            className={`custom-button inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm shine-hover`}
+                            style={{ backgroundColor: cardColor+"50" }}
                         >
-                            Ver proyecto
+                            Ver más
                             <FontAwesomeIcon icon={faArrowRight} />
                         </Link>
 
@@ -221,8 +227,10 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
                                 rel="noopener noreferrer"
                                 className="custom-button shine-hover inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-neutral-100"
                             >
-                                Ver sitio
-                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                                Preview
+                                <FontAwesomeIcon
+                                    icon={faArrowUpRightFromSquare}
+                                />
                             </a>
                         )}
                     </div>
@@ -234,7 +242,7 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
 
 function LatestProjects() {
     return (
-        <section className="mx-auto w-full max-w-6xl py-24">
+        <div className="mx-auto w-full max-w-6xl">
             <header className="mb-12 flex flex-col gap-3">
                 <DotTitle>Trabajo reciente</DotTitle>
             </header>
@@ -258,7 +266,7 @@ function LatestProjects() {
                     Ver todos los proyectos
                 </Link>
             </div>
-        </section>
+        </div>
     );
 }
 

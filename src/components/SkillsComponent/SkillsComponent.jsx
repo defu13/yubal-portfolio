@@ -1,22 +1,21 @@
+"use client";
 import DotTitle from "../DotTitle/DotTitle";
 import SkillsDescription from "../SkillsDescription/SkillsDescription";
 import Title from "../Title/Title";
 import { skillsData } from "@/data/data";
-import Image from "next/image";
 import DotAnimation from "../DotAnimation/DotAnimation";
-import { useIsMobile } from "@/src/hooks/useIsMobile";
-import Tooltip from "../Tooltip/Tooltip";
-import Card from "../Card/Card";
-import AsciiFlashGroup from "../AsciiFlashGroup/AsciiFlashGroup";
+import TechLoop from "../TechLoop/TechLoop";
+import { motion } from "motion/react";
 
 function SkillsComponent() {
-    const isMobile = useIsMobile();
-    const cardStyles =
-        "border border-neutral-400 rounded-3xl bg-neutral-900 p-6";
 
     return (
-        <div
-            className="flex flex-col pt-0 gap-20 self-center min-h-screen justify-center"
+        <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col pt-0 gap-20"
             id="skills"
         >
             <div className="flex flex-col gap-8 self-start">
@@ -38,7 +37,7 @@ function SkillsComponent() {
                         >
                             {skill.description}
                         </SkillsDescription>
-                        <div className="flex gap-3 flex-wrap">
+                        {/* <div className="flex gap-3 flex-wrap">
                             {skill.skills.map((icon, index) => (
                                 <div
                                     key={index}
@@ -58,11 +57,14 @@ function SkillsComponent() {
                                     </span>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
                 ))}
             </div>
-        </div>
+            <div className="w-full min-w-0 max-w-full overflow-hidden py-16 [contain:inline-size]">
+                <TechLoop />
+            </div>
+        </motion.div>
     );
 }
 
