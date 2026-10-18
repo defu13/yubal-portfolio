@@ -16,7 +16,6 @@ function SkillsComponent() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col pt-0 gap-20"
-            id="skills"
         >
             <div className="flex flex-col gap-8 self-start">
                 <div className="flex w-full items-center">

@@ -213,7 +213,7 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
                         <Link
                             href={`/myprojects/${id}`}
                             className={`custom-button inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm shine-hover`}
-                            style={{ backgroundColor: cardColor+"50" }}
+                            style={{ backgroundColor: cardColor + "50" }}
                         >
                             Ver más
                             <FontAwesomeIcon icon={faArrowRight} />
@@ -242,7 +242,7 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
 
 function LatestProjects() {
     return (
-        <div className="mx-auto w-full max-w-6xl">
+        <div className="mx-auto w-full max-w-6xl" id="latest-projects">
             <header className="mb-12 flex flex-col gap-3">
                 <DotTitle>Trabajo reciente</DotTitle>
             </header>

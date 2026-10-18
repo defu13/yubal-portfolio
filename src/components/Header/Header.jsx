@@ -83,12 +83,13 @@ export default function Header() {
 
     return (
         <header
-            className={`justify-between items-center pointer-events-none text-sm ${styles.header}`}
+            className={`sm:justify-between justify-center items-start min-[390px]:items-center flex gap-2 md:gap-4 pointer-events-none text-xs sm:text-sm py-9 md:px-9 px-5 ${styles.header}`}
         >
             <div className={`${styles.header_background}`}></div>
-            <div className="flex flex-row gap-4 items-center z-10">
-                {!isMobile && <ChangeThemeComponent />}
-                <Link href="/" className="hidden sm:block pointer-events-auto">
+            <div className="flex min-[390px]:flex-row flex-col-reverse gap-2 sm:gap-4 items-start min-[390px]:items-center z-10">
+                {/* {!isMobile && <ChangeThemeComponent />} */}
+                <ChangeThemeComponent />
+                <Link href="/" className="block pointer-events-auto">
                     <div
                         className={`${styles.logo} justify-center items-center custom-button px-2 pt-[3px] pb-[3px] rounded-lg pointer-events-auto cursor-pointer shine-hover flex`}
                     >
@@ -101,7 +102,7 @@ export default function Header() {
                     </div>
                 </Link>
             </div>
-            {isMobile ? (
+            {/* {isMobile ? (
                 <>
                     <motion.nav
                         animate={isOpen ? "open" : "closed"}
@@ -187,8 +188,8 @@ export default function Header() {
                         </div>
                     </motion.nav>
                 </>
-            ) : (
-                <nav className="flex pointer-events-auto gap-4">
+            ) : ( */}
+                <nav className="flex pointer-events-auto sm:gap-4">
                     <div className="flex">
                         {navigation.map((item, index) => (
                             <Link
@@ -222,7 +223,7 @@ export default function Header() {
                         <a
                             href={socialLinks[1].link}
                             target="_blank"
-                            className="max-md:hidden text-neutral-100 p-1.5 shine-hover custom-button rounded-lg flex items-center justify-center"
+                            className="sm:flex hidden text-neutral-100 p-1.5 shine-hover custom-button rounded-lg flex items-center justify-center"
                         >
                             {/* {socialLinks[1].name} */}
                             <FontAwesomeIcon
@@ -231,7 +232,7 @@ export default function Header() {
                         </a>
                     </div>
                 </nav>
-            )}
+             {/* )} */}
         </header>
     );
 }

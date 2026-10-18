@@ -65,8 +65,8 @@ function ChangeThemeComponent({ size = 1 }) {
     return (
         <div className="relative" ref={dropdownRef}>
             <button
-                className="flex justify-center items-center p-1.5 rounded-lg pointer-events-auto cursor-pointer shine-hover text-neutral-100 custom-button"
-                style={{ fontSize: `${isMobile ? 22 : 14 * size}px` }}
+                className="text-xs sm:text-sm flex justify-center items-center py-[5px] sm:py-[6px] px-[6px] rounded-lg pointer-events-auto cursor-pointer shine-hover text-neutral-100 custom-button"
+                // style={{ fontSize: `${isMobile ? 22 : 14 * size}px` }}
                 onClick={() => setIsDropdownOpen((open) => !open)}
             >
                 {activeIcon}

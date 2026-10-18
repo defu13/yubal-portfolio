@@ -1,11 +1,9 @@
-// import { Inter } from "next/font/google";
+
 import "./globals.css";
 import "../styles/Fonts.css";
 import MainComponent from "@/src/components/MainComponent/MainComponent";
 import { Analytics } from "@vercel/analytics/react";
 import ThemeScript from "@/src/components/ThemeScript/ThemeScript";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
     title: {

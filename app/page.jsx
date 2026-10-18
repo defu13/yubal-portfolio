@@ -9,7 +9,6 @@ export default function Home() {
             <div
                 className={`flex flex-col items-center justify-between sm:gap-0 gap-24`}
             >
-                {/* <div className={styles.light_globe}></div> */}
                 <MainSection />
                 <HomeSection />
             </div>

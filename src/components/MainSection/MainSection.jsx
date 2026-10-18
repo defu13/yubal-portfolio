@@ -71,7 +71,7 @@ function MainSection() {
     return (
         <>
             <div
-                className={`flex flex-col items-center justify-center relative z-5 ${styles.header_container}`}
+                className={`flex flex-col items-center justify-center relative z-5 w-full overflow-x-clip ${styles.header_container}`}
             >
                 <div className="flex flex-col xl:flex-row gap-16 md:gap-10 justify-center p-5 items-center">
                     {/* Elemento de animacion ascii */}
@@ -196,7 +196,7 @@ function MainSection() {
                 >
                     <Floating animationForce={1.5} speed={2}>
                         <button
-                            onClick={() => scrollToElement("skills")}
+                            onClick={() => scrollToElement("latest-projects")}
                             className="p-2 rounded-full cursor-pointer"
                         >
                             <MdArrowDownward size="3rem" />

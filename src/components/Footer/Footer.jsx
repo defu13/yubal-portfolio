@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { navigation, socialLinks, contactData } from "@/data/data";
+import { socialLinks, contactData, mobileNavigation } from "@/data/data";
 import { motion } from "motion/react";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MdArrowOutward } from "react-icons/md";
@@ -14,26 +14,27 @@ function Footer() {
 
     return (
         <div
-            className="h-screen relative"
+            className="flex h-screen relative"
             style={{ clipPath: "polygon( 0% 0, 100% 0%, 100% 100%, 0 100% )" }}
         >
             <footer
-                className="flex sm:py-24 py-20 w-full justify-center dark:bg-neutral-950 bg-neutral-900 lg:px-24 px-5 h-[100vh] fixed bottom-0"
+                className="flex sm:py-24 py-20 w-full justify-center dark:bg-neutral-950 bg-neutral-100 lg:px-24 px-5 h-full fixed bottom-0"
                 // style={{ minHeight: isMobile ? "100vh" : "unset" }}
             >
                 <div className="flex md:flex-row lg:max-w-7xl w-full justify-between flex-col-reverse">
                     <div className="flex flex-col justify-end gap-6">
                         <div className="flex gap-6 max-w-72">
-                            <LogoIcon
+                            {/* <LogoIcon
                                 width={48}
                                 height={48}
+                                className="dark:invert-0 invert-80"
                                 style={{ display: isMobile ? "none" : "flex" }}
-                            />
-                            <div className="flex flex-col gap-1">
+                            /> */}
+                            <div className="flex flex-col gap-1 jetbrainsmono-regular leading-tight text-nowrap">
                                 <p className="text-gradient">
                                     © 2025 Yubal De Fuente.
                                 </p>
-                                <p className="text-neutral-500 text-sm">
+                                <p className="text-neutral-500 text-xs">
                                     Hecho con pasión y dedicación {"<3"}
                                 </p>
                             </div>
@@ -46,11 +47,11 @@ function Footer() {
                                     SECCIONES
                                 </p>
                                 <div className="flex flex-col gap-3">
-                                    {navigation.map((item, index) => (
+                                    {mobileNavigation.map((item, index) => (
                                         <Link
                                             key={index}
                                             href={item.href}
-                                            className="text-base text-neutral-100 hover:text-neutral-300"
+                                            className="text-base text-neutral-600 hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-300"
                                         >
                                             {item.name}
                                         </Link>
@@ -65,7 +66,7 @@ function Footer() {
                                     <Link
                                         href={socialLinks[1].link}
                                         target="_blank"
-                                        className="text-base text-neutral-100 hover:text-neutral-300"
+                                        className="text-base text-neutral-600 hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-300"
                                     >
                                         <div className="flex gap-1 ">
                                             <p>{socialLinks[1].name}</p>
@@ -76,7 +77,7 @@ function Footer() {
                                         <Link
                                             key={index}
                                             href={item.link}
-                                            className="text-neutral-100 hover:text-neutral-300"
+                                            className="text-neutral-600 hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-300"
                                         >
                                             <p>{item.description}</p>
                                         </Link>
@@ -86,7 +87,7 @@ function Footer() {
                         </div>
                         <div className="flex flex-col gap-6">
                             <p className="text-xs text-neutral-500">SOCIAL</p>
-                            <div className="dark flex gap-3 min-[345px]:flex-row flex-col">
+                            <div className="flex gap-3 min-[345px]:flex-row flex-col">
                                 {socialLinks.map((item, index) => (
                                     <Link
                                         key={index}
@@ -94,12 +95,12 @@ function Footer() {
                                         target="_blank"
                                     >
                                         <motion.p
-                                            className="shine-hover"
+                                            className={`shine-hover transition-colors`}
                                             style={{
                                                 color: item.color,
                                             }}
                                             whileHover={{
-                                                color: "#f5f5f5",
+                                                color: theme === "dark" ? "#f5f5f5" : "#101010",
                                             }}
                                         >
                                             {item.name}

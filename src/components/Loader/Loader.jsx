@@ -18,7 +18,7 @@ function Loader({ children }) {
                 {showSpinner && (
                     <motion.div
                         key="loader"
-                        className="fixed inset-0 z-100 flex items-center justify-center dark:bg-[#101010] bg-[#dddddd]"
+                        className="fixed inset-0 z-100 flex items-center justify-center max-w-dvw max-h-dvh overflow-hidden dark:bg-[#101010] bg-[#dddddd]"
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
