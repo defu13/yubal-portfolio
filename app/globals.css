@@ -244,7 +244,7 @@
 }
 
 .hero-fade {
-    z-index: -2;
+    z-index: 10;
     background-image: linear-gradient(to bottom, #dddddd00, #dddddd 80%);
     flex-direction: column;
     align-items: center;

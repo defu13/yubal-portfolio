@@ -74,8 +74,7 @@ function MainSection() {
                 className={`flex flex-col items-center justify-center relative z-5 w-full overflow-x-clip ${styles.header_container}`}
             >
                 <div className="flex flex-col xl:flex-row gap-16 md:gap-10 justify-center p-5 items-center">
-                    {/* Elemento de animacion ascii */}
-
+                    {/* Información personal y redes */}
                     <div className="flex flex-col gap-4 max-w-2xl justify-between flex-1 min-w-0 xl:min-w-xl">
                         <AnimatedEntrance
                             className="flex gap-3 items-center -mb-4"
@@ -181,12 +180,16 @@ function MainSection() {
                             ))}
                         </AnimatedEntrance>
                     </div>
+
+                    {/* Componente de ticket de contacto */}
                     <div className="flex justify-center items-center flex-1 min-w-0 w-[80%] xl:min-w-xl">
                         <AnimatedEntrance className="w-full h-full">
                             <ContactTicket />
                         </AnimatedEntrance>
                     </div>
                 </div>
+
+                {/* Boton flecha hacia abajo */}
                 <AnimatedEntrance
                     style={{ y: isMobile ? 0 : translateY }}
                     className="hidden xl:flex"
@@ -244,20 +247,24 @@ function MainSection() {
                 />
             </motion.div> */}
 
-            <Noise opacity={0.15} />
-            <div className="absolute w-full h-full -z-10 opacity-50">
-                <ColorBends
-                    colors={["#6B51F0"]}
-                    bandWidth={1.8}
-                    frequency={0.9}
-                    parallax={0.5}
-                    noise={0}
-                    rotation={60}
-                    scale={1.4}
-                    speed={0.1}
-                />
-            </div>
             <div className="hero-fade" />
+            <div className="absolute top-0 w-full h-full -z-10">
+                <div className="absolute h-full w-full opacity-20">
+                    <Noise />
+                </div>
+                <div className="absolutew-full h-full opacity-50">
+                    <ColorBends
+                        colors={["#6B51F0"]}
+                        bandWidth={1.8}
+                        frequency={0.9}
+                        parallax={0.5}
+                        noise={0}
+                        rotation={60}
+                        scale={1.4}
+                        speed={0.1}
+                    />
+                </div>
+            </div>
         </>
     );
 }

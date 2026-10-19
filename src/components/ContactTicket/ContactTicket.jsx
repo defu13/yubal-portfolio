@@ -9,7 +9,6 @@ import {
 } from "react-icons/md";
 import TearTicket from "@/src/components/ui/TearTicket";
 import Image from "next/image";
-import profilePic from "@/assets/images/profile_pic.jpg";
 import profilePicColor from "@/assets/images/profile_pic_color.jpg";
 
 const EMAIL = "ydefuente@gmail.com";
@@ -20,7 +19,7 @@ const BARCODE_NUMBER = "20261017001";
 const MESSAGES = {
     idle: "Aquí tienes mi correo",
     copied: "¡Correo copiado al portapapeles!",
-    failed: "No he podido copiarlo solo, pero aquí lo tienes",
+    failed: "Toca «Copiar» para llevártelo al portapapeles",
 };
 
 // Genera un codigo de barras
@@ -52,6 +51,37 @@ function makeBarcode(seed, length) {
         pos += h + gapW();
     }
     return bars;
+}
+
+function legacyCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText =
+        "position:fixed;top:0;left:0;opacity:0;pointer-events:none;font-size:16px";
+    document.body.appendChild(ta);
+    ta.focus({ preventScroll: true });
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    let ok = false;
+    try {
+        ok = document.execCommand("copy");
+    } catch {}
+    document.body.removeChild(ta);
+    return ok;
+}
+
+async function copyText(text) {
+    if (navigator.clipboard?.writeText) {
+        try {
+            // Se inicia en el mismo tick del gesto, que es lo que exige Safari
+            await navigator.clipboard.writeText(text);
+            return true;
+        } catch {
+            return false;
+        }
+    }
+    return legacyCopy(text);
 }
 
 const BARCODE = makeBarcode(75088, BARCODE_LENGTH);
@@ -107,7 +137,7 @@ function TicketStub() {
                 aria-hidden="true"
             >
                 <svg
-                    className="w-[65px]"
+                    className="w-16.25"
                     style={{ height: BARCODE_LENGTH }}
                     viewBox={`0 0 100 ${BARCODE_LENGTH}`}
                     preserveAspectRatio="none"
@@ -139,24 +169,28 @@ function ContactTicket() {
     const [torn, setTorn] = useState(false);
     const [status, setStatus] = useState("idle"); // idle | copied | failed
     const timer = useRef(null);
+    const detached = useRef(false);
 
     useEffect(() => () => clearTimeout(timer.current), []);
 
     const copyEmail = async () => {
         clearTimeout(timer.current);
-        try {
-            await navigator.clipboard.writeText(EMAIL);
-            setStatus("copied");
-            timer.current = setTimeout(() => setStatus("idle"), 2500);
-        } catch {
-            // Safari y algunos navegadores bloquean el portapapeles fuera del gesto
-            setStatus("failed");
-        }
+        const ok = await copyText(EMAIL);
+        setStatus(ok ? "copied" : "failed");
+        if (ok) timer.current = setTimeout(() => setStatus("idle"), 2500);
     };
 
+    // Se dispara al soltar el trozo: aún estamos dentro del gesto
+    const handleDetach = () => {
+        detached.current = true;
+        copyEmail();
+    };
+
+    // Se dispara al terminar la caída (o al arrancarlo con teclado)
     const handleTear = () => {
         setTorn(true);
-        copyEmail();
+        if (!detached.current) copyEmail(); // teclado: no hubo "soltar"
+        detached.current = false;
     };
 
     const handleReset = () => {
@@ -170,6 +204,7 @@ function ContactTicket() {
                 torn={torn}
                 notch={8}
                 onTear={handleTear}
+                onDetach={handleDetach}
                 width={460}
                 height={250}
                 stubSize={150}

@@ -81,6 +81,7 @@ export default function TearTicket({
   torn,
   defaultTorn = false,
   onTear,
+  onDetach,
   width = 460,
   height = 250,
   stubSize = 150,
@@ -127,7 +128,7 @@ export default function TearTicket({
     [width, height, stubSize, radius, holes, holeSize, notch, roughness, vertical]
   );
   const cfg = useRef({});
-  cfg.current = { geo, tearAngle, stretch, resistance, height, notch, reduce, onTear, controlled };
+  cfg.current = { geo, tearAngle, stretch, resistance, height, notch, reduce, onTear, onDetach, controlled };
   const sim = useRef({
     raf: 0,
     last: 0,
@@ -469,6 +470,7 @@ export default function TearTicket({
     } catch {}
     setGrabbing(false);
     if (s.phase === 'free') {
+      cfg.current.onDetach?.();
       const still = performance.now() - s.pt > 80;
       s.vx = still ? 0 : clamp(s.pvx, -1600, 1600);
       s.vy = still ? 0 : clamp(s.pvy, -1600, 1200);
