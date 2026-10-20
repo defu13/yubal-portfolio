@@ -15,6 +15,8 @@ import {
 import { projectsData } from "@/data/data";
 import DotTitle from "../DotTitle/DotTitle";
 import { useLayoutEffect, useRef } from "react";
+import { useTheme } from "@/src/context/ThemeContext";
+import Globe from "../Globe/Globe";
 
 // projectsData va de más antiguo a más reciente: cogemos los 3 últimos y los damos la vuelta
 const latestProjects = projectsData.slice(-3).reverse();
@@ -82,6 +84,8 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
     const cardRef = useRef(null);
     const sepRef = useRef(null);
 
+    const { theme } = useTheme();
+
     // Mide dónde cae el troquel para que la máscara recorte las muescas ahí
     useLayoutEffect(() => {
         const card = cardRef.current;
@@ -118,13 +122,14 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
             {/* Resplandor de color: va detrás, así se ve a través de las muescas */}
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-8 -bottom-4 top-1/2 -z-10 rounded-3xl opacity-25 blur-3xl"
+                className="pointer-events-none absolute inset-x-8 -bottom-4 top-1/2 -z-10 rounded-3xl opacity-30 blur-3xl"
                 style={{ backgroundColor: cardColor }}
             />
 
+            {/* Ya no hay <Link> envolviendo la tarjeta */}
             <article
                 ref={cardRef}
-                className={`ticket-card relative h-full rounded-2xl border bg-neutral-200 dark:bg-neutral-900 ${
+                className={`ticket-card relative h-full rounded-2xl border bg-neutral-200 dark:bg-neutral-900 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 transition-colors duration-300 ${
                     featured
                         ? "grid grid-cols-1 md:grid-cols-[1.2fr_auto_1fr]"
                         : "flex flex-col"
@@ -134,9 +139,14 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
                     border: `1px solid #f2f2f21a`,
                 }}
             >
-                {/* Imagen principal */}
+                {/* Imagen principal: enlace propio (hermano, no anidado) */}
                 <div className="p-3">
-                    <Link href={`/myprojects/${id}`}>
+                    <Link
+                        href={`/myprojects/${id}`}
+                        tabIndex={-1}
+                        aria-hidden="true"
+                        className="relative z-2 block h-full"
+                    >
                         <TiltImage
                             src={primaryImage}
                             alt={name}
@@ -191,7 +201,13 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
                                         : "text-2xl"
                                 }`}
                             >
-                                {title}
+                                {/* Enlace estirado: el ::after cubre toda la tarjeta */}
+                                <Link
+                                    href={`/myprojects/${id}`}
+                                    className="after:absolute after:inset-0 after:z-1 after:rounded-2xl after:content-[''] focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-2"
+                                >
+                                    {title}
+                                </Link>
                             </h3>
                             {subtitle && (
                                 <p className="mt-1 text-sm opacity-70">
@@ -210,27 +226,21 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
                     </div>
 
                     <div className="flex flex-wrap items-center gap-3">
-                        <Link
-                            href={`/myprojects/${id}`}
-                            className={`custom-button inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm shine-hover`}
-                            style={{ backgroundColor: cardColor + "50" }}
-                        >
-                            Ver más
-                            <FontAwesomeIcon icon={faArrowRight} />
-                        </Link>
-
                         {/* Solo aparece si el proyecto tiene livesite */}
                         {liveSite && (
                             <a
                                 href={liveSite}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="custom-button shine-hover inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-neutral-100"
+                                className="custom-button shine-hover relative z-[2] inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm text-neutral-100"
+                                style={{
+                                    backgroundColor:
+                                        cardColor +
+                                        (theme === "dark" ? "50" : "ad"),
+                                }}
                             >
-                                Preview
-                                <FontAwesomeIcon
-                                    icon={faArrowUpRightFromSquare}
-                                />
+                                Visitar
+                                <Globe width={16} height={16} />
                             </a>
                         )}
                     </div>
@@ -244,7 +254,7 @@ function LatestProjects() {
     return (
         <div className="mx-auto w-full max-w-6xl" id="latest-projects">
             <header className="mb-12 flex flex-col gap-3">
-                <DotTitle>Trabajo reciente</DotTitle>
+                <DotTitle>Proyectos</DotTitle>
             </header>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

@@ -21,7 +21,7 @@ function BackButton() {
             onHoverEnd={() => setIsHovering(false)}
         >
             <motion.button
-                className={`px-5 py-2 rounded-full gap-2 flex items-center text-lg cursor-pointer custom-button ${theme !== "dark" ? "custom-button-moredark" : ""}`}
+                className={`px-3 py-1.5 rounded-xl gap-2 flex items-center text-sm cursor-pointer custom-button ${theme !== "dark" ? "custom-button-moredark" : ""}`}
                 onClick={handleBack}
             >
                 <motion.div

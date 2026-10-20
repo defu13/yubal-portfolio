@@ -119,7 +119,11 @@ export const skillsData = [
         ),
         skills: [
             { name: "Adobe Photoshop", icon: photoshopIcon, color: "#0f5589" },
-            { name: "Adobe Illustrator", icon: illustratorIcon, color: "#FF9A00" },
+            {
+                name: "Adobe Illustrator",
+                icon: illustratorIcon,
+                color: "#FF9A00",
+            },
             { name: "Adobe Lightroom", icon: lightroomIcon, color: "#3081bb" },
         ],
     },
@@ -174,6 +178,22 @@ export const projectsData = [
         images: projectImages.lowdest.restImages,
         cardColor: "#1e3e89",
         backgroundColor: "#2f62c380",
+    },
+    {
+        id: 4,
+        name: "Asthree React - Librería de render ASCII 3D",
+        publicName: "asthree",
+        description:
+            "Librería de código abierto para React que renderiza escenas 3D como arte ASCII, con su propio editor visual, Asthree Lab, y una web de documentación.",
+
+        role: "Desarrollador front-end",
+        date: "Octubre 2026",
+        enterprice: "Independiente",
+        liveSite: "https://asthreereact.dev/",
+        primaryImage: projectImages.asthree.primaryImage,
+        images: projectImages.asthree.restImages,
+        cardColor: "#3f1f8a",
+        backgroundColor: "#3f1f8a80",
     },
 ]; // TODO añadir proyectos
 
@@ -276,7 +296,11 @@ export const aboutMeData = {
                 <>
                     <p>
                         Con el tiempo y la experiencia, nació{" "}
-                        <a href="https://www.instagram.com/treze.st/" className="italic link" target="_blank">
+                        <a
+                            href="https://www.instagram.com/treze.st/"
+                            className="italic link"
+                            target="_blank"
+                        >
                             <span className="dark:text-neutral-100 text-neutral-800 dark:font-normal font-bold shine-hover">
                                 &quot;<u>Treze Studio</u>&quot;
                             </span>

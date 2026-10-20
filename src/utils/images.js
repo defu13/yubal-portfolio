@@ -23,6 +23,9 @@ import lowdest1 from "@/assets/images/lowdest/lowdest1.jpg";
 import lowdest2 from "@/assets/images/lowdest/lowdest2.jpg";
 import lowdest3 from "@/assets/images/lowdest/lowdest3.jpg";
 import lowdest4 from "@/assets/images/lowdest/lowdest4.jpg";
+import asthree1 from "@/assets/images/asthree/asthree1.jpg";
+import asthree2 from "@/assets/images/asthree/asthree2.jpg";
+import asthree3 from "@/assets/images/asthree/asthree3.jpg";
 
 
 export const projectImages = {
@@ -61,6 +64,13 @@ export const projectImages = {
             lowdest2,
             lowdest3,
             lowdest4,
+        ],
+    },
+    asthree: {
+        primaryImage: asthree1,
+        restImages: [
+            asthree2,
+            asthree3,
         ],
     }
 };

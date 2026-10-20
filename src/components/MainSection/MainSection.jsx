@@ -84,7 +84,7 @@ function MainSection() {
                                 Diseñador UI & UX / Desarrollador Front-End
                             </p>
                             <AsciiFlashGroup
-                                color={theme === "dark" ? "#FFFFFF" : "#000000"}
+                                color={theme === "dark" ? "#f5f5f5" : "#101010"}
                             />
                         </AnimatedEntrance>
                         <AnimatedEntrance delay={0.3}>
@@ -249,7 +249,7 @@ function MainSection() {
 
             <div className="hero-fade" />
             <div className="absolute top-0 w-full h-full -z-10">
-                <div className="absolute h-full w-full opacity-20">
+                <div className="absolute h-full w-full opacity-15">
                     <Noise />
                 </div>
                 <div className="absolutew-full h-full opacity-50">

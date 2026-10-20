@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./Globe.module.css";
 
-function Globe() {
+function Globe({ width = 48, height = 48, className = "" }) {
     return (
-        <div className="flex justify-center items-center relative rounded-full w-[48px] h-[48px] pointer-events-none">
+        <div
+            className={`${styles.root} flex justify-center items-center relative rounded-full pointer-events-none ${className}`}
+            style={{ width, height }}
+        >
             <div className={styles.globe}>
                 <div className={styles.globe_wrap}>
                     <div className={styles.circle}></div>

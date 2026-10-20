@@ -160,8 +160,8 @@ function ProjectComponent({ project }) {
                     >
                         <Image
                             src={project.primaryImage}
-                            alt="project main image "
-                            className={`sm:max-w-[70%] w-[99%] h-auto object-cover rounded-3xl mb-[2px] ${styles.primary_image}`}
+                            alt="project main image"
+                            className={`sm:max-w-[70%] w-full h-auto object-cover rounded-2xl ${styles.primary_image}`}
                         />
                     </motion.div>
                 </div>
@@ -196,14 +196,12 @@ function ProjectComponent({ project }) {
                         </>
                     )}
                     <div className="flex justify-center mt-12">
-                        <ButtonComponent
-                            href={"/myprojects"}
-                            buttonClassName={`${
-                                theme !== "dark" ? "custom-button-moredark" : ""
-                            }`}
+                        <Link
+                            href="/myprojects"
+                            className="jetbrainsmono-regular text-sm underline underline-offset-4 opacity-70 transition-opacity hover:opacity-100"
                         >
-                            Todos los proyectos
-                        </ButtonComponent>
+                            Ver todos los proyectos
+                        </Link>
                     </div>
                 </div>
             </div>

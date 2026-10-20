@@ -65,15 +65,15 @@ function NextProjectComponent({ nextProject }) {
                             >
                                 <ButtonComponent
                                     buttonClassName={
-                                        "md:text-2xl text-xl gap-4"
+                                        "md:text-xl text-lg gap-2"
                                     }
                                     href={`/myprojects/${nextProject.id}`}
-                                    padding="p-5"
-                                    rounded="rounded-full"
+                                    padding="px-4 py-3"
+                                    rounded="rounded-2xl"
                                 >
                                     Siguiente proyecto
                                     {/* <FontAwesomeIcon icon={faArrowRight} /> */}
-                                    <MdArrowForward size="2.5rem" />
+                                    <MdArrowForward size="2rem" />
                                 </ButtonComponent>
                             </motion.div>
                             <motion.div
